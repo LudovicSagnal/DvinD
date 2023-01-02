@@ -1,0 +1,308 @@
+* {
+  --colorBlack:#0C0C0C;
+  --colorOrange:#FF9900;
+  --colorWhite:#FAD4D9;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, rgba(189,113,0,1) 0%, rgba(255,153,0,1) 50%, rgba(189,113,0,1) 100%);
+  min-height: 100vh;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  background-color: var(--colorBlack);
+  height: 140px;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 5px 50px 5px rgb(52, 51, 51);
+}
+
+.logo {
+  height: 450px;
+  margin-top: 100px;
+  z-index: 10;
+}
+
+header {
+  height: 20vh;
+}
+
+header .link {
+  background: -webkit-linear-gradient(#FAD4D9, #FF9900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 25px;
+  text-decoration: none;
+  width: 180px;
+  height: 35px;
+  text-align: center;
+  border-radius: 2px;
+  transition: 2s;
+}
+
+header .link:hover {
+  scale: 1.3;
+  transition: 2s;
+  letter-spacing: 2px;
+}
+
+.line-1 {
+  margin-top: 10px;
+  height: 1px;
+  background-color: black;
+}
+
+.glass {
+  height: 40px;
+  margin-left: 5%;
+  margin-top: 5px;
+}
+
+.search {
+  height: 25px;
+  font-size: 20px;
+  transition: 1s;
+  opacity: 0.7;
+}
+
+.search:hover {
+  transition: 1s;
+  opacity: 1;
+}
+
+.user {
+  height: 60px;
+  margin-left: 90%;
+  margin-top: -50px;
+}
+
+.line-2 {
+  height: 1px;
+  background-color: black;
+}
+
+.bottom-nav {
+  display: inline-block;
+  width: 100%;
+  z-index: 1;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 75vh;
+}
+
+footer {
+  width: 100%;
+  height: 5vh;
+  background-color: var(--colorBlack);
+}
+
+/**************************************  ACTUALITE  *****************************************/
+
+.left-actu, .right-actu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75%;
+  width: 20%;
+  margin-left: 2%;
+  margin-right: 2%;
+  background-color: #FAD4D9;
+  border: #0C0C0C 0.5px solid;
+  text-align: center;
+}
+
+.fil-actu {
+  display: flex;
+  flex-direction: column;
+  border: #0C0C0C 0.5px solid;
+  align-items: center;
+  height: 85%;
+  width: 52%;
+  margin-bottom: -5%;
+  background-color: #FAD4D9;
+  z-index: 1;
+}
+
+.fil-title {
+  background-color: #0C0C0C;
+  color:#FAD4D9;
+  width: 100%;
+  text-align: center;
+  border: #FAD4D9 1px solid;
+  font-size: 35px;
+  height: 60px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.fil-main {
+  text-align: center;
+  background-color: #e8c9cd;
+  font-size: 20px;
+  height: auto;
+}
+
+.fil-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  margin: auto;
+  align-self: center;
+}
+
+time {
+  color: red;
+  padding-left: 2%;
+}
+
+p {
+  padding: 1%;
+}
+
+h3 {
+  background-color: #FF9900;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  box-shadow: 0px 1px 5px 1px gray ;
+}
+
+/******************* Roulette ****************/
+
+.div-roul {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.div-roul img {
+  position: absolute;
+  height:400px;
+}
+
+.gradient-container {
+  height: 80px;
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+}
+
+.but-roulette {
+  margin: 0;
+  height: 30px;
+  width: 100%;
+  border-radius: 5px;
+  z-index: 2;
+  font-size: 20px;
+  color:#0C0C0C;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  mix-blend-mode: multiply;
+}
+
+.gradient {
+  height: 30px;
+  width: 500%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+  );
+  animation: gradient 2s linear infinite alternate;
+  z-index: 1;
+  filter: saturate(0.4);
+  transition: 2s;
+}
+
+.but-roulette:hover {
+  cursor: pointer;
+}
+
+.but-roulette:hover + .gradient {
+  filter: saturate(10);
+  transition: 2s;
+}
+
+@keyframes gradient {
+  0% {
+    transform: translate(-25%, -50%);
+  }
+  100% {
+    transform: translate(-75%, -50%);
+  }
+}
+
+.but-roulette, .gradient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.roulette {
+  transition: 2s;
+}
+
+.roulette-spin {
+  transform: rotate(3600deg);
+  transition: 5s;
+}
+
+.lights {
+  /* margin-top: 5px; */
+}
+
+.lights-spin {
+  transform: rotate(-360deg);
+  transition: 5s;
+}
+
+.left-actu {
+  background-image: url(https://media.istockphoto.com/id/544482712/photo/playing-craps-in-a-casino-with-slot-machines.jpg?s=612x612&w=0&k=20&c=MzDsXmJPQHNQ-UV76Eg7BnHZVD0-bqUJKXtVkLaY9KM=);
+  background-size:cover;
+  background-blend-mode:luminosity;
+}
+
+/*************** Jeu du jour ************/
+
+.right-actu h3 {
+  font-size: 40px;
+  background-color: #0C0C0C;
+  color: #FAD4D9;
+  margin: 0;
+}
+
+.gameOfTheDay {
+  height: 50%;
+  width: 100%;
+  background-image: url(https://pic.clubic.com/v1/images/2003538/raw);
+  background-size: cover;
+  position: relative;
+}
+
+.gameOfTheDay h2 {
+  background-color: #0C0C0C;
+  color: #FAD4D9;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+}

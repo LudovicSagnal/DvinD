@@ -1,0 +1,98 @@
+.game-list {
+    display: flex;
+    flex-direction: column;
+    border: #0C0C0C 0.5px solid;
+    align-items: center;
+    height: 85%;
+    width: 52%;
+    margin-bottom: -5%;
+    background-color: #FAD4D9;
+    z-index: 1;
+}
+
+.game-title {
+    background-color: #0C0C0C;
+    color:#FAD4D9;
+    width: 100%;
+    text-align: center;
+    border: #FAD4D9 1px solid;
+    font-size: 35px;
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.right-actu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: auto;
+    background-image: url(https://image.noelshack.com/fichiers-md/2017/07/1487014702-187-card-communaute.jpg);
+    background-size: cover;
+    background-blend-mode:luminosity;
+}
+
+.right-actu h2 {
+    background-color: #0C0C0C;
+    color: #FAD4D9;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.multipleSelection {
+    width: 400px;
+    background-color: transparent;
+    text-align: left;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.checkBoxes {
+    display: none;
+    border: 0.5px #0C0C0C solid;
+}
+
+.checkBoxes label {
+    display: block;
+    background-color: rgba(250, 212, 217, 0.8);
+}
+
+.checkBoxes label:hover {
+    background-color: #b69da0;
+    cursor: pointer;
+}
+
+select {
+    height: 40px;
+    cursor: pointer;
+    margin: 1%;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: bolder;
+}
+
+label {
+    font-size: 20PX;
+    font-weight: 600;
+}
+
+label img {
+    height: 15px;
+    width: 25px;
+}

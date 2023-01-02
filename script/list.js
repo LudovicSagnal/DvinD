@@ -1,0 +1,17 @@
+var show = false;
+var selectBox = document.querySelectorAll(".selectBox");
+
+for (let i = 0; i < selectBox.length; i++) {
+    selectBox[i].addEventListener("click", showCheckboxes => {
+        console.log("egor");
+        var checkboxes = document.querySelectorAll(".checkBoxes");
+        if (show) {
+            checkboxes[i].style.display = "block";
+            show = false;
+            console.log(checkboxes[i]);
+        } else {
+            checkboxes[i].style.display = "none";
+            show = true;
+        }
+    });
+}
