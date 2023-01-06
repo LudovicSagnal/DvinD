@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <script src="script/roulette.js" defer></script>
+    <script src="script/user.js" defer></script>
 
 </head>
 
@@ -27,6 +28,14 @@
             <img src="image/Loupe.svg"" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <img src="image/User.svg" alt="" class="user">
+            <div class="login-modal-none" id="modal">
+                <img src="image/cross-23.svg" alt="" class="cross" id="cross">
+                <label for="login">Identifiant</label>
+                <input type="text" id="login">
+                <label for="password">Mot de Passe</label>
+                <input type="text" id="password">
+                <button>Valider</button>
+            </div>
             <div class="line-2"></div>
         </div>
     </header>

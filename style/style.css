@@ -23,8 +23,12 @@ nav {
 
 .logo {
   height: 450px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   z-index: 10;
+}
+
+.logo img {
+  width: 45vh;
 }
 
 header {
@@ -80,6 +84,61 @@ header .link:hover {
   margin-top: -50px;
 }
 
+.user:hover {
+  cursor: pointer;
+}
+
+.login-modal-none {
+  display: none;
+}
+
+.login-modal-show {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 30%;
+  margin: auto;
+  padding-top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #e8c9cd;
+  height: 200px;
+  z-index: 50;
+  border: #0C0C0C 1px solid;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.login-modal input {
+  height: 30px;
+  width: 80%;
+  align-self: center;
+  border-radius: 2px;
+}
+
+.login-modal button {
+  width: 50%;
+  align-self: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  background-color: #FF9900;
+  filter: saturate(0.7);
+  border-radius: 2px;
+}
+
+.cross {
+  height: 25px;
+  align-self: end;
+  margin-right: 10px;
+}
+
+.cross:hover {
+  cursor: pointer;
+}
+
 .line-2 {
   height: 1px;
   background-color: black;
@@ -96,7 +155,7 @@ main {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 75vh;
+  height: 100vh;
 }
 
 footer {
@@ -188,7 +247,8 @@ h3 {
 
 .div-roul img {
   position: absolute;
-  height:400px;
+  /* height:400px; */
+  width: 40vh;
 }
 
 .gradient-container {
@@ -269,7 +329,7 @@ h3 {
 }
 
 .lights {
-  /* margin-top: 5px; */
+
 }
 
 .lights-spin {
@@ -298,6 +358,14 @@ h3 {
   background-image: url(https://pic.clubic.com/v1/images/2003538/raw);
   background-size: cover;
   position: relative;
+}
+
+.right-actu form {
+  width: 100%;
+}
+
+option {
+  text-align: left;
 }
 
 .gameOfTheDay h2 {

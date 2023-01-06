@@ -1,198 +1,195 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liste des jeux</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/jeux.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/jeux.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
     <script src="script/roulette.js" defer></script>
     <script src="script/list.js" defer></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header>
-        <nav class="nav">
-            <a href="index.html" class="link">Actualités</a>
-            <a href="Liste de jeux.html" class="link">Liste de jeux</a>
-            <a href="index.html" class="logo"><img src="image/Logo NewD.svg" alt="lodo_DvinD"></a>
-            <a href="Contact.html" class="link">Contact</a>
-            <a href="Forum.html" class="link">Forum</a>
-        </nav>
-        <div class="bottom-nav">
-            <div class="line-1"></div>
-            <img src="image/Loupe.svg"" class="glass">
-            <input type="text" placeholder="Rechercher ici" class="search">
-            <img src="image/User.svg" alt="" class="user">
-            <div class="line-2"></div>
-        </div>
+      <nav class="nav">
+        <a href="index.html" class="link">Actualités</a>
+        <a href="Liste de jeux.html" class="link">Liste de jeux</a>
+        <a href="index.html" class="logo"
+          ><img src="image/Logo NewD.svg" alt="lodo_DvinD"
+        /></a>
+        <a href="Contact.html" class="link">Contact</a>
+        <a href="Forum.html" class="link">Forum</a>
+      </nav>
+      <div class="bottom-nav">
+        <div class="line-1"></div>
+        <img src="image/Loupe.svg"" class="glass">
+        <input type="text" placeholder="Rechercher ici" class="search" />
+        <img src="image/User.svg" alt="" class="user" />
+        <div class="line-2"></div>
+      </div>
     </header>
 
     <main>
-        <div class="left-actu">
-            <div class="gradient-container">
-                <button class="but-roulette" id="but-roulette">Lance la roulette !</button>
-                <div class="gradient"></div>
-            </div>
-            <div class="div-roul"> 
-                <img src="image/lights.svg" alt="" class="lights" id="lights">
-                <img src="image/roulette.svg" alt="" class="roulette" id="roulette">
-            </div>
+      <div class="left-actu">
+        <div class="gradient-container">
+          <button class="but-roulette" id="but-roulette">
+            Lance la roulette !
+          </button>
+          <div class="gradient"></div>
         </div>
-        <div class="game-list">
-            <h2 class="game-title">Liste des jeux</h2>
-        <div class="fil-main">
-            
+        <div class="div-roul">
+          <img src="image/lights.svg" alt="" class="lights" id="lights" />
+          <img src="image/roulette.svg" alt="" class="roulette" id="roulette" />
         </div>
-    </div>
+      </div>
+      <div class="game-list">
+        <h2 class="game-title">Liste des jeux</h2>
+        <div class="fil-main"></div>
+      </div>
 
-    <div class="right-actu">
+      <div class="right-actu">
         <h2>Affiner votre recherche</h2>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Plateforme</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>    
-                <div class="checkBoxes">
-                    <label for="first">
-                        <input type="checkbox" id="first" checked/>
-                        Toutes
-                    </label>                     
-                    <label for="second">
-                        <input type="checkbox" id="second" />
-                        PC
-                    </label>
-                    <label for="third">
-                        <input type="checkbox" id="third" />
-                        Xbox
-                    </label>
-                    <label for="fourth">
-                        <input type="checkbox" id="fourth" />
-                        PS5
-                    </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Plateforme</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+            <div class="checkBoxes">
+              <label for="first">
+                <input type="checkbox" id="first" checked />
+                Toutes
+              </label>
+              <label for="second">
+                <input type="checkbox" id="second" />
+                PC
+              </label>
+              <label for="third">
+                <input type="checkbox" id="third" />
+                Xbox
+              </label>
+              <label for="fourth">
+                <input type="checkbox" id="fourth" />
+                PS5
+              </label>
+            </div>
+          </div>
         </form>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Langues</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>     
-                <div class="checkBoxes">
-                    <label for="firstL">
-                        <input type="checkbox" id="firstL" checked />
-                        Toutes
-                    </label>                      
-                    <label for="secondL">
-                        <input type="checkbox" id="secondL" />
-                        <img src="image\Flag_of_France.svg.png" alt=""> Français
-                    </label>
-                    <label for="thirdL">
-                        <input type="checkbox" id="thirdL" />
-                        <img src="image\Flag_of_the_United_Kingdom.svg.png" alt=""> Anglais
-                    </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Langues</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+            <div class="checkBoxes">
+              <label for="firstL">
+                <input type="checkbox" id="firstL" checked />
+                Toutes
+              </label>
+              <label for="secondL">
+                <input type="checkbox" id="secondL" />
+                <img src="image\Flag_of_France.svg.png" alt="" /> Français
+              </label>
+              <label for="thirdL">
+                <input type="checkbox" id="thirdL" />
+                <img src="image\Flag_of_the_United_Kingdom.svg.png" alt="" />
+                Anglais
+              </label>
+            </div>
+          </div>
         </form>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Année de sortie</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>     
-                <div class="checkBoxes">
-                    <div class="checkBoxes">
-                        <label for="firstD">
-                            <input type="checkbox" id="firstD" checked/>
-                            Toutes
-                        </label>                      
-                        <label for="secondD">
-                            <input type="checkbox" id="secondD" />
-                            2023
-                        </label>
-                        <label for="thirdD">
-                            <input type="checkbox" id="thirdD" />
-                            2022
-                        </label>
-                        <label for="fourthD">
-                            <input type="checkbox" id="fourthD" />
-                            2021
-                        </label>
-                        <label for="fifthD">
-                            <input type="checkbox" id="fifthD" />
-                            2020
-                        </label>
-                        <label for="sixthD">
-                            <input type="checkbox" id="sixthD" />
-                            2019
-                        </label>
-                        <label for="seventhD">
-                            <input type="checkbox" id="seventhD" />
-                            2018
-                        </label>
-                        <label for="eighthD">
-                            <input type="checkbox" id="eighthD" />
-                            2017
-                        </label>
-                        <label for="ninthD">
-                            <input type="checkbox" id="ninthD" />
-                            2016
-                        </label>
-                        <label for="tenthD">
-                            <input type="checkbox" id="tenthD" />
-                            2015
-                        </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Année de sortie</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+
+            <div class="checkBoxes">
+              <label for="firstD">
+                <input type="checkbox" id="firstD" checked />
+                Toutes
+              </label>
+              <label for="secondD">
+                <input type="checkbox" id="secondD" />
+                2023
+              </label>
+              <label for="thirdD">
+                <input type="checkbox" id="thirdD" />
+                2022
+              </label>
+              <label for="fourthD">
+                <input type="checkbox" id="fourthD" />
+                2021
+              </label>
+              <label for="fifthD">
+                <input type="checkbox" id="fifthD" />
+                2020
+              </label>
+              <label for="sixthD">
+                <input type="checkbox" id="sixthD" />
+                2019
+              </label>
+              <label for="seventhD">
+                <input type="checkbox" id="seventhD" />
+                2018
+              </label>
+              <label for="eighthD">
+                <input type="checkbox" id="eighthD" />
+                2017
+              </label>
+              <label for="ninthD">
+                <input type="checkbox" id="ninthD" />
+                2016
+              </label>
+              <label for="tenthD">
+                <input type="checkbox" id="tenthD" />
+                2015
+              </label>
+            </div>
+          </div>
         </form>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Langues</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>     
-                <div class="checkBoxes">
-                    <label for="firstT">
-                        <input type="checkbox" id="firstT" checked />
-                        Toutes
-                    </label>                      
-                    <label for="secondT">
-                        <input type="checkbox" id="secondT" />
-                        Français 
-                    </label>
-                    <label for="thirdT">
-                        <input type="checkbox" id="thirdT" />
-                        Anglais
-                    </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Langues</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+            <div class="checkBoxes">
+              <label for="firstT">
+                <input type="checkbox" id="firstT" checked />
+                Toutes
+              </label>
+              <label for="secondT">
+                <input type="checkbox" id="secondT" />
+                Français
+              </label>
+              <label for="thirdT">
+                <input type="checkbox" id="thirdT" />
+                Anglais
+              </label>
+            </div>
+          </div>
         </form>
-    </div>
-
-
-
+      </div>
     </main>
 
-    <footer class="foot">
-    </footer>
-
-
-
-</body>
-
+    <footer class="foot"></footer>
+  </body>
 </html>
