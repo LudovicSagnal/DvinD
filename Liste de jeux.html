@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <script src="script/roulette.js" defer></script>
     <script src="script/list.js" defer></script>
+    <script src="script/user.js" defer></script>
 
 </head>
 
@@ -20,7 +21,7 @@
         <nav class="nav">
             <a href="index.html" class="link">Actualités</a>
             <a href="Liste de jeux.html" class="link">Liste de jeux</a>
-            <a href="index.html" class="logo"><img src="image/Logo NewD.svg" alt="lodo_DvinD"></a>
+            <a href="index.html" ><img src="image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
             <a href="Contact.html" class="link">Contact</a>
             <a href="Forum.html" class="link">Forum</a>
         </nav>
@@ -29,6 +30,15 @@
             <img src="image/Loupe.svg"" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <img src="image/User.svg" alt="" class="user">
+            <div id="overlay" class="display-none"></div>
+            <div class="display-none" id="modal-user">
+                <img src="image/cross-23.svg" alt="" class="cross" id="cross">
+                <label for="login">Identifiant</label>
+                <input type="text" id="login">
+                <label for="password">Mot de Passe</label>
+                <input type="text" id="password">
+                <button>Valider</button>
+            </div>
             <div class="line-2"></div>
         </div>
     </header>
@@ -113,7 +123,6 @@
                     </select>
                     <div class="overSelect"></div>
                 </div>     
-                <div class="checkBoxes">
                     <div class="checkBoxes">
                         <label for="firstD">
                             <input type="checkbox" id="firstD" checked/>
@@ -155,7 +164,7 @@
                             <input type="checkbox" id="tenthD" />
                             2015
                         </label>
-                </div>
+                    </div> 
             </div>
         </form>
         <form>
