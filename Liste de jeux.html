@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liste des jeux</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/jeux.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/jeux.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
     <script src="script/roulette.js" defer></script>
     <script src="script/list.js" defer></script>
     <script src="script/user.js" defer></script>
 
 </head>
 
-<body>
+  <body>
     <header>
         <nav class="nav">
             <a href="index.html" class="link">Actualités</a>
@@ -44,76 +47,77 @@
     </header>
 
     <main>
-        <div class="left-actu">
-            <div class="gradient-container">
-                <button class="but-roulette" id="but-roulette">Lance la roulette !</button>
-                <div class="gradient"></div>
-            </div>
-            <div class="div-roul"> 
-                <img src="image/lights.svg" alt="" class="lights" id="lights">
-                <img src="image/roulette.svg" alt="" class="roulette" id="roulette">
-            </div>
+      <div class="left-actu">
+        <div class="gradient-container">
+          <button class="but-roulette" id="but-roulette">
+            Lance la roulette !
+          </button>
+          <div class="gradient"></div>
         </div>
-        <div class="game-list">
-            <h2 class="game-title">Liste des jeux</h2>
-        <div class="fil-main">
-            
+        <div class="div-roul">
+          <img src="image/lights.svg" alt="" class="lights" id="lights" />
+          <img src="image/roulette.svg" alt="" class="roulette" id="roulette" />
         </div>
-    </div>
+      </div>
+      <div class="game-list">
+        <h2 class="game-title">Liste des jeux</h2>
+        <div class="fil-main"></div>
+      </div>
 
-    <div class="right-actu">
+      <div class="right-actu">
         <h2>Affiner votre recherche</h2>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Plateforme</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>    
-                <div class="checkBoxes">
-                    <label for="first">
-                        <input type="checkbox" id="first" checked/>
-                        Toutes
-                    </label>                     
-                    <label for="second">
-                        <input type="checkbox" id="second" />
-                        PC
-                    </label>
-                    <label for="third">
-                        <input type="checkbox" id="third" />
-                        Xbox
-                    </label>
-                    <label for="fourth">
-                        <input type="checkbox" id="fourth" />
-                        PS5
-                    </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Plateforme</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+            <div class="checkBoxes">
+              <label for="first">
+                <input type="checkbox" id="first" checked />
+                Toutes
+              </label>
+              <label for="second">
+                <input type="checkbox" id="second" />
+                PC
+              </label>
+              <label for="third">
+                <input type="checkbox" id="third" />
+                Xbox
+              </label>
+              <label for="fourth">
+                <input type="checkbox" id="fourth" />
+                PS5
+              </label>
+            </div>
+          </div>
         </form>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Langues</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>     
-                <div class="checkBoxes">
-                    <label for="firstL">
-                        <input type="checkbox" id="firstL" checked />
-                        Toutes
-                    </label>                      
-                    <label for="secondL">
-                        <input type="checkbox" id="secondL" />
-                        <img src="image\Flag_of_France.svg.png" alt=""> Français
-                    </label>
-                    <label for="thirdL">
-                        <input type="checkbox" id="thirdL" />
-                        <img src="image\Flag_of_the_United_Kingdom.svg.png" alt=""> Anglais
-                    </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Langues</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+            <div class="checkBoxes">
+              <label for="firstL">
+                <input type="checkbox" id="firstL" checked />
+                Toutes
+              </label>
+              <label for="secondL">
+                <input type="checkbox" id="secondL" />
+                <img src="image\Flag_of_France.svg.png" alt="" /> Français
+              </label>
+              <label for="thirdL">
+                <input type="checkbox" id="thirdL" />
+                <img src="image\Flag_of_the_United_Kingdom.svg.png" alt="" />
+                Anglais
+              </label>
+            </div>
+          </div>
         </form>
         <form>
             <div class="multipleSelection">
@@ -168,40 +172,32 @@
             </div>
         </form>
         <form>
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Langues</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>     
-                <div class="checkBoxes">
-                    <label for="firstT">
-                        <input type="checkbox" id="firstT" checked />
-                        Toutes
-                    </label>                      
-                    <label for="secondT">
-                        <input type="checkbox" id="secondT" />
-                        Français 
-                    </label>
-                    <label for="thirdT">
-                        <input type="checkbox" id="thirdT" />
-                        Anglais
-                    </label>
-                </div>
+          <div class="multipleSelection">
+            <div class="selectBox">
+              <select>
+                <option>Langues</option>
+              </select>
+              <div class="overSelect"></div>
             </div>
+            <div class="checkBoxes">
+              <label for="firstT">
+                <input type="checkbox" id="firstT" checked />
+                Toutes
+              </label>
+              <label for="secondT">
+                <input type="checkbox" id="secondT" />
+                Français
+              </label>
+              <label for="thirdT">
+                <input type="checkbox" id="thirdT" />
+                Anglais
+              </label>
+            </div>
+          </div>
         </form>
-    </div>
-
-
-
+      </div>
     </main>
 
-    <footer class="foot">
-    </footer>
-
-
-
-</body>
-
+    <footer class="foot"></footer>
+  </body>
 </html>

@@ -31,6 +31,10 @@ nav a {
   width: 100%;
 }
 
+.logo img {
+  width: 45vh;
+}
+
 header {
   height: 20vh;
 }
@@ -382,7 +386,7 @@ p {
 }
 
 .lights {
-  /* margin-top: 5px; */
+
 }
 
 .lights-spin {
