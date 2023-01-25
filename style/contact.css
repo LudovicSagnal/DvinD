@@ -78,9 +78,13 @@ form h2 {
     font-size: 20px;
 }
 
+.input-names label {
+    display: none;
+}
+
 label {
     font-size: 20px;
-    text-decoration: underline 0.5px;
+    text-decoration: none;
 }
 
 textarea {

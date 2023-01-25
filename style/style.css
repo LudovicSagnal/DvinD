@@ -50,6 +50,7 @@ header .active {
   text-align: center;
   border-radius: 2px;
   opacity: 1;
+  filter: saturate(10);
 }
 
 header .link {
@@ -99,6 +100,27 @@ header .link {
   cursor: pointer;
 }
 
+.create-profil {
+  text-decoration: none;
+  color: var(--colorBlack);
+}
+
+.create-profil button {
+  color: var(--colorWhite);
+  background-color: var(--colorBlack);
+  border: 1px solid var(--colorWhite);
+  border-radius: 5px;
+}
+
+.create-profil button:hover {
+  cursor: pointer;
+}
+
+.login-modal-show .create-profil {
+  text-decoration: none;
+  color: var(--colorWhite);
+}
+
 /************************** Modal connexion  ************************/
 
 .display-none {
@@ -117,7 +139,7 @@ header .link {
   right: 150px;
   text-align: center;
   background-color: var(--colorBlack);
-  height: 200px;
+  height: 220px;
   z-index: 500;
   border: var(--colorOrange) 2px solid;
   border-radius: 5px;
@@ -139,7 +161,7 @@ header .link {
   width: 50%;
   align-self: center;
   margin-top: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-size: 20px;
   background-color: var(--colorOrange);
   filter: saturate(0.7);
@@ -393,10 +415,6 @@ p {
   transition: 5s;
 }
 
-.lights {
-
-}
-
 .lights-spin {
   transform: rotate(-360deg);
   transition: 5s;
@@ -459,6 +477,10 @@ p {
   align-self: flex-end;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.redirect:hover {
+  cursor: pointer;
 }
 
 .left-actu {

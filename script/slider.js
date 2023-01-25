@@ -1,4 +1,4 @@
-let tab = ["image/slide/loneRuin.jpg", "image/slide/children.jpg", "image/slide/kandria.jpg", "image/slide/RogueAi.jpg", "image/slide/zombieAdmin.jpg"];
+let tab = ["image/slide/loneRuin.jpg", "image/slide/children.jpg", "image/slide/kandria.jpg", "image/slide/rogueAi.jpg", "image/slide/zombieAdmin.jpg"];
 let n = 0;
 
 prev = document.getElementById("previous");

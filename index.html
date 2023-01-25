@@ -13,6 +13,7 @@
     <script src="script/roulette.js" defer></script>
     <script src="script/slider.js" defer></script>
     <script src="script/user.js" defer></script>
+    <script src="script/redirectToGame.js" defer></script>
 
 </head>
 
@@ -30,6 +31,7 @@
             <img src="image/Loupe.svg"" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <img src="image/User.svg" alt="" class="user">
+            <a href="" class="create-profil"><button>S'inscrire ici</button></a>
             <div id="overlay" class="login-modal-none"></div>
             <div class="display-none" id="modal-user">
                 <img src="image/cross-23.svg" alt="" class="cross" id="cross">
@@ -38,6 +40,7 @@
                 <label for="password">Mot de Passe</label>
                 <input type="text" id="password">
                 <button>Valider</button>
+                <a href="" class="create-profil">S'inscrire ici</a>
             </div>
             <div class="line-2"></div>
         </div>
@@ -56,8 +59,8 @@
             <div id="modal-roulette" class="display-none">
                 <img src="image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
                 <h2>Lone Ruin</h2>
-                <img src="image/slide/loneRuin.jpg" alt="" class="modal-cover">
-                <a href="">Voir la fiche du jeu</a>
+                <img src="image/slide/loneRuin.jpg" alt="" class="modal-cover redirect">
+                <a href="Fiche de jeu.html">Voir la fiche du jeu</a>
                 <button id="modal-roulette-button">Relancer la roulette</button>
             </div>
         </div>

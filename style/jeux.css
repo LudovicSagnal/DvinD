@@ -47,14 +47,19 @@
     margin-bottom: 20px;
 }
 
+.right-actu form {
+    width: 80%;
+}
+
 .multipleSelection {
-    width: 400px;
+    width: 100%;
     background-color: transparent;
     text-align: left;
 }
 
 .selectBox {
     position: relative;
+    user-select: none;
 }
 
 .selectBox select {
@@ -73,6 +78,7 @@
 .checkBoxes {
     display: none;
     border: 0.5px var(--colorBlack) solid;
+    user-select: none;
 }
 
 .checkBoxes label {

@@ -4,7 +4,6 @@ var checkboxes = document.querySelectorAll(".checkBoxes");
 
 for (let i = 0; i < selectBox.length; i++) {
     selectBox[i].addEventListener("click", showCheckboxes => {
-        // console.log("egor");
         var checkboxes = document.querySelectorAll(".checkBoxes");
         if (show) {
             checkboxes[i].style.display = "block";
