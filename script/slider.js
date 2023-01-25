@@ -15,7 +15,7 @@ function changeNext() {
     if (n < 4){
         n++;
         console.log(n);
-        image.src = tab[n];;
+        image.src = tab[n];
     }else {
         console.log(n);
         n = 0;
@@ -25,7 +25,8 @@ function changeNext() {
 
 function changePrev() {
     if (n <= 0) {
-        image.src = tab[0];
+        n = 4;
+        image.src = tab[n];
     }else if (n <= 4) {
         n--;
         image.src = tab[n];

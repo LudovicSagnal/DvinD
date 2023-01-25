@@ -1,7 +1,7 @@
 * {
     --colorBlack:#0C0C0C;
     --colorOrange:#FF9900;
-    --colorWhite:#FAD4D9;
+    --colorWhite:#fefafa;
     font-family: 'Quicksand', sans-serif;
   }
 
@@ -25,9 +25,10 @@
 .info {
     height: 95%;
     width: 60%;
-    margin-top: 80px;
-    background-color: var(--colorWhite);
-    box-shadow: 0px 2px 35px 1px gray;
+    margin-top: 50px;
+    background-color: var(--colorBlack);
+    /* box-shadow: 0px 2px 35px 1px gray; */
+    border: 1px solid var(--colorWhite);
     border-radius: 5px;
 }
 
@@ -36,23 +37,45 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--colorWhite);
+    background-color: var(--colorBlack);
     height: 90%;
-    margin-top: 80px;
+    margin-top: 50px;
     width: 50%;
-    padding: 20px;
     gap: 10px;
     border-radius: 5px;
-    box-shadow: 0px 2px 15px 1px gray;
+    border: 1px solid var(--colorWhite);
+    /* box-shadow: 0px 2px 15px 1px gray; */
 }
 
-.input-form {
+form h2 {
+    color: var(--colorWhite);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.input-names {
+    display: flex;
+    justify-content: space-around;
+    height: 10%;
+    width: 100%;
+}
+
+.input-names input {
     border-radius: 2px;
-    border: none;
+    border: 1px solid var(--colorOrange);
+    height: 25px;
+    font-size: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.input-mail {
+    border-radius: 2px;
+    border: 1px solid var(--colorOrange);
+    text-align: center;
     width: 50%;
     height: 25px;
     font-size: 20px;
-    text-align: center;
 }
 
 label {
@@ -61,29 +84,32 @@ label {
 }
 
 textarea {
-    border: none;
+    border: 1px solid var(--colorOrange);
+    border-radius: 5px;
     width: 90%;
-    height: 60%;
+    height: 40%;
     font-size: 20px;
     resize: none;
+    margin: 10px;
 }
 
 form button {
-    width: 60%;
-    height: 30px;
+    width: 40%;
+    height: 40px;
     border-radius: 2px;
-    border: solid 0px;
-    font-size: 15px;
-    background: linear-gradient(90deg, #FAD4D9 , white, #FAD4D9);
+    border: solid 1px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: var(--colorOrange);
     box-shadow: 0px 0px 0px 1px gray;
     transition: box-shadow 0.6s linear;
     margin: 0.5em;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 
 form button:hover {
     box-shadow: 0px 0px 0px 3px gray;
-    background: linear-gradient(90deg, var(--colorOrange) , #FAD4D9, var(--colorOrange));
+    background: linear-gradient(90deg, var(--colorOrange) , var(--colorWhite), var(--colorOrange));
     cursor: pointer;
     transition: 1s;
     font-size: 16px;

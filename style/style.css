@@ -39,6 +39,19 @@ header {
   height: 20vh;
 }
 
+header .active {
+  background: -webkit-linear-gradient(var(--colorWhite), var(--colorOrange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 25px;
+  text-decoration: none;
+  width: 180px;
+  height: 35px;
+  text-align: center;
+  border-radius: 2px;
+  opacity: 1;
+}
+
 header .link {
   background: -webkit-linear-gradient(var(--colorWhite), var(--colorOrange));
   -webkit-background-clip: text;
@@ -49,13 +62,7 @@ header .link {
   height: 35px;
   text-align: center;
   border-radius: 2px;
-  transition: 2s;
-}
-
-header .link:hover {
-  scale: 1.3;
-  transition: 2s;
-  letter-spacing: 2px;
+  opacity: 0.7;
 }
 
 .line-1 {
@@ -134,7 +141,7 @@ header .link:hover {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
-  background-color: #FF9900;
+  background-color: var(--colorOrange);
   filter: saturate(0.7);
   border-radius: 5px;
 }
@@ -196,7 +203,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-self: flex-end; */
+  align-self: flex-end;
   height: 85%;
   width: 20%;
   margin-left: 1%;
@@ -210,12 +217,13 @@ footer {
 .fil-actu {
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
   border: var(--colorBlack) 0.5px solid;
   border-radius: 5px;
   align-items: center;
   height: 95%;
   width: 56%;
-  background-color: #fefafa;
+  background-color: var(--colorWhite);
   z-index: 1;
 }
 
@@ -253,7 +261,7 @@ footer {
   width: 20%;
   height: 100%;
   align-self: center;
-  border-left: #0C0C0C 1px solid;
+  border-left: var(--colorBlack) 1px solid;
 }
 
 .fil-list h4 {
@@ -275,7 +283,7 @@ p {
   height: 40px;
   text-align: center;
   box-shadow: 0px 1px 5px 1px gray ;
-  border-left: #0C0C0C 1px solid;
+  border-left: var(--colorBlack) 1px solid;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -287,7 +295,7 @@ p {
   height: 40px;
   text-align: center;
   box-shadow: 0px 1px 5px 1px gray ;
-  border-left: #0C0C0C 1px solid;
+  border-left: var(--colorBlack) 1px solid;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -481,6 +489,11 @@ p {
   width: 100%;
 }
 
+.slider img {
+  width: 100%;
+  height: 100%;
+}
+
 .head-slide {
   display: flex;
   width: 100%;
@@ -494,6 +507,7 @@ p {
   position: absolute;
   color: rgb(237, 226, 212);
   cursor: pointer;
+  user-select: none;
 }
 
 #next {
@@ -504,4 +518,10 @@ p {
   right: 0;
   color: rgb(237, 226, 212);
   cursor: pointer;
+  user-select: none;
+}
+
+#previous:hover, #next:hover {
+  background-color: var(--colorOrange);
+  transition: 0.3s;
 }
