@@ -44,6 +44,14 @@
         <form action="">
             <label for="pseudo">Pseudo</label>
             <input type="text" name="pseudo">
+            <label for="mail">Email</label>
+            <input type="text" name="mail">
+            <label for="re-mail">Confirmez votre email</label>
+            <input type="text" name="remail">
+            <label for="password">Mot de passe</label>
+            <input type="text">
+            <label for="re-password">Confirmez votre mot de passe</label>
+            <input type="text">
             <label for="name">Nom</label>
             <input type="text" name="name">
             <label for="firstname">Prénom</label>

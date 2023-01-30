@@ -29,7 +29,7 @@
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
                 <img src="image/User.svg" alt="" class="user">
-                <a href="" class="create-profil"><button>S'inscrire ici</button></a>
+                <a href="Inscription.php" class="create-profil"><button>S'inscrire ici</button></a>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <div class="display-none" id="modal-user">
@@ -39,7 +39,7 @@
                 <label for="password">Mot de Passe</label>
                 <input type="password" id="password">
                 <button>Valider</button>
-                <a href="" class="create-profil-modal">S'inscrire ici</a>
+                <a href="Inscription.php" class="create-profil-modal">S'inscrire ici</a>
             </div>
             <div class="line-2"></div>
         </div>
