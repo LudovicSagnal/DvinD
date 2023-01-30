@@ -1,0 +1,29 @@
+* {
+    --colorBlack:#0C0C0C;
+    --colorOrange:#FF9900;
+    --colorWhite:#fefafa;
+    font-family: 'Quicksand', sans-serif;
+}
+
+main {
+    width: 100%;
+    min-height: 75vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: -50%;
+}
+
+form label {
+    font-size: 20px;
+}
+
+form input {
+    height: 20px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 20px;
+}

@@ -90,9 +90,16 @@ header .link {
   opacity: 1;
 }
 
+.user-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .user {
   height: 60px;
-  margin-left: 90%;
+  margin-left: 85%;
   margin-top: -50px;
 }
 
@@ -103,6 +110,7 @@ header .link {
 .create-profil {
   text-decoration: none;
   color: var(--colorBlack);
+  margin-top: -30px;
 }
 
 .create-profil button {
@@ -110,10 +118,21 @@ header .link {
   background-color: var(--colorBlack);
   border: 1px solid var(--colorWhite);
   border-radius: 5px;
+  height: 35px;
+  font-size: 15px;
 }
 
 .create-profil button:hover {
   cursor: pointer;
+}
+
+.create-profil-modal {
+  text-decoration: none;
+  color: var(--colorWhite);
+  border: 1px solid var(--colorOrange);
+  border-radius: 5px;
+  width: 40%;
+  align-self: center;
 }
 
 .login-modal-show .create-profil {
