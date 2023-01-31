@@ -176,7 +176,7 @@ header .link {
   color: var(--colorWhite);
 }
 
-.login-modal-show  button {
+.login-modal-show  #button {
   width: 50%;
   align-self: center;
   margin-top: 10px;
@@ -187,7 +187,7 @@ header .link {
   border-radius: 5px;
 }
 
-.login-modal-show  button:hover {
+.login-modal-show  #button:hover {
   cursor: pointer;
 }
 
