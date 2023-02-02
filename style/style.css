@@ -98,9 +98,12 @@ header .link {
 }
 
 .user {
-  height: 60px;
+  height: 64px;
+  aspect-ratio: 1 / 1;
   margin-left: 85%;
   margin-top: -50px;
+  /* border: 2px solid var(--colorBlack); */
+  border-radius: 50%;
 }
 
 .user:hover {

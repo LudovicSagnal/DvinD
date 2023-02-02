@@ -30,7 +30,9 @@
             
             if($insert->execute()) {
                 $success = true;
-            } 
+                $_SESSION['user'] = $user;
+                header("Location: ../views/view_index.php");
+            }
         }
         die(json_encode(array(
             "success" => $success

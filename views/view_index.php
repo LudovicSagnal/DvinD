@@ -1,3 +1,8 @@
+<?php
+    include_once '../models/connect.php';
+    var_dump($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -31,19 +36,14 @@
             <img src="../image/Loupe.svg" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
-                <img src="../image/User.svg" alt="" class="user">
+                <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
                 <a href="view_inscription.php" class="create-profil"><button>S'inscrire ici</button></a>
             </div>
             <div id="overlay" class="login-modal-none"></div>
-            <form action="../controllers/controller_connexion.php" method="post" class="display-none" id="modal-user">
-                <img src="../image/cross-23.svg" alt="" class="cross" id="cross">
-                <label for="login">Identifiant</label>
-                <input type="text" id="login" name="form_email">
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password" name="form_password">
-                <input type="submit" name="form_connexion" value="Se connecter" id="button">
-                <a href="view_inscription.php" class="create-profil-modal">S'inscrire ici</a>
-            </form>
+            <?php
+                if(isset($_SESSION['user'])) include 'modals/modal_deconnexion.php';
+                else include 'modals/modal_connexion.php';
+            ?>
             <div class="line-2"></div>
         </div>
     </header>
