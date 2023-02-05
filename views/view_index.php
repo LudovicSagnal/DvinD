@@ -1,6 +1,5 @@
 <?php
     include_once '../models/connect.php';
-    var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,7 @@
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
                 <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
-                <a href="view_inscription.php" class="create-profil"><button>S'inscrire ici</button></a>
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php

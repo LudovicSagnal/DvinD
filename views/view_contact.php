@@ -1,3 +1,7 @@
+<?php
+    include_once '../models/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -29,19 +33,14 @@
             <img src="../image/Loupe.svg" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
-                <img src="../image/User.svg" alt="" class="user">
-                <a href="view_inscription.php" class="create-profil"><button>S'inscrire ici</button></a>
+            <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
-            <div class="display-none" id="modal-user">
-                <img src="../image/cross-23.svg" alt="" class="cross" id="cross">
-                <label for="login">Identifiant</label>
-                <input type="text" id="login">
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password">
-                <button>Valider</button>
-                <a href="view_inscription.php" class="create-profil-modal">S'inscrire ici</a>
-            </div>
+            <?php
+                if(isset($_SESSION['user'])) include 'modals/modal_deconnexion.php';
+                else include 'modals/modal_connexion.php';
+            ?>
             <div class="line-2"></div>
         </div>
     </header>
@@ -51,7 +50,7 @@
             <div class="info">
 
             </div>
-            <form>
+            <form method="post" class="form-contact">
                 <h2>Contactez-moi</h2>
                 <div class="input-names">
                     <label for="name">Nom</label>
@@ -59,11 +58,18 @@
                     <label for="firstname">Prénom</label>
                     <input type="text" id="firstname" placeholder="Votre prénom">
                 </div>
-                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail">
+                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" required>
                 <label for="text">Votre message</label>
-                <textarea id="text"></textarea>
+                <textarea id="text" name="message" required></textarea>
                 <button type="submit">Envoyer</button>
             </form>
+            <?php
+            if (isset($_POST['message'])) {
+                $retour = mail('DvinD@laposte.net', 'Envoi depuis la page Contact', '', $_POST['email']);
+                if($retour)
+                    echo '<p>Votre message a bien été envoyé.</p>';
+            }
+            ?>
         </div>
     </section>
 

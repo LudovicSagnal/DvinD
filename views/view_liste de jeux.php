@@ -1,3 +1,7 @@
+<?php
+    include_once '../models/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -31,19 +35,14 @@
           <img src="../image/Loupe.svg" class="glass">
           <input type="text" placeholder="Rechercher ici" class="search">
           <div class="user-div">
-              <img src="../image/User.svg" alt="" class="user">
-              <a href="view_inscription.php" class="create-profil"><button>S'inscrire ici</button></a>
-          </div>
-          <div id="overlay" class="login-modal-none"></div>
-          <div class="display-none" id="modal-user">
-              <img src="../image/cross-23.svg" alt="" class="cross" id="cross">
-              <label for="login">Identifiant</label>
-              <input type="text" id="login">
-              <label for="password">Mot de Passe</label>
-              <input type="password" id="password">
-              <button>Valider</button>
-              <a href="view_inscription.php" class="create-profil-modal">S'inscrire ici</a>
-          </div>
+          <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+            </div>
+            <div id="overlay" class="login-modal-none"></div>
+            <?php
+                if(isset($_SESSION['user'])) include 'modals/modal_deconnexion.php';
+                else include 'modals/modal_connexion.php';
+            ?>
           <div class="line-2"></div>
       </div>
     </header>
@@ -90,15 +89,15 @@
               </label>
               <label for="second">
                 <input type="checkbox" id="second" />
-                PC
+                Windows
               </label>
               <label for="third">
                 <input type="checkbox" id="third" />
-                Xbox
+                Mac
               </label>
               <label for="fourth">
                 <input type="checkbox" id="fourth" />
-                PS5
+                Linux
               </label>
             </div>
           </div>
@@ -184,22 +183,46 @@
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
-                <option>Langues</option>
+                <option>Genres</option>
               </select>
               <div class="overSelect"></div>
             </div>
             <div class="checkBoxes">
               <label for="firstT">
                 <input type="checkbox" id="firstT" checked />
-                Toutes
+                Tous
               </label>
               <label for="secondT">
                 <input type="checkbox" id="secondT" />
-                Français
+                Action
               </label>
               <label for="thirdT">
                 <input type="checkbox" id="thirdT" />
-                Anglais
+                Combat
+              </label>
+              <label for="secondT">
+                <input type="checkbox" id="fourthT" />
+                Gestion
+              </label>
+              <label for="thirdT">
+                <input type="checkbox" id="fifthT" />
+                Horreur
+              </label>
+              <label for="secondT">
+                <input type="checkbox" id="sixthT" />
+                Plateforme
+              </label>
+              <label for="thirdT">
+                <input type="checkbox" id="seventhT" />
+                RPG
+              </label>
+              <label for="secondT">
+                <input type="checkbox" id="eighthT" />
+                Sport
+              </label>
+              <label for="thirdT">
+                <input type="checkbox" id="ninthT" />
+                Stratégie
               </label>
             </div>
           </div>

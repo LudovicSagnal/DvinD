@@ -43,16 +43,16 @@
     <main>
         <form action="../controllers/controller_inscription.php" method="post" enctype="multipart/form-data"> 
             <label for="form_pseudo">Pseudo</label>
-            <input type="text" name="form_pseudo">
+            <input type="text" name="form_pseudo" required>
             <div>
                 <div class="form-div">
-                    <label for="form_email">Email</label>
+                    <label for="form_email" required>Email</label>
                     <input type="text" name="form_email">
                     <label for="form_remail">Confirmez votre email</label>
                     <input type="text" name="form_remail">
                 </div> 
                 <div class="form-div">
-                    <label for="form_password">Mot de passe</label>
+                    <label for="form_password" required>Mot de passe</label>
                     <input type="text" name="form_password">
                     <label for="form_repassword">Confirmez votre mot de passe</label>
                     <input type="text" name="form_repassword">
@@ -70,18 +70,19 @@
             <div>
                 <div class="form-div">
                     <label for="form_nom">Nom</label>
-                    <input type="text" name="form_nom">
+                    <input type="text" name="form_nom" required>
                     <label for="form_prenom">Prénom</label>
-                    <input type="text" name="form_prenom">
+                    <input type="text" name="form_prenom" required>
                 </div>
                 <div class="form-div">
                     <label for="form_dob">Date de naissance</label>
-                    <input type="date" name="form_dob">
+                    <input type="date" name="form_dob" required>
                 </div>
             </div>         
             <input type="submit" name="form_inscription" value="Créer mon profil" id="button">
         </form>
     </main>
+
  
 </body>
 

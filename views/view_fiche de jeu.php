@@ -1,3 +1,7 @@
+<?php
+    include_once '../models/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../image/favicon-512x512.png">
+    <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
 </head>
 
 <body>
@@ -27,19 +32,14 @@
             <img src="../image/Loupe.svg" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
-                <img src="../image/User.svg" alt="" class="user">
-                <a href="view_inscription.php" class="create-profil"><button>S'inscrire ici</button></a>
+            <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
-            <div class="display-none" id="modal-user">
-                <img src="../image/cross-23.svg" alt="" class="cross" id="cross">
-                <label for="login">Identifiant</label>
-                <input type="text" id="login">
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password">
-                <button>Valider</button>
-                <a href="view_inscription.php" class="create-profil-modal">S'inscrire ici</a>
-            </div>
+            <?php
+                if(isset($_SESSION['user'])) include 'modals/modal_deconnexion.php';
+                else include 'modals/modal_connexion.php';
+            ?>
             <div class="line-2"></div>
         </div>
     </header>

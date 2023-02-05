@@ -17,7 +17,9 @@
             }
         } else {
             // La fonction unset permet de vider une variable, ici nous vidons les valeurs pour la clé “user”
+            // echo "erreur du mdp";
             unset($_SESSION['user']);
+            header("Location: ../views/view_index.php");
         }
     }
 ?>

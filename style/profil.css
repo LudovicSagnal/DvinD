@@ -1,0 +1,21 @@
+.avatar-preview-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -10%;
+    margin-left: 60%;
+}
+
+.preview {
+    border: 1px solid var(--colorOrange);
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+}
+
+.preview img {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 30px;
+    object-fit: cover;
+}

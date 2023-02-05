@@ -143,6 +143,12 @@ header .link {
   color: var(--colorWhite);
 }
 
+.show-pseudo {
+  padding: 0;
+  margin-top: -10px;
+  font-weight: 600;
+}
+
 /************************** Modal connexion  ************************/
 
 .display-none {
@@ -514,7 +520,7 @@ p {
 /******************************* Jeu du jour *************************************/
 
 .right-actu {
-  background-image: url("/image/jeu.jpg");
+  background-image: url("../image/jeu.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
