@@ -8,7 +8,6 @@ for (let i = 0; i < selectBox.length; i++) {
         if (show) {
             checkboxes[i].style.display = "block";
             show = false;
-            // console.log(checkboxes[i]);
         } else {
             checkboxes[i].style.display = "none";
             show = true;

@@ -61,8 +61,8 @@
                     <div class="preview">
                         <img id="preview-selected-avatar" src="../image/avatar/user-default.svg" />
                     </div>
-                    <label for="file-upload">Votre avatar</label>
-                    <input type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
+                    <label class="label-file" for="file-upload">Modifier votre avatar</label>
+                    <input class="input-file" type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
                 </div>
             </div>      
             <div class="line"></div>     

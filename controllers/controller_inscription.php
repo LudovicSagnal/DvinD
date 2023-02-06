@@ -30,7 +30,7 @@
             
             if($insert->execute()) {
                 $success = true;
-                $_SESSION['user'] = $user;
+                $_SESSION['user'];
                 header("Location: ../views/view_index.php");
             }
         }

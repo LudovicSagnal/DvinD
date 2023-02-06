@@ -29,6 +29,7 @@ nav a {
 .logo {
   height: 30vh;
   width: 100%;
+  
 }
 
 .logo img {
@@ -574,4 +575,20 @@ p {
 #previous:hover, #next:hover {
   background-color: var(--colorOrange);
   transition: 0.3s;
+}
+
+@media (max-width: 1600px) {
+
+
+}
+
+@media (max-width: 1366px) { /*laptop*/
+* {
+  
+}
+
+main {
+  justify-content: center;
+}
+
 }
