@@ -44,7 +44,6 @@
     gap: 10px;
     border-radius: 5px;
     border: 1px solid var(--colorWhite);
-    /* box-shadow: 0px 2px 15px 1px gray; */
 }
 
 .form-contact h2 {
@@ -118,4 +117,93 @@ form button:hover {
     transition: 1s;
     font-size: 16px;
     letter-spacing: 4px;
+}
+
+.smart-form {
+    display: none;
+}
+
+@media (max-width: 380px) {
+
+    .main-contact {  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        gap: 5%;
+    }
+
+    .inform {
+        display: flex;
+        flex-direction: column-reverse;
+        height: auto;
+        width: 100%;
+    }
+
+    .form-contact {
+        display: none;
+    }
+
+    .smart-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--colorBlack);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        gap: 10px;
+        border-radius: 5px;
+        border: 1px solid var(--colorWhite);
+    }
+
+    .input-email label {
+        display: block;
+        font-size: 20px;
+        text-decoration: none;
+        color: var(--colorWhite);
+    }
+
+    h2 {
+        color: var(--colorWhite);
+    }
+    
+    label {
+        font-size: 20px;
+        text-decoration: none;
+        color: var(--colorWhite);
+    }
+
+    .info {
+        display: none;
+    }
+
+    .smart-form input, .input-mail {
+        height: 30px;
+        font-size: 22px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .smart-form label {
+        display: block;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    
+    textarea {
+        border: 1px solid var(--colorOrange);
+        border-radius: 5px;
+        width: 90%;
+        height: 200px;
+        font-size: 22px;
+        resize: none;
+    }
+
+
+
+
 }

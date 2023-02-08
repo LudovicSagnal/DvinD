@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../image/favicon-512x512.png">
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
+    <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
 
 </head>
 
@@ -25,9 +27,16 @@
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
+            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="active">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
+        <div class="display-none" id="smart-nav">
+            <a href="view_index.php" class="link">Actualités</a>
+            <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
+            <a href="view_contact.php" class="active">Contact</a>
+            <a href="view_forum.php" class="link">Forum</a>
+        </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
             <img src="../image/Loupe.svg" class="glass">
@@ -58,6 +67,19 @@
                     <label for="firstname">Prénom</label>
                     <input type="text" id="firstname" placeholder="Votre prénom">
                 </div>
+                <label for="firstname">Email</label>
+                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" required>
+                <label for="text">Votre message</label>
+                <textarea id="text" name="message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+            <form method="post" class="smart-form">
+                <h2>Contactez-moi</h2>
+                <label for="name">Nom</label>
+                <input type="text" id="name" placeholder="Votre nom">
+                <label for="firstname">Prénom</label>
+                <input type="text" id="firstname" placeholder="Votre prénom">
+                <label for="firstname">Email</label>
                 <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" required>
                 <label for="text">Votre message</label>
                 <textarea id="text" name="message" required></textarea>

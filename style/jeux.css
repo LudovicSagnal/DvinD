@@ -110,3 +110,48 @@ label img {
     height: 15px;
     width: 25px;
 }
+
+@media (max-width: 380px) {
+    main {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        gap: 0px;
+      }
+
+      .right-actu form {
+        width: 95%;
+    }
+
+      .game-list {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        border: var(--colorBlack) 0.5px solid;
+        border-radius: 2px;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        background-color: var(--colorWhite);
+        z-index: 1;
+    }
+
+      .game-title {
+        background-color: var(--colorBlack);
+        color:var(--colorWhite);
+        width: 100%;
+        text-align: center;
+        border: var(--colorWhite) 1px solid;
+        font-size: 35px;
+        height: 50px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .fil-main {
+        height: 200px;
+      }
+}

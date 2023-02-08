@@ -18,6 +18,8 @@
     <script src="../script/roulette.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/list.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
+    <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
 
 </head>
 
@@ -27,9 +29,16 @@
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste de jeux.php" class="active">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
+            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
+        <div class="display-none" id="smart-nav">
+            <a href="view_index.php" class="link">Actualités</a>
+            <a href="view_liste de jeux.php" class="active">Liste de jeux</a>
+            <a href="view_contact.php" class="link">Contact</a>
+            <a href="view_forum.php" class="link">Forum</a>
+        </div>
         <div class="bottom-nav">
           <div class="line-1"></div>
           <img src="../image/Loupe.svg" class="glass">
@@ -65,7 +74,7 @@
           <img src="../image/slide/loneRuin.jpg" alt="" class="modal-cover">
           <a href="">Voir la fiche du jeu</a>
           <button id="modal-roulette-button">Relancer la roulette</button>
-      </div>
+        </div>
       </div>
       <div class="game-list">
         <h2 class="game-title">Liste des jeux</h2>

@@ -10,6 +10,8 @@
     <link rel="icon" type="image/x-icon" href="../image/favicon-512x512.png">
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/avatar.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
+    <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
 </head>
 
 <body>
@@ -18,15 +20,22 @@
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
+            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
+        <div class="display-none" id="smart-nav">
+            <a href="view_index.php" class="link">Actualités</a>
+            <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
+            <a href="view_contact.php" class="link">Contact</a>
+            <a href="view_forum.php" class="link">Forum</a>
+        </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
             <img src="../image/Loupe.svg" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
-                <img src="../image/User.svg" alt="" class="user">
+                <img src="../image/avatar/User.svg" alt="" class="user">
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <div class="display-none" id="modal-user">
