@@ -66,7 +66,7 @@
                     <div class="fiche-info">
                         <p>Développeur : Cuddle Monster Games</p>
                         <p>Sortie : 12 janvier 2023</p>
-                        <p>Multijoeur : non</p>
+                        <p>Multijoueur : non</p>
                         <p>Genre(s) : Action</p>
                     </div>
                 </div>

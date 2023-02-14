@@ -31,8 +31,8 @@ h2 {
     margin-top: 0px;
     border: 1px solid var(--colorWhite);
     border-radius: 5px;
-    height: 60vh;
-    width: 80%;
+    height: 62vh;
+    width: 90%;
 }
 
 .platform {
@@ -40,7 +40,7 @@ h2 {
     justify-content: space-evenly;
     align-self: center;
     width: 40%;
-    height: 60px;
+    height: 50px;
 }
 
 .platform p {
@@ -52,7 +52,7 @@ h2 {
 
 .main-middle {
     display: flex;
-    gap: 10%;
+    gap: 5%;
 }
 
 .fiche-jeu {
@@ -63,21 +63,23 @@ h2 {
 
 .fiche-jeu img {
     object-fit: contain;
-    height: 300px;
+    height: 260px;
     margin-bottom: 0px;
 }
 
 .fiche-info {
     background-color: var(--colorWhite);
-    width: 500px;
+    width: 100%;
     margin-top: 0px;
 }
 
 .info-media {
     display: flex;
     gap: 20px;
+
 }
 
 .info-media img, iframe {
-    height: 300px;
+    height: 400px;
+    width: 100%;
 }
