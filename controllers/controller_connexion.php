@@ -12,14 +12,12 @@
             if(password_verify($_POST["form_password"], $user['password_utilisateur'])) {
                 // On affecte les données de notre utilisateur dans notre super globale $_SESSION
                 $_SESSION['user'] = $user;
-                // Le header permet d'effectuer une requête HTTP, la valeur Location permet la redirection vers un autre fichier
-                header("Location: ../views/view_index.php");
             }
         } else {
             // La fonction unset permet de vider une variable, ici nous vidons les valeurs pour la clé “user”
             // echo "erreur du mdp";
             unset($_SESSION['user']);
-            header("Location: ../views/view_index.php");
         }
     }
+    header("Location: ../views/view_index.php");
 ?>

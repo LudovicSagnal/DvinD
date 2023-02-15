@@ -12,6 +12,7 @@
     <script src="../script/avatar.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="../script/verif.js?v=<?=date("H-i-s")?>" defer></script>
 </head>
 
 <body>
@@ -56,9 +57,9 @@
             <div>
                 <div class="form-div">
                     <label for="form_email" required>Email</label>
-                    <input type="text" name="form_email">
+                    <input type="text" name="form_email" id="mail">
                     <label for="form_remail">Confirmez votre email</label>
-                    <input type="text" name="form_remail">
+                    <input type="text" name="form_remail" id="remail">
                 </div> 
                 <div class="form-div">
                     <label for="form_password" required>Mot de passe</label>
@@ -88,7 +89,7 @@
                     <input type="date" name="form_dob" required>
                 </div>
             </div>         
-            <input type="submit" name="form_inscription" value="Créer mon profil" id="button">
+            <input type="submit" name="form_inscription" value="Créer mon profil" id="button" disabled>
         </form>
     </main>
 
