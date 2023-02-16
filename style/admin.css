@@ -1,0 +1,35 @@
+* {
+    --colorBlack:#0C0C0C;
+    --colorOrange:#FF9900;
+    --colorWhite:#fefafa;
+}
+
+body {
+    margin: 0;
+    background-color: var(--colorOrange);
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--colorWhite);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--colorBlack);
+    height: 50px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+fieldset {
+    background-color: var(--colorWhite);
+    padding: 20px;
+}

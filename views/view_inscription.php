@@ -56,16 +56,20 @@
             <input type="text" name="form_pseudo" required>
             <div>
                 <div class="form-div">
-                    <label for="form_email" required>Email</label>
-                    <input type="text" name="form_email" id="mail">
+                    <label for="form_email" id="lab-email" required>Email</label>
+                    <input type="text" name="form_email" id="mail" class="invalid">
                     <label for="form_remail">Confirmez votre email</label>
-                    <input type="text" name="form_remail" id="remail">
+                    <input type="text" name="form_remail" id="remail" class="invalid">
                 </div> 
                 <div class="form-div">
-                    <label for="form_password" required>Mot de passe</label>
-                    <input type="text" name="form_password">
+                    <div class="dnone" id="explain-pass">
+                        <p>Minimum : 8 caractères, une majuscule, une minuscule, un numéro et un caractère spécial (@ $ ! % * ? &)</p>
+                    </div>
+                    
+                    <label for="form_password" required>Mot de passe&nbsp;<span><img src="../image/question.svg" alt="" class="question"></span></label>   
+                    <input type="text" name="form_password" id="pass" class="invalid">
                     <label for="form_repassword">Confirmez votre mot de passe</label>
-                    <input type="text" name="form_repassword">
+                    <input type="text" name="form_repassword" id="repass" class="invalid">
                 </div>
                 <div class="avatar-preview-container form-div">
                     <div class="preview">
