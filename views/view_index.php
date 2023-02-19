@@ -1,5 +1,6 @@
 <?php
     include_once '../models/connect.php';
+    $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
 ?>
 
 <!DOCTYPE html>

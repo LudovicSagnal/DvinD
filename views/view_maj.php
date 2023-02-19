@@ -42,8 +42,12 @@
             <input type="date" name="naissance_utilisateur" value="<?=$utilisateur['naissance_utilisateur']?>">
         </label>
         <br/>
-        <label>Rôle <br> (1:modo ; 2:admin):
-            <input type="number" name="id_role" value="<?=$utilisateur['id_role']?>">
+        <label>Rôle:
+        <select name="id_role">
+            <option value="0">Inscrit</option>
+            <option value="1">Modérateur</option>
+            <option value="2">Admin</option>
+        </select>
         </label>
         <br/>
         <input type="submit" value="Mettre à jour">

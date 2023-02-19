@@ -1,5 +1,9 @@
 <?php
     include_once '../models/connect.php';
+    $req = $db->query('SELECT * FROM jeux WHERE id_jeux=:id_jeux;');
+    $req->bindParam(":id_jeux", $_GET['id']);
+    $req->execute();
+    $jeux = $req->fetch(PDO::FETCH_ASSOC);    
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +58,7 @@
     </header>
 
     <section class="main">
-        <h2>Lone Ruin</h2>
+        <h2><?=($jeux['nom_jeux'])?></h2>
         <div class="main-game">
             <div class="platform">
                 <p>Windows</p>
@@ -64,9 +68,8 @@
                 <div class="fiche-jeu">
                     <img src="../image//slide/loneRuin.jpg" alt="">
                     <div class="fiche-info">
-                        <p>Développeur : Cuddle Monster Games</p>
-                        <p>Sortie : 12 janvier 2023</p>
-                        <p>Multijoueur : non</p>
+                        <p>Développeur : <?=($jeux['developpeur_jeux'])?></p>
+                        <p>Sortie : <?=($jeux['sortie_jeux'])?></p>
                         <p>Genre(s) : Action</p>
                     </div>
                 </div>
@@ -74,6 +77,7 @@
                     <img src="../image/lone-ruin-screen.jpg" alt="">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/wne67Zmesns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
+                <p class="desc"><?=($jeux['desc_jeux'])?></p>
                 
 
             </div>
@@ -84,6 +88,7 @@
 
         </div>
     </section>
+    <?php var_dump($jeux) ?>
 
     <footer class="foot">
     </footer>

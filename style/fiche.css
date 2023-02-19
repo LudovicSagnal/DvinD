@@ -33,6 +33,7 @@ h2 {
     border-radius: 5px;
     height: 62vh;
     width: 90%;
+    position: relative;
 }
 
 .platform {
@@ -82,4 +83,10 @@ h2 {
 .info-media img, iframe {
     height: 400px;
     width: 100%;
+}
+
+.desc {
+    color: var(--colorWhite);
+    position: absolute;
+    bottom: 20px;
 }

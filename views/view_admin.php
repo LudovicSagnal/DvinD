@@ -24,12 +24,12 @@
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
-
-    <!-- <div style="font-weight: 600; color: <?=$color?>"><?=$message?></div> -->
     <?php if(empty($utilisateurs)) { ?>
         <p>Aucun utilisateur n'est inscrit</p>
     <?php } else { ?>
     <main>
+
+        <h2>Utilisateurs</h2>
         <table>
                 <thead>
                     <tr>

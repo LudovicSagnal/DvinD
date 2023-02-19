@@ -1,5 +1,6 @@
 <?php
     include_once '../models/connect.php';
+    $jeux = $db->query('SELECT * FROM jeux ORDER By nom_jeux ASC')->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +73,19 @@
           <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
           <h2>Lone Ruin</h2>
           <img src="../image/slide/loneRuin.jpg" alt="" class="modal-cover">
-          <a href="">Voir la fiche du jeu</a>
+          <a href="view_fiche de jeu.php">Voir la fiche du jeu</a>
           <button id="modal-roulette-button">Relancer la roulette</button>
         </div>
       </div>
       <div class="game-list">
         <h2 class="game-title">Liste des jeux</h2>
-        <div class="fil-main"></div>
+        <div class="fil-main">
+        <?php foreach($jeux as $jeu) { ?>
+          <ul>
+            <li><a href="view_fiche de jeu.php?id=<?=$jeu['id_jeux']?>"><?=($jeu['nom_jeux'])?></a></li>
+          </ul>
+        <?php }  ?>
+        </div>
       </div>
 
       <div class="right-actu">

@@ -33,3 +33,9 @@ fieldset {
     background-color: var(--colorWhite);
     padding: 20px;
 }
+
+table {
+    background-color: var(--colorWhite);
+    color: var(--colorBlack);
+    padding: 10px;
+}

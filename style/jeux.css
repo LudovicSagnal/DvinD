@@ -30,6 +30,11 @@
     margin-bottom: 0;
 }
 
+li a {
+    color: var(--colorBlack);
+    text-decoration: none;
+}
+
 .right-actu {
     overflow-x: hidden;
     overflow-y: auto;
