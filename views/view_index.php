@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actualités des jeux indépendants."/>
     <title>Actualités</title>
     <link rel="stylesheet" href="../style/style.css?v=<?=date("H-i-s")?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +31,8 @@
             <a href="view_index.php" class="active">Actualités</a>
             <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
+            
+
             <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
@@ -42,7 +45,7 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <img src="../image/Loupe.svg" class="glass">
+            <img src="../image/Loupe.svg" class="glass" alt="">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
                 <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
