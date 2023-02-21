@@ -32,10 +32,34 @@ main {
 fieldset {
     background-color: var(--colorWhite);
     padding: 20px;
+    border-radius: 5px;
+}
+
+legend {
+    background-color: var(--colorWhite);
+    border: 1px solid var(--colorBlack);
+    padding: 5px;
 }
 
 table {
     background-color: var(--colorWhite);
     color: var(--colorBlack);
-    padding: 10px;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--colorBlack);
+}
+
+.show-list {
+    margin: 5px;
+    padding: 5px;
+}
+
+.d-none {
+    display: none;
+}
+
+.line {
+    height: 1px;
+    width: 80%;
+    background-color: var(--colorBlack);
 }

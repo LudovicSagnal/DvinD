@@ -1,6 +1,7 @@
 <?php 
     include("../models/connect.php");
     $utilisateurs = $db->query('SELECT * FROM utilisateur')->fetchAll();
+    $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
     <link rel="stylesheet" href="../style/admin.css">
+    <link rel="icon" type="image/x-icon" href="../image/favicon-512x512.png">
+    <script src="../script/crud.js" defer></script>
     <style>
         fieldset {
             width: 210px;
@@ -30,7 +33,7 @@
     <main>
 
         <h2>Utilisateurs</h2>
-        <table>
+            <table class="d-none">
                 <thead>
                     <tr>
                         <td>NOM</td>
@@ -104,7 +107,89 @@
                 <br/>
                 <input type="submit" value="Enregistrer">
             </form>
+            
         </fieldset>
+        <button class="show-list">Afficher la liste</button>
+        <div class="line"></div>
+
+        <?php if(empty($jeux)) { ?>
+        <p>Aucun jeux en base de données</p>
+        <?php } else { ?>
+
+        
+        <table class="d-none">
+                <thead>
+                    <tr>
+                        <td>NOM</td>
+                        <td>Steam ID</td>
+                        <td>Dévelopeur</td>
+                        <td>Description</td>
+                        <td>Date de sortie</td>
+                        <td>Source</td>
+                        <td>Edition</td>
+                        <td>Suppression</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($jeux as $jeux) { ?>
+                    <tr>
+                        <td><?=ucwords($jeux['nom_jeux'])?></td>
+                        <td><?=$jeux['id_steam_jeux']?></td>
+                        <td><?=ucfirst($jeux['developpeur_jeux'])?></td>
+                        <td><?=$jeux['desc_jeux']?></td>
+                        <td><?=$jeux['sortie_jeux']?></td>
+                        <td><?=$jeux['source_jeux']?></td>
+                        <td>
+                            <a href="../views/view_maj.php?id=<?=$jeux['id_jeux']?>">Editer</a>&nbsp;
+                        </td>
+                        <td>
+                            <form method="POST" action="../controllers/controller_admin.php">
+                                <input type="hidden" name="form_delete" value="1">
+                                <input type="hidden" name="id_jeux" value="<?=$jeux['id_jeux']?>">
+                                <button type="submit">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php } 
+                } ?>
+
+        <h2>Jeux</h2>
+        
+        <fieldset>
+            
+            <legend>Ajout</legend>
+            <form action="../controllers/controller_admin.php" method="post" enctype='multipart/form-data'>
+                <input type="hidden" name="form_insert" value="1">
+                <label>Nom:
+                    <input type="text" name="nom_jeux">
+                </label>
+                <br/>
+                <label>Steam ID:
+                    <input type="text" name="id_steam_jeux">
+                </label>
+                <br/>
+                <label>Développeur:
+                    <input type="text" name="developpeur_jeux">
+                </label>
+                <br/>
+                <label>Description:
+                    <input type="textarea" name="desc_jeux">
+                </label>
+                <br/>
+                <label>Date de sortie:
+                    <input type="date" name="sortie_jeux">
+                </label>
+                <br/>
+                <label>Source:
+                    <input type="number" name="source_jeux">
+                </label>
+                <br/>
+                <input type="submit" value="Enregistrer">
+            </form>
+        </fieldset>
+        <button class="show-list">Afficher la liste</button>
+        <div class="line"></div>
+        
     </main>
 </body>
 </html>
