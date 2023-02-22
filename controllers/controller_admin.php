@@ -38,8 +38,8 @@
                 SET nom_utilisateur=:nom_utilisateur,
                 prenom_utilisateur=:prenom_utilisateur,
                 mail_utilisateur=:mail_utilisateur,
-                pseudo_utilisateur=:pseudo_utilisateur,
-                url_utilisateur=:url_utilisateur,
+                pseudo_utilisateur=:pseudo_utilisateur,' . 
+                (!empty($name) ? "url_utilisateur=:url_utilisateur, " : '') . '
                 naissance_utilisateur=:naissance_utilisateur,
                 id_role=:id_role ';
         if (!empty($_POST['password_utilisateur'])) {
@@ -55,7 +55,9 @@
             $password_utilisateur = password_hash($_POST['password_utilisateur'], PASSWORD_BCRYPT);
             $req->bindParam(":password_utilisateur", $password_utilisateur);
         }
-        $req->bindParam(":url_utilisateur", $_POST['url_utilisateur']);
+        if(!empty($name)) {
+            $req->bindParam(":url_utilisateur", $name);
+        }
         $req->bindParam(":naissance_utilisateur", $_POST['naissance_utilisateur']);
         $req->bindParam(":id_role", $_POST['id_role']);
         $req->bindParam(":id_utilisateur", $_POST['id_utilisateur']);
@@ -65,6 +67,7 @@
         $message = "Mise à jour effectuée";
 
     } elseif(!empty($_POST['form_delete'])) {
+        echo "<script>window.confirm(\"Confirmer la suppression ?\")</script>";
         $sql = 'DELETE FROM utilisateur WHERE id_utilisateur=:id_utilisateur;';
         $req = $db->prepare($sql);
         $req->bindParam(":id_utilisateur", $_POST['id_utilisateur']);

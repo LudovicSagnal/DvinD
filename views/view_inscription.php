@@ -1,3 +1,8 @@
+<?php
+    $title = "Actualités ";
+    $description = "Actualités des jeux indépendants.";
+    require './topHTML.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

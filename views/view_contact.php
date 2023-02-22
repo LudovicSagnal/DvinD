@@ -95,11 +95,6 @@
         </div>
     </section>
 
-    <footer class="foot">
-    </footer>
-
-
-
-</body>
-
-</html>
+<?php
+    require './bottomHTML.php';
+?>

@@ -57,10 +57,6 @@
     <main>
     </main>
     
-    <footer class="foot">
-    </footer>
-
-
-</body>
-
-</html>
+<?php
+    require './bottomHTML.php';
+?>

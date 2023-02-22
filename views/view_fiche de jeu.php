@@ -90,9 +90,6 @@
     </section>
     <?php var_dump($jeux) ?>
 
-    <footer class="foot">
-    </footer>
-    
-</body>
-
-</html>
+<?php
+    require './bottomHTML.php';
+?>

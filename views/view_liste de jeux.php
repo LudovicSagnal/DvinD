@@ -1,6 +1,9 @@
 <?php
     include_once '../models/connect.php';
     $jeux = $db->query('SELECT * FROM jeux ORDER By nom_jeux ASC')->fetchAll();
+    $title = "Liste de jeux";
+    $description = "Liste des jeux indépendants.";
+    // require './topHTML.php';
 ?>
 
 <!DOCTYPE html>
@@ -246,6 +249,6 @@
       </div>
     </main>
 
-    <footer class="foot"></footer>
-  </body>
-</html>
+<?php
+    require './bottomHTML.php';
+?>
