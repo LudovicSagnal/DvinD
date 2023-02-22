@@ -469,6 +469,7 @@ p {
   animation: show 1s;
 }
 
+/* animation de l'arrivée de la modal */
 @keyframes show {
   from{  
     transform: scale(0);

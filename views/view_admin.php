@@ -34,11 +34,10 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
         <p>Aucun utilisateur n'est inscrit</p>
     <?php } else { ?>
         <main>
-
             <section class="user-crud">
                 <h2>Utilisateurs</h2>
                 <div>
-                    <table class="d-none">
+                    <table>
                         <thead>
                             <tr>
                                 <td>NOM</td>
@@ -56,8 +55,8 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                         <tbody>
                             <?php foreach ($utilisateurs as $utilisateur) { ?>
                                 <tr>
-                                    <td><?= ($utilisateur['nom_utilisateur']) ?></td>
-                                    <td><?= ($utilisateur['prenom_utilisateur']) ?></td>
+                                    <td><?= $utilisateur['nom_utilisateur'] ?></td>
+                                    <td><?= $utilisateur['prenom_utilisateur'] ?></td>
                                     <td><?= $utilisateur['mail_utilisateur'] ?></td>
                                     <td><?= $utilisateur['pseudo_utilisateur'] ?></td>
                                     <td><?= $utilisateur['password_utilisateur'] ?></td>
@@ -76,49 +75,46 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                                     </td>
                                 </tr>
                             <?php } ?>
+                        </tbody>
                     </table>
-                <?php } ?>
+                    <?php } ?>
 
-                <fieldset>
-                    <legend>Ajout</legend>
-                    <form action="../controllers/controller_admin.php" method="post" enctype='multipart/form-data'>
-                        <input type="hidden" name="form_insert" value="1">
-                        <label>Nom:
-                            <input type="text" name="nom_utilisateur">
-                        </label>
-                        <br />
-                        <label>Prénom:
-                            <input type="text" name="prenom_utilisateur">
-                        </label>
-                        <br />
-                        <label>E-mail:
-                            <input type="email" name="mail_utilisateur">
-                        </label>
-                        <br />
-                        <label>Pseudo:
-                            <input type="text" name="pseudo_utilisateur">
-                        </label>
-                        <br />
-                        <label>Mot de passe:
-                            <input type="password" name="password_utilisateur">
-                        </label>
-                        <br />
-                        <label>Image:
-                            <input type="file" name="url_utilisateur">
-                        </label>
-                        <br />
-                        <label>Date de naissance:
-                            <input type="date" name="naissance_utilisateur">
-                        </label>
-                        <br />
-                        <input type="submit" value="Enregistrer">
-                    </form>
-                </fieldset>
+                    <fieldset>
+                        <legend>Ajout</legend>
+                        <form action="../controllers/controller_admin.php" method="post" enctype='multipart/form-data'>
+                            <input type="hidden" name="form_insert" value="1">
+                            <label>Nom:
+                                <input type="text" name="nom_utilisateur">
+                            </label>
+                            <br />
+                            <label>Prénom:
+                                <input type="text" name="prenom_utilisateur">
+                            </label>
+                            <br />
+                            <label>E-mail:
+                                <input type="email" name="mail_utilisateur">
+                            </label>
+                            <br />
+                            <label>Pseudo:
+                                <input type="text" name="pseudo_utilisateur">
+                            </label>
+                            <br />
+                            <label>Mot de passe:
+                                <input type="password" name="password_utilisateur">
+                            </label>
+                            <br />
+                            <label>Image:
+                                <input type="file" name="url_utilisateur">
+                            </label>
+                            <br />
+                            <label>Date de naissance:
+                                <input type="date" name="naissance_utilisateur">
+                            </label>
+                            <br />
+                            <input type="submit" value="Enregistrer">
+                        </form>
+                    </fieldset>
                 </div>
-                <div>
-                    <button class="show-list">Afficher la liste</button>
-                </div>
-
             </section>
 
             <div class="line"></div>
@@ -130,7 +126,7 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                     <?php if (empty($jeux)) { ?>
                         <p>Aucun jeux en base de données</p>
                     <?php } else { ?>
-                        <table class="d-none">
+                        <table>
                             <thead>
                                 <tr>
                                     <td>NOM</td>
@@ -165,6 +161,7 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                                         </td>
                                     </tr>
                                 <?php } ?>
+                            </tbody>
                         </table>
                     <?php } ?>
 
@@ -200,9 +197,6 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                             <input type="submit" value="Enregistrer">
                         </form>
                     </fieldset>
-                </div>
-                <div>
-                    <button class="show-list">Afficher la liste</button>
                 </div>
             </section>
             <div class="line"></div>
