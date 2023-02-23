@@ -1,6 +1,14 @@
 <?php
     include_once '../models/connect.php';
-    $req = $db->prepare('SELECT * FROM jeux WHERE id_jeux=:id_jeux;');
+    $req = $db->prepare('SELECT *
+                        FROM jeux j  
+                        LEFT JOIN avoir a ON a.id_jeux = j.id_jeux 
+                        LEFT JOIN tag t ON t.id_tag = a.id_tag
+                        LEFT JOIN plateforme p ON p.id_plateforme = a.id_plateforme
+                        LEFT JOIN langue l ON l.id_langue = a.id_langue
+                        LEFT JOIN attribuer ab ON ab.id_jeux = j.id_jeux
+                        LEFT JOIN asset ass ON ass.id_asset = ab.id_asset
+                        WHERE j.id_jeux=:id_jeux;'); //penser à faire un INNER JOIN
     $req->bindParam(":id_jeux", $_GET['id']);
     $req->execute();
     $jeux = $req->fetch(PDO::FETCH_ASSOC);    
@@ -56,7 +64,7 @@
                 <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
                 <h2>Lone Ruin</h2>
                 <img src="../image/slide/loneRuin.jpg" alt="" class="modal-cover redirect">
-                <a href="view_fiche de jeu.php?id=<?=$jeux['id_jeux']?>">Voir la fiche du jeu</a>
+                <a href="view_fiche de jeu.php">Voir la fiche du jeu</a>
                 <button id="modal-roulette-button">Relancer la roulette</button>
             </div>
         </div>

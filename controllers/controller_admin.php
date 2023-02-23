@@ -7,14 +7,15 @@
     if (isset($_FILES['url_utilisateur']) && !empty($_FILES['url_utilisateur']['tmp_name'])) {
         $tmpName = $_FILES['url_utilisateur']['tmp_name'];
         $arr = explode('.', $_FILES['url_utilisateur']['name']);
-        $name = $arr[0] . "-" . uniqid() . "." . $arr[1]; // Générer un id unique pour chaque image avec le même nom - éviter l'écrasement d'anciennes iamges
+        $name = $arr[0] . "-" . uniqid() . "." . $arr[1]; // Générer un id unique pour chaque image - éviter l'écrasement d'anciennes images
         $size = $_FILES['url_utilisateur']['size'];
         $error = $_FILES['url_utilisateur']['error'];
         $fichier = move_uploaded_file($tmpName, "../image/avatar/$name");
     }
 // Ajout d'un utilisateur
     if(!empty($_POST['form_insert'])) {
-        $sql = 'INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, pseudo_utilisateur, password_utilisateur, url_utilisateur, naissance_utilisateur, id_role)
+        $sql = 'INSERT INTO utilisateur(nom_utilisateur, prenom_utilisateur, mail_utilisateur, pseudo_utilisateur, password_utilisateur,
+                url_utilisateur, naissance_utilisateur, id_role)
                 VALUES(:nom_utilisateur, :prenom_utilisateur, :mail_utilisateur, :pseudo_utilisateur, :password_utilisateur, '. 
                                     (!empty($name) ? ":url_utilisateur" : 'DEFAULT') . ', :naissance_utilisateur, DEFAULT);';
         $req = $db->prepare($sql);

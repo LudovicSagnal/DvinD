@@ -1,8 +1,7 @@
 <?php
-include("../models/connect.php");
-$utilisateurs = $db->query('SELECT * FROM utilisateur')->fetchAll();
-$jeux = $db->query('SELECT * FROM jeux')->fetchAll();
-
+    include("../models/connect.php");
+    $utilisateurs = $db->query('SELECT * FROM utilisateur')->fetchAll();
+    $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
 ?>
 
 <!DOCTYPE html>

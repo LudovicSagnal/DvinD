@@ -78,7 +78,7 @@
                     <div class="fiche-info">
                         <p>Développeur : <?=($jeux['developpeur_jeux'])?></p>
                         <p>Sortie : <?=($jeux['sortie_jeux'])?></p>
-                        <p>Genre(s) : Action <?=($jeux['nom_tag'])?></p>
+                        <p>Genre(s) : <?=($jeux['nom_tag'])?></p>
                     </div>
                 </div>
                 <div class="info-media">

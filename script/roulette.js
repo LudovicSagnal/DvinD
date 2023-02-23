@@ -13,10 +13,10 @@ function spin() {
   setTimeout(() => {
     wheel.classList.remove("roulette-spin");
     lights.classList.remove("lights-spin");
-  }, "5000");
+  }, "5000"); // durée de cinq secondes avant de retirer les classes
   setTimeout(() => {
     modalRoulette.classList.replace("display-none", "modal-roulette-show");
-  }, "4000");
+  }, "4000"); // quatre secondes avant l'apparition de la modal
   render = true;
 };
 
@@ -38,3 +38,4 @@ window.onclick = function(e) {
     render = false;;
   }
 }
+
