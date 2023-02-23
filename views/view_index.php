@@ -1,6 +1,9 @@
 <?php
     include_once '../models/connect.php';
-    $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
+    $req = $db->prepare('SELECT * FROM jeux WHERE id_jeux=:id_jeux;');
+    $req->bindParam(":id_jeux", $_GET['id']);
+    $req->execute();
+    $jeux = $req->fetch(PDO::FETCH_ASSOC);    
     $title = "Actualités";
     $description = "Actualités des jeux indépendants.";
     require './topHTML.php';
@@ -53,7 +56,7 @@
                 <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
                 <h2>Lone Ruin</h2>
                 <img src="../image/slide/loneRuin.jpg" alt="" class="modal-cover redirect">
-                <a href="view_fiche de jeu.php">Voir la fiche du jeu</a>
+                <a href="view_fiche de jeu.php?id=<?=$jeux['id_jeux']?>">Voir la fiche du jeu</a>
                 <button id="modal-roulette-button">Relancer la roulette</button>
             </div>
         </div>

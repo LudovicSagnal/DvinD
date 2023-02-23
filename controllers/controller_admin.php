@@ -7,7 +7,7 @@
     if (isset($_FILES['url_utilisateur']) && !empty($_FILES['url_utilisateur']['tmp_name'])) {
         $tmpName = $_FILES['url_utilisateur']['tmp_name'];
         $arr = explode('.', $_FILES['url_utilisateur']['name']);
-        $name = $arr[0] . "-" . uniqid() . "." . $arr[1]; // Générer un id unique pour chaque image - éviter l'écrasement d'anciennes iamges
+        $name = $arr[0] . "-" . uniqid() . "." . $arr[1]; // Générer un id unique pour chaque image avec le même nom - éviter l'écrasement d'anciennes iamges
         $size = $_FILES['url_utilisateur']['size'];
         $error = $_FILES['url_utilisateur']['error'];
         $fichier = move_uploaded_file($tmpName, "../image/avatar/$name");

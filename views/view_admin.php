@@ -86,31 +86,24 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                             <label>Nom:
                                 <input type="text" name="nom_utilisateur">
                             </label>
-                            <br />
                             <label>Prénom:
                                 <input type="text" name="prenom_utilisateur">
                             </label>
-                            <br />
                             <label>E-mail:
                                 <input type="email" name="mail_utilisateur">
                             </label>
-                            <br />
                             <label>Pseudo:
                                 <input type="text" name="pseudo_utilisateur">
                             </label>
-                            <br />
                             <label>Mot de passe:
                                 <input type="password" name="password_utilisateur">
                             </label>
-                            <br />
                             <label>Image:
                                 <input type="file" name="url_utilisateur">
                             </label>
-                            <br />
                             <label>Date de naissance:
                                 <input type="date" name="naissance_utilisateur">
                             </label>
-                            <br />
                             <input type="submit" value="Enregistrer">
                         </form>
                     </fieldset>
@@ -142,9 +135,9 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                             <tbody>
                                 <?php foreach ($jeux as $jeu) { ?>
                                     <tr>
-                                        <td><?= ($jeu['nom_jeux']) ?></td>
+                                        <td><?= $jeu['nom_jeux'] ?></td>
                                         <td><?= $jeu['id_steam_jeux'] ?></td>
-                                        <td><?= ($jeu['developpeur_jeux']) ?></td>
+                                        <td><?= $jeu['developpeur_jeux'] ?></td>
                                         <td><?= iconv("", "utf-8", $jeu['desc_jeux']) // TODO: a changer
                                             ?></td>
                                         <td><?= iconv("", "utf-8", $jeu['sortie_jeux']) ?></td>
@@ -173,27 +166,21 @@ $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
                             <label>Nom:
                                 <input type="text" name="nom_jeux">
                             </label>
-                            <br />
                             <label>Steam ID:
                                 <input type="text" name="id_steam_jeux">
                             </label>
-                            <br />
                             <label>Développeur:
                                 <input type="text" name="developpeur_jeux">
                             </label>
-                            <br />
                             <label>Description:
                                 <textarea name="" id="" cols="30" rows="10" name="desc_jeux" style="resize: none;"></textarea>
                             </label>
-                            <br />
                             <label>Date de sortie:
                                 <input type="date" name="sortie_jeux">
                             </label>
-                            <br />
                             <label>Source:
                                 <input type="number" name="source_jeux">
                             </label>
-                            <br />
                             <input type="submit" value="Enregistrer">
                         </form>
                     </fieldset>

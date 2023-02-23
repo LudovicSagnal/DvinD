@@ -1,6 +1,14 @@
 <?php
     include_once '../models/connect.php';
-    $req = $db->query('SELECT * FROM jeux WHERE id_jeux=:id_jeux;');
+    $req = $db->prepare('SELECT *
+                        FROM jeux j  
+                        LEFT JOIN avoir a ON a.id_jeux = j.id_jeux 
+                        LEFT JOIN tag t ON t.id_tag = a.id_tag
+                        LEFT JOIN plateforme p ON p.id_plateforme = a.id_plateforme
+                        LEFT JOIN langue l ON l.id_langue = a.id_langue
+                        LEFT JOIN attribuer ab ON ab.id_jeux = j.id_jeux
+                        LEFT JOIN asset ass ON ass.id_asset = ab.id_asset
+                        WHERE j.id_jeux=:id_jeux;'); //penser à faire un INNER JOIN
     $req->bindParam(":id_jeux", $_GET['id']);
     $req->execute();
     $jeux = $req->fetch(PDO::FETCH_ASSOC);    
@@ -42,7 +50,7 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <img src="../image/Loupe.svg" class="glass">
+            <img src="../image/Loupe.svg" class="glass" alt="">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
             <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
@@ -70,7 +78,7 @@
                     <div class="fiche-info">
                         <p>Développeur : <?=($jeux['developpeur_jeux'])?></p>
                         <p>Sortie : <?=($jeux['sortie_jeux'])?></p>
-                        <p>Genre(s) : Action</p>
+                        <p>Genre(s) : Action <?=($jeux['nom_tag'])?></p>
                     </div>
                 </div>
                 <div class="info-media">
@@ -88,8 +96,6 @@
 
         </div>
     </section>
-    <?php var_dump($jeux) ?>
-
 <?php
     require './bottomHTML.php';
 ?>

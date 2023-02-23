@@ -80,3 +80,9 @@ table {
 .user-crud h2, .game-crud h2 {
     text-align: center;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
