@@ -89,4 +89,5 @@ h2 {
     color: var(--colorWhite);
     position: absolute;
     bottom: 20px;
+    margin-left: 30%;
 }

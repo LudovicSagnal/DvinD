@@ -1,7 +1,6 @@
 <?php
     include_once '../models/connect.php';
-    $req = $db->prepare('SELECT *
-                        FROM jeux j  
+    $req = $db->prepare('SELECT * FROM jeux j  
                         LEFT JOIN avoir a ON a.id_jeux = j.id_jeux 
                         LEFT JOIN tag t ON t.id_tag = a.id_tag
                         LEFT JOIN plateforme p ON p.id_plateforme = a.id_plateforme
@@ -11,7 +10,14 @@
                         WHERE j.id_jeux=:id_jeux;'); //penser à faire un INNER JOIN
     $req->bindParam(":id_jeux", $_GET['id']);
     $req->execute();
-    $jeux = $req->fetch(PDO::FETCH_ASSOC);    
+    $jeux = $req->fetchAll(PDO::FETCH_ASSOC);    
+    $req2 = $db->prepare('SELECT * FROM jeux j
+                        LEFT JOIN attribuer ab ON ab.id_jeux= j.id_jeux
+                        LEFT JOIN asset ass ON ass.id_asset = ab.id_asset
+                        WHERE ass.id_type_asset = 1');
+    $req2->execute();
+    $video = $req2->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($video);
 ?>
 
 <!DOCTYPE html>
@@ -66,26 +72,34 @@
     </header>
 
     <section class="main">
-        <h2><?=($jeux['nom_jeux'])?></h2>
+        <h2><?=($jeux[0]['nom_jeux'])?></h2>
         <div class="main-game">
+        <?php foreach ($jeux as $platform) {
+                           echo($platform['nom_plateforme']);
+                        } ?>
             <div class="platform">
                 <p>Windows</p>
                 <p>Switch</p>
             </div>
             <div class="main-middle">
                 <div class="fiche-jeu">
-                    <img src="../image//slide/loneRuin.jpg" alt="">
+                    <img src="../image//jeux/<?=($jeux[0]['url_asset'])?>" alt="">
                     <div class="fiche-info">
-                        <p>Développeur : <?=($jeux['developpeur_jeux'])?></p>
-                        <p>Sortie : <?=($jeux['sortie_jeux'])?></p>
-                        <p>Genre(s) : <?=($jeux['nom_tag'])?></p>
+                        <p>Développeur : <?=($jeux[0]['developpeur_jeux']);?></p>
+                        <p>Sortie : <?=($jeux[0]['sortie_jeux'])?></p>
+                        <p>Genre(s) : <?php foreach ($jeux as $tag) {
+                           echo ($tag['nom_tag']." ,");
+                        } ?></p>
+                        <p>Langues : <?php foreach ($jeux as $lang) {
+                           echo($lang['nom_langue']." ");
+                        } ?></p>
                     </div>
                 </div>
                 <div class="info-media">
                     <img src="../image/lone-ruin-screen.jpg" alt="">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/wne67Zmesns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="<?= ($video[1]['url_asset']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <p class="desc"><?=($jeux['desc_jeux'])?></p>
+                <p class="desc"><?=($jeux[0]['desc_jeux'])?></p>
                 
 
             </div>

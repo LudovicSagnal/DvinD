@@ -137,9 +137,8 @@
                                         <td><?= $jeu['nom_jeux'] ?></td>
                                         <td><?= $jeu['id_steam_jeux'] ?></td>
                                         <td><?= $jeu['developpeur_jeux'] ?></td>
-                                        <td><?= iconv("", "utf-8", $jeu['desc_jeux']) // TODO: a changer
-                                            ?></td>
-                                        <td><?= iconv("", "utf-8", $jeu['sortie_jeux']) ?></td>
+                                        <td><?= $jeu['desc_jeux'] ?></td>
+                                        <td><?= $jeu['sortie_jeux'] ?></td>
                                         <td><?= $jeu['source_jeux'] ?></td>
                                         <td>
                                             <a href="../views/view_maj.php?id=<?= $jeu['id_jeux'] ?>">Editer</a>&nbsp;
