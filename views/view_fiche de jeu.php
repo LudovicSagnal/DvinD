@@ -17,7 +17,6 @@
                         WHERE ass.id_type_asset = 1');
     $req2->execute();
     $video = $req2->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($video);
 ?>
 
 <!DOCTYPE html>

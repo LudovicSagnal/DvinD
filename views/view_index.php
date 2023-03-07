@@ -14,11 +14,6 @@
     $jeux = $req->fetchAll(PDO::FETCH_ASSOC);
     $title = "Actualités";
     $description = "Actualités des jeux indépendants.";
-    $randomGame = $db->query('SELECT * FROM jeux j
-                        LEFT JOIN attribuer ab ON ab.id_jeux = j.id_jeux
-                        LEFT JOIN asset ass ON ass.id_asset = ab.id_asset
-                        WHERE ass.id_type_asset=0;')->fetchAll();
-    shuffle($randomGame);
     require './topHTML.php';
 ?>
 
@@ -58,7 +53,7 @@
     <main>
         <div class="left-actu">
             <div class="gradient-container">
-                <button class="but-roulette" id="but-roulette">Lance la roulette !</button>
+                <button class="but-roulette" id="but-roulette" onclick="randomGame();">Lance la roulette !</button>
                 <div class="gradient"></div>
             </div>
             <div class="div-roul"> 
@@ -67,10 +62,10 @@
             </div>
             <div id="modal-roulette" class="display-none">
                 <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
-                <h2><?= $randomGame[0]['nom_jeux'];?></h2>
-                <img src="../image/jeux/<?= $randomGame[0]['url_asset']?>" alt="" class="modal-cover redirect">
-                <a href="view_fiche de jeu.php?id=<?=$randomGame[0]['id_jeux']?>">Voir la fiche du jeu</a>
-                <button id="modal-roulette-button">Relancer la roulette</button>
+                <h2 id="game_title"></h2>
+                <img id="game_img" src="" alt="" class="modal-cover redirect">
+                <a id="game_link" href="">Voir la fiche du jeu</a>
+                <button id="modal-roulette-button" onclick="randomGame();">Relancer la roulette</button>
             </div>
         </div>
         <div class="fil-actu">
@@ -121,7 +116,5 @@
     </main>
 
 <?php
-    // var_dump($randomGame[0]);
-    echo $randomGame[0]['url_asset'];
     require './bottomHTML.php';
 ?>
