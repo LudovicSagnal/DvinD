@@ -88,7 +88,7 @@
                         <p>Développeur : <?=($jeux[0]['developpeur_jeux']);?></p>
                         <p>Sortie : <?=($jeux[0]['sortie_jeux'])?></p>
                         <p>Genre(s) : <?php foreach ($jeux as $tag) {
-                           echo ($tag['nom_tag']." ,");
+                           echo($tag['nom_tag'].", ");
                         } ?></p>
                         <p>Langues : <?php foreach ($jeux as $lang) {
                            echo($lang['nom_langue']." ");

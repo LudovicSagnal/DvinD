@@ -80,8 +80,13 @@ h2 {
 
 }
 
+.info-media img:hover {
+    transform: scale(1.5);
+    z-index: 10;
+}
+
 .info-media img, iframe {
-    height: 400px;
+    height: 450px;
     width: 100%;
 }
 

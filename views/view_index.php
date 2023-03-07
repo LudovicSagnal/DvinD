@@ -68,8 +68,8 @@
             <div id="modal-roulette" class="display-none">
                 <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
                 <h2><?= $randomGame[0]['nom_jeux'];?></h2>
-                <img src="../image/slide/<?= $randomGame[0]['url_asset']?>" alt="" class="modal-cover redirect">
-                <a href="view_fiche de jeu.php">Voir la fiche du jeu</a>
+                <img src="../image/jeux/<?= $randomGame[0]['url_asset']?>" alt="" class="modal-cover redirect">
+                <a href="view_fiche de jeu.php?id=<?=$randomGame[0]['id_jeux']?>">Voir la fiche du jeu</a>
                 <button id="modal-roulette-button">Relancer la roulette</button>
             </div>
         </div>
@@ -121,7 +121,7 @@
     </main>
 
 <?php
-    var_dump($randomGame[0]);
+    // var_dump($randomGame[0]);
     echo $randomGame[0]['url_asset'];
     require './bottomHTML.php';
 ?>
