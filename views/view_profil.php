@@ -38,8 +38,8 @@
             <img src="../image/Loupe.svg" class="glass">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
-                <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
-                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+                <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php
@@ -53,13 +53,13 @@
     <main>
         <form action="../controllers/controller_modification.php" method="post" enctype="multipart/form-data"> 
                 <label for="form_pseudo">Pseudo</label>
-                <input type="text" name="form_pseudo" value="<?=$_SESSION['user']['pseudo_utilisateur']?>" required>
+                <input type="text" name="form_pseudo" value="<?=$_SESSION['user']['username']?>" required>
                 <div>
                     <div class="form-div">
                         <label for="form_email">Email</label>
-                        <input type="text" name="form_email" value="<?=$_SESSION['user']['mail_utilisateur']?>" required>
+                        <input type="text" name="form_email" value="<?=$_SESSION['user']['email']?>" required>
                         <label for="form_remail">Confirmez votre email</label>
-                        <input type="text" name="form_remail" value="<?=$_SESSION['user']['mail_utilisateur']?>">
+                        <input type="text" name="form_remail" value="<?=$_SESSION['user']['email']?>">
                     </div> 
                     <div class="form-div">
                         <label for="form_password">Mot de passe</label>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="avatar-preview-container form-div">
                         <div class="preview">
-                            <img id="preview-selected-avatar" src="../image/avatar/<?=$_SESSION['user']['url_utilisateur']?>" />
+                            <img id="preview-selected-avatar" src="../image/avatar/<?=$_SESSION['user']['picture_url']?>" />
                         </div>
                         <label class="label-file" for="file-upload">Modifier votre avatar</label>
                         <input class="input-file" type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
@@ -80,13 +80,13 @@
                 <div>
                     <div class="form-div">
                         <label for="form_nom">Nom</label>
-                        <input type="text" name="form_nom" value="<?=$_SESSION['user']['nom_utilisateur']?>" required>
+                        <input type="text" name="form_nom" value="<?=$_SESSION['user']['lastname']?>" required>
                         <label for="form_prenom">Prénom</label>
-                        <input type="text" name="form_prenom" value="<?=$_SESSION['user']['prenom_utilisateur']?>" required>
+                        <input type="text" name="form_prenom" value="<?=$_SESSION['user']['firstname']?>" required>
                     </div>
                     <div class="form-div">
                         <label for="form_dob">Date de naissance</label>
-                        <input type="date" name="form_dob" value="<?=$_SESSION['user']['naissance_utilisateur']?>" required>
+                        <input type="date" name="form_dob" value="<?=$_SESSION['user']['birthdate']?>" required>
                     </div>
                 </div>         
                 <input type="submit" name="form_modification" value="Valider les changements" id="button">

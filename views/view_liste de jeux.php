@@ -1,6 +1,6 @@
 <?php
     include_once '../models/connect.php';
-    $jeux = $db->query('SELECT * FROM jeux ORDER By nom_jeux ASC')->fetchAll();
+    $games = $db->query('SELECT * FROM games ORDER By name ASC')->fetchAll();
     $title = "Liste de jeux";
     $description = "Liste des jeux indépendants.";
     // require './topHTML.php';
@@ -24,6 +24,7 @@
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="../script/randomGame.js" defer></script>
 
 </head>
 
@@ -48,8 +49,8 @@
           <img src="../image/Loupe.svg" class="glass">
           <input type="text" placeholder="Rechercher ici" class="search">
           <div class="user-div">
-          <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
-                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+          <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php
@@ -62,30 +63,28 @@
 
     <main>
       <div class="left-actu">
-        <div class="gradient-container">
-          <button class="but-roulette" id="but-roulette">
-            Lance la roulette !
-          </button>
-          <div class="gradient"></div>
-        </div>
-        <div class="div-roul">
-          <img src="../image/lights.svg" alt="" class="lights" id="lights" />
-          <img src="../image/roulette.svg" alt="" class="roulette" id="roulette" />
-        </div>
-        <div id="modal-roulette" class="display-none">
-          <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
-          <h2>Lone Ruin</h2>
-          <img src="../image/slide/loneRuin.jpg" alt="" class="modal-cover">
-          <a href="view_fiche de jeu.php">Voir la fiche du jeu</a>
-          <button id="modal-roulette-button">Relancer la roulette</button>
-        </div>
+          <div class="gradient-container">
+              <button class="but-roulette" id="but-roulette" onclick="randomGame();">Lance la roulette !</button>
+              <div class="gradient"></div>
+          </div>
+          <div class="div-roul"> 
+              <img src="../image/lights.svg" alt="" class="lights" id="lights" />
+              <img src="../image/roulette.svg" alt="" class="roulette" id="roulette">
+          </div>
+          <div id="modal-roulette" class="display-none">
+              <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
+              <h2 id="game_title"></h2>
+              <img id="game_img" src="" alt="" class="modal-cover redirect">
+              <a id="game_link" href="">Voir la fiche du jeu</a>
+              <button id="modal-roulette-button" onclick="randomGame();">Relancer la roulette</button>
+          </div>
       </div>
       <div class="game-list">
         <h2 class="game-title">Liste des jeux</h2>
         <div class="fil-main">
-        <?php foreach($jeux as $jeu) { ?>
+        <?php foreach($games as $game) { ?>
           <ul>
-            <li><a href="view_fiche de jeu.php?id=<?=$jeu['id_jeux']?>"><?=($jeu['nom_jeux'])?></a></li>
+            <li><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
           </ul>
         <?php }  ?>
         </div>
