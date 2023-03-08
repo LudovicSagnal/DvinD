@@ -1,7 +1,7 @@
 <?php
     include("../models/connect.php");
-    $utilisateurs = $db->query('SELECT * FROM utilisateur')->fetchAll();
-    $jeux = $db->query('SELECT * FROM jeux')->fetchAll();
+    $users = $db->query('SELECT * FROM users')->fetchAll();
+    $games = $db->query('SELECT * FROM games')->fetchAll(); // LEFT JOIN tables !
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
         <a href="view_contact.php" class="link">Contact</a>
         <a href="view_forum.php" class="link">Forum</a>
     </nav>
-    <?php if (empty($utilisateurs)) { ?>
+    <?php if (empty($users)) { ?>
         <p>Aucun utilisateur n'est inscrit</p>
     <?php } else { ?>
         <main>
@@ -52,23 +52,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($utilisateurs as $utilisateur) { ?>
+                            <?php foreach ($users as $user) { ?>
                                 <tr>
-                                    <td><?= $utilisateur['nom_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['prenom_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['mail_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['pseudo_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['password_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['url_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['naissance_utilisateur'] ?></td>
-                                    <td><?= $utilisateur['id_role'] ?></td>
+                                    <td><?= $user['lastname'] ?></td>
+                                    <td><?= $user['firstname'] ?></td>
+                                    <td><?= $user['email'] ?></td>
+                                    <td><?= $user['username'] ?></td>
+                                    <td><?= $user['user_password'] ?></td>
+                                    <td><?= $user['picture_url'] ?></td>
+                                    <td><?= $user['birthdate'] ?></td>
+                                    <td><?= $user['role_id'] ?></td>
                                     <td>
-                                        <a href="../views/view_maj.php?id=<?= $utilisateur['id_utilisateur'] ?>">Editer</a>&nbsp;
+                                        <a href="../views/view_maj.php?id=<?= $user['id'] ?>">Editer</a>&nbsp;
                                     </td>
                                     <td>
                                         <form method="POST" action="../controllers/controller_admin.php">
                                             <input type="hidden" name="form_delete" value="1">
-                                            <input type="hidden" name="id_utilisateur" value="<?= $utilisateur['id_utilisateur'] ?>">
+                                            <input type="hidden" name="id_user" value="<?= $user['id'] ?>">
                                             <button type="submit">Supprimer</button>
                                         </form>
                                     </td>
@@ -83,25 +83,25 @@
                         <form action="../controllers/controller_admin.php" method="post" enctype='multipart/form-data'>
                             <input type="hidden" name="form_insert" value="1">
                             <label>Nom:
-                                <input type="text" name="nom_utilisateur">
+                                <input type="text" name="lastname">
                             </label>
                             <label>Prénom:
-                                <input type="text" name="prenom_utilisateur">
+                                <input type="text" name="firstname">
                             </label>
                             <label>E-mail:
-                                <input type="email" name="mail_utilisateur">
+                                <input type="email" name="email">
                             </label>
                             <label>Pseudo:
-                                <input type="text" name="pseudo_utilisateur">
+                                <input type="text" name="username">
                             </label>
                             <label>Mot de passe:
-                                <input type="password" name="password_utilisateur">
+                                <input type="password" name="user_password">
                             </label>
                             <label>Image:
-                                <input type="file" name="url_utilisateur">
+                                <input type="file" name="picture_url">
                             </label>
                             <label>Date de naissance:
-                                <input type="date" name="naissance_utilisateur">
+                                <input type="date" name="birthdate">
                             </label>
                             <input type="submit" value="Enregistrer">
                         </form>
@@ -115,7 +115,7 @@
                 <h2>Jeux</h2>
 
                 <div>
-                    <?php if (empty($jeux)) { ?>
+                    <?php if (empty($games)) { ?>
                         <p>Aucun jeux en base de données</p>
                     <?php } else { ?>
                         <table>
@@ -126,27 +126,25 @@
                                     <td>Dévelopeur</td>
                                     <td>Description</td>
                                     <td>Date de sortie</td>
-                                    <td>Source</td>
                                     <td>Edition</td>
                                     <td>Suppression</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($jeux as $jeu) { ?>
+                                <?php foreach ($games as $game) { ?>
                                     <tr>
-                                        <td><?= $jeu['nom_jeux'] ?></td>
-                                        <td><?= $jeu['id_steam_jeux'] ?></td>
-                                        <td><?= $jeu['developpeur_jeux'] ?></td>
-                                        <td><?= $jeu['desc_jeux'] ?></td>
-                                        <td><?= $jeu['sortie_jeux'] ?></td>
-                                        <td><?= $jeu['source_jeux'] ?></td>
+                                        <td><?= $game['name'] ?></td>
+                                        <td><?= $game['steam_appid'] ?></td>
+                                        <!-- <td><?= $game['developpeur_jeux'] ?></td> -->
+                                        <td><?= $game['description'] ?></td>
+                                        <td><?= $game['release_date'] ?></td>
                                         <td>
-                                            <a href="../views/view_maj.php?id=<?= $jeu['id_jeux'] ?>">Editer</a>&nbsp;
+                                            <a href="../views/view_maj.php?id=<?= $game['id'] ?>">Editer</a>&nbsp;
                                         </td>
                                         <td>
                                             <form method="POST" action="../controllers/controller_admin.php">
                                                 <input type="hidden" name="form_delete" value="1">
-                                                <input type="hidden" name="id_jeux" value="<?= $jeu['id_jeux'] ?>">
+                                                <input type="hidden" name="id_game" value="<?= $game['id'] ?>">
                                                 <button type="submit">Supprimer</button>
                                             </form>
                                         </td>
@@ -162,22 +160,19 @@
                         <form action="../controllers/controller_admin.php" method="post" enctype='multipart/form-data'>
                             <input type="hidden" name="form_insert" value="1">
                             <label>Nom:
-                                <input type="text" name="nom_jeux">
+                                <input type="text" name="name">
                             </label>
                             <label>Steam ID:
-                                <input type="text" name="id_steam_jeux">
+                                <input type="text" name="steam_appid">
                             </label>
-                            <label>Développeur:
+                            <!-- <label>Développeur:
                                 <input type="text" name="developpeur_jeux">
-                            </label>
+                            </label> -->
                             <label>Description:
-                                <textarea name="" id="" cols="30" rows="10" name="desc_jeux" style="resize: none;"></textarea>
+                                <textarea name="" id="" cols="30" rows="10" name="description" style="resize: none;"></textarea>
                             </label>
                             <label>Date de sortie:
-                                <input type="date" name="sortie_jeux">
-                            </label>
-                            <label>Source:
-                                <input type="number" name="source_jeux">
+                                <input type="date" name="release_date">
                             </label>
                             <input type="submit" value="Enregistrer">
                         </form>

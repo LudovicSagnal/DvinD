@@ -1,19 +1,13 @@
 <?php
     include_once '../models/connect.php';
-    $req = $db->prepare('SELECT *
-                        FROM jeux j  
-                        LEFT JOIN avoir a ON a.id_jeux = j.id_jeux 
-                        LEFT JOIN tag t ON t.id_tag = a.id_tag
-                        LEFT JOIN plateforme p ON p.id_plateforme = a.id_plateforme
-                        LEFT JOIN langue l ON l.id_langue = a.id_langue
-                        LEFT JOIN attribuer ab ON ab.id_jeux = j.id_jeux
-                        LEFT JOIN asset ass ON ass.id_asset = ab.id_asset
-                        WHERE j.id_jeux=:id_jeux;'); //penser à faire un INNER JOIN
-    $req->bindParam(":id_jeux", $_GET['id']);
+    $req = $db->prepare('SELECT * FROM games  
+                        WHERE games.id=:id;'); //penser à faire un INNER JOIN pour developers
+    $req->bindParam(":id", $_GET['id']);
     $req->execute();
-    $jeux = $req->fetchAll(PDO::FETCH_ASSOC);
+    $games = $req->fetchAll(PDO::FETCH_ASSOC);
     $title = "Actualités";
     $description = "Actualités des jeux indépendants.";
+    var_dump($games);
     require './topHTML.php';
 ?>
 
@@ -38,8 +32,8 @@
             <img src="../image/Loupe.svg" class="glass" alt="">
             <input type="text" placeholder="Rechercher ici" class="search">
             <div class="user-div">
-                <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['url_utilisateur'] : "User.svg"?>" alt="" class="user">
-                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["pseudo_utilisateur"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+                <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php
