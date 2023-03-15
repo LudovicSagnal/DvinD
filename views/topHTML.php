@@ -19,7 +19,8 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/router.js?v=<?=date("H-i-s")?>" type="module" defer></script>
-    <script src="../script/randomGame.js" defer></script>
+    <script src="../script/randomGame.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="../script/showGame.js" defer></script>
 </head>
 
 <body>

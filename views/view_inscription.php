@@ -1,6 +1,6 @@
 <?php
-    $title = "Actualités ";
-    $description = "Actualités des jeux indépendants.";
+    $title = "Inscription ";
+    $description = "Formulaire d'inscription.";
     require './topHTML.php';
 ?>
 <!DOCTYPE html>
@@ -57,8 +57,8 @@
     </header>
     <main>
         <form action="../controllers/controller_inscription.php" method="post" enctype="multipart/form-data"> 
-            <label for="form_pseudo">Pseudo</label>
-            <input type="text" name="form_pseudo" required>
+            <label for="form_username">Pseudo</label>
+            <input type="text" name="form_username" required>
             <div>
                 <div class="form-div">
                     <label for="form_email" id="lab-email" required>Email</label>
@@ -88,14 +88,14 @@
             <h3>Informations personnelles</h3>
             <div>
                 <div class="form-div">
-                    <label for="form_nom">Nom</label>
-                    <input type="text" name="form_nom" required>
-                    <label for="form_prenom">Prénom</label>
-                    <input type="text" name="form_prenom" required>
+                    <label for="form_lastname">Nom</label>
+                    <input type="text" name="form_lastname" required>
+                    <label for="form_firstname">Prénom</label>
+                    <input type="text" name="form_firstname" required>
                 </div>
                 <div class="form-div">
-                    <label for="form_dob">Date de naissance</label>
-                    <input type="date" name="form_dob" required>
+                    <label for="form_birthdate">Date de naissance</label>
+                    <input type="date" name="form_birthdate" required>
                 </div>
             </div>         
             <input type="submit" name="form_inscription" value="Créer mon profil" id="button" disabled>

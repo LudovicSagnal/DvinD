@@ -12,6 +12,16 @@ multipleSelectBoxes.forEach(multipleSelectBox => {
     });
 });
 
+// function checkUncheck(checkBox) {
+
+// get = document.getElementsByName('platform');
+
+// for(var i=0; i<get.length; i++) {
+
+// get[i].checked = checkBox.checked;}
+
+// }
+
 // var show = true;
 // var selectBox = document.querySelectorAll(".selectBox");
 // var checkboxes = document.querySelectorAll(".checkBoxes");

@@ -25,6 +25,17 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/randomGame.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#search-list").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+    </script>
 
 </head>
 
@@ -83,8 +94,8 @@
         <h2 class="game-title">Liste des jeux</h2>
         <div class="fil-main">
         <?php foreach($games as $game) { ?>
-          <ul>
-            <li><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
+          <ul >
+            <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
           </ul>
         <?php }  ?>
         </div>
@@ -92,6 +103,7 @@
 
       <div class="right-actu">
         <h2>Affiner votre recherche</h2>
+        <input id="myInput" type="text">
         <form>
           <div class="multipleSelection">
             <div class="selectBox">
@@ -102,19 +114,19 @@
             </div>
             <div class="checkBoxes">
               <label for="first">
-                <input type="checkbox" id="first" checked />
+                <input type="checkbox"  id="first" checked />
                 Toutes
               </label>
               <label for="second">
-                <input type="checkbox" id="second" />
+                <input type="checkbox" name="platform" id="second" />
                 Windows
               </label>
               <label for="third">
-                <input type="checkbox" id="third" />
+                <input type="checkbox" name="platform" id="third" />
                 Mac
               </label>
               <label for="fourth">
-                <input type="checkbox" id="fourth" />
+                <input type="checkbox" name="platform" id="fourth" />
                 Linux
               </label>
             </div>

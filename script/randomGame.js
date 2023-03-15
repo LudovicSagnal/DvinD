@@ -2,8 +2,7 @@ async function randomGame() {
     var formData = new FormData();
 
     await fetch("../controllers/controller_random_game.php", {
-        method: "POST",
-        body: formData
+        method: "GET",
     })
     .then((response) => response.json())
     .then((result) => {

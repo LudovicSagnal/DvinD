@@ -45,7 +45,7 @@ h2 {
 }
 
 .platform p {
-    background-color: #FFFFFF80;
+    background-color: var(--colorOrange);
     color: var(--colorBlack);
     border-radius: 0px 0px 5px 5px;
     margin-top: 0;
@@ -62,7 +62,7 @@ h2 {
     margin-left: 20px;
 }
 
-.fiche-jeu img {
+.game-picture {
     object-fit: contain;
     height: 260px;
     margin-bottom: 0px;
@@ -74,15 +74,21 @@ h2 {
     margin-top: 0px;
 }
 
+.steam-icon {
+    height: 40px;
+    width: 40px;
+}
+
+.target-icon {
+    height: 15px;
+    width: 15px;
+    margin: 0px 0px 20px 10px;
+}
+
 .info-media {
     display: flex;
     gap: 20px;
 
-}
-
-.info-media img:hover {
-    transform: scale(1.5);
-    z-index: 10;
 }
 
 .info-media img, iframe {
@@ -96,3 +102,39 @@ h2 {
     bottom: 20px;
     margin-left: 30%;
 }
+
+.slider-screen {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    position: relative;
+  }
+  
+  #previous-screen {
+    font-size: 30px;
+    width: 40px;
+    background-color: rgb(0, 0, 0, 0.4);
+    position: absolute;
+    top: 150;
+    color: rgb(237, 226, 212);
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  #next-screen {
+    font-size: 30px;
+    width: 40px;
+    background-color: rgb(0, 0, 0, 0.4);
+    position: absolute;
+    top: 150;
+    right: 0;
+    color: rgb(237, 226, 212);
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  #previous-screen:hover, #next-screen:hover {
+    background-color: var(--colorOrange);
+    transition: 0.3s;
+  }

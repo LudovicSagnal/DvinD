@@ -43,11 +43,11 @@
         </label>
         <br/>
         <label>Rôle:
-        <select name="role_id">
-            <option value="0">Inscrit</option>
-            <option value="1">Modérateur</option>
-            <option value="2">Admin</option>
-        </select>
+            <select name="role_id">
+                <option value="1">Inscrit</option>
+                <option value="2">Modérateur</option>
+                <option value="3">Admin</option>
+            </select>
         </label>
         <br/>
         <input type="submit" value="Mettre à jour">

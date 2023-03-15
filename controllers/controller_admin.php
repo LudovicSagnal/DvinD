@@ -14,7 +14,7 @@
     }
 // Ajout d'un utilisateur
     if(!empty($_POST['form_insert'])) {
-        $sql = 'INSERT INTO users(lastname, firstname, email, username, user_password,
+        $sql = 'INSERT INTO users (lastname, firstname, email, username, user_password,
                 picture_url, birthdate, role_id)
                 VALUES(:lastname, :firstname, :email, :username, :user_password, '. 
                                     (!empty($name) ? ":picture_url" : 'DEFAULT') . ', :birthdate, DEFAULT);';
@@ -67,7 +67,7 @@
     } elseif(!empty($_POST['form_delete'])) {
         $sql = 'DELETE FROM users WHERE id=:id;';
         $req = $db->prepare($sql);
-        $req->bindParam(":id", $_POST['id']);
+        $req->bindParam(":id", $_POST['id_user']);
         $req->execute();
     }
     header("Location: ../views/view_admin.php"); 

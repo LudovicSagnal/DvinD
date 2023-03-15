@@ -1,7 +1,9 @@
 <?php
     include("../models/connect.php");
     $users = $db->query('SELECT * FROM users')->fetchAll();
-    $games = $db->query('SELECT * FROM games')->fetchAll(); // LEFT JOIN tables !
+    $games = $db->query('SELECT *, games.name AS game_name, developers.name AS dev FROM games
+                        INNER JOIN games_developers ON games_developers.game_id = games.id
+                        INNER JOIN developers ON developers.id = games_developers.developer_id')->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +16,6 @@
     <title>CRUD</title>
     <link rel="stylesheet" href="../style/admin.css">
     <link rel="icon" type="image/x-icon" href="../image/favicon-512x512.png">
-    <script src="../script/crud.js" defer></script>
     <style>
         fieldset {
             width: 210px;
@@ -46,7 +47,7 @@
                                 <td>Mot de passe</td>
                                 <td>Avatar</td>
                                 <td>Date de naissance</td>
-                                <td>Rôle <br> (1:modo ; 2:admin)</td>
+                                <td>Rôle <br> (2:modo ; 3:admin)</td>
                                 <td>Edition</td>
                                 <td>Suppression</td>
                             </tr>
@@ -133,9 +134,9 @@
                             <tbody>
                                 <?php foreach ($games as $game) { ?>
                                     <tr>
-                                        <td><?= $game['name'] ?></td>
+                                        <td><?= $game['game_name'] ?></td>
                                         <td><?= $game['steam_appid'] ?></td>
-                                        <!-- <td><?= $game['developpeur_jeux'] ?></td> -->
+                                        <td><?= $game['dev'] ?></td>
                                         <td><?= $game['description'] ?></td>
                                         <td><?= $game['release_date'] ?></td>
                                         <td>
@@ -165,14 +166,34 @@
                             <label>Steam ID:
                                 <input type="text" name="steam_appid">
                             </label>
-                            <!-- <label>Développeur:
-                                <input type="text" name="developpeur_jeux">
-                            </label> -->
+                            <label>Développeur:
+                                <input type="text" name="developer">
+                            </label>
+                            <label>Tags:
+                                <select name="tags">
+                                    <option value="1">Action</option>
+                                    <option value="2">Aventure</option>
+                                    <option value="3">Combat</option>
+                                    <option value="1">Gestion</option>
+                                    <option value="2">Horreur</option>
+                                    <option value="3">Plateforme</option>
+                                    <option value="1">RPG</option>
+                                    <option value="2">Sport</option>
+                                    <option value="3">Stratégie</option>
+                                </select>
+                            </label>
+                            <label>Plateformes:
+                                <select name="platforms">
+                                    <option value="1">Windows</option>
+                                    <option value="2">Mac</option>
+                                    <option value="3">Linux</option>
+                                </select>
+                            </label>
                             <label>Description:
                                 <textarea name="" id="" cols="30" rows="10" name="description" style="resize: none;"></textarea>
                             </label>
                             <label>Date de sortie:
-                                <input type="date" name="release_date">
+                                <input type="text" name="release_date">
                             </label>
                             <input type="submit" value="Enregistrer">
                         </form>

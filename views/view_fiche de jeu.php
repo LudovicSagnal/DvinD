@@ -1,18 +1,46 @@
 <?php
     include_once '../models/connect.php';
-    $req = $db->prepare('SELECT * FROM games  
-                        -- INNER JOIN games_tags ON games_tags.game_id = games.id
-                        -- INNER JOIN games_tags ON games_tags.tag_id = tags.id
-                        -- LEFT JOIN games_languages gl ON gl.game_id = games.id
-                        -- LEFT JOIN languages ON languages.id = gl.language_id
-                        -- LEFT JOIN games_platforms gp ON gp.game_id = games.id
-                        -- LEFT JOIN platforms ON platforms.id = gp.platform_id
-                        WHERE games.id=:id;'); //penser à faire un INNER JOIN pour developers
+
+    $req = $db->prepare('SELECT * FROM games
+                        WHERE games.id = :id;');                   
     $req->bindParam(":id", $_GET['id']);
     $req->execute();
-    $games = $req->fetchAll(PDO::FETCH_GROUP);
-    var_dump($games);
-    echo $games[0]['name'];
+    $game = $req->fetch(PDO::FETCH_ASSOC);
+    $req2 = $db->prepare('SELECT tags.name FROM games
+                        INNER JOIN games_tags ON games_tags.game_id = games.id
+                        INNER JOIN tags ON tags.id = games_tags.tag_id
+                        WHERE games.id = :id;');
+    $req2->bindParam(":id", $_GET['id']);
+    $req2->execute();     
+    $gameTags = $req2->fetchAll(PDO::FETCH_ASSOC);
+    $req3 = $db->prepare('SELECT platforms.name FROM games
+                        INNER JOIN games_platforms ON games_platforms.game_id = games.id
+                        INNER JOIN platforms ON platforms.id = games_platforms.platform_id
+                        WHERE games.id = :id;');
+    $req3->bindParam(":id", $_GET['id']);
+    $req3->execute();     
+    $gamePltaforms = $req3->fetchAll(PDO::FETCH_ASSOC);
+    $req4 = $db->prepare('SELECT languages.name FROM games
+                        INNER JOIN games_languages ON games_languages.game_id = games.id        
+                        INNER JOIN languages ON languages.id = games_languages.language_id   
+                        WHERE games.id = :id;');
+    $req4->bindParam(":id", $_GET['id']);
+    $req4->execute();     
+    $gameLangs = $req4->fetchAll(PDO::FETCH_ASSOC);
+    $req5 = $db->prepare('SELECT developers.name FROM games
+                        INNER JOIN games_developers ON games_developers.game_id = games.id        
+                        INNER JOIN developers ON developers.id = games_developers.developer_id   
+                        WHERE games.id = :id;');
+    $req5->bindParam(":id", $_GET['id']);
+    $req5->execute();     
+    $gameDevs = $req5->fetchAll(PDO::FETCH_ASSOC);
+    $req6 = $db->prepare('SELECT screenshots.url FROM screenshots
+                        INNER JOIN games ON screenshots.game_id = games.id
+                        WHERE games.id = :id;');
+    $req6->bindParam(":id", $_GET['id']);
+    $req6->execute();
+    $gameScreenshots = $req6->fetchAll(PDO::FETCH_ASSOC);
+    $string = "";
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +59,7 @@
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="../script/slideScreenshots.js" defer></script>
 </head>
 
 <body>
@@ -67,34 +96,42 @@
     </header>
 
     <section class="main">
-        <h2><?=($games[0]['name'])?></h2>
+        <h2><?=($game['name'])?></h2>
         <div class="main-game">
-        <?php foreach ($games as $platform) {
-                           echo($platform['platforms.name']);
-                        } ?>
             <div class="platform">
-                <p>Windows</p>
-                <p>Switch</p>
+                <?php foreach ($gamePltaforms as $platform) {
+                    echo('<p>'.$platform['name'].'</p>');
+                } ?>
             </div>
             <div class="main-middle">
                 <div class="fiche-jeu">
-                    <img src="../image//jeux/<?=($games['picture_url'])?>" alt="">
+                    <img class="game-picture" src="../image//jeux/<?=($game['picture_url'])?>" alt="">
                     <div class="fiche-info">
-                        <!-- <p>Développeur : <?=($games[0]['developpeur_jeux']);?></p> -->
-                        <p>Sortie : <?=($games['games.release_date'])?></p>
-                        <p>Genre(s) : <?php foreach ($games as $tag) {
-                           echo($tag['tags.name'].", ");
+                        <p>Développeur(s) : <?php foreach ($gameDevs as $dev) {
+                           echo($dev['name'].", ");
                         } ?></p>
-                        <p>Langues : <?php foreach ($games as $lang) {
-                           echo($lang['languages.name']." ");
+                        <p>Sortie : <?=($game['release_date'])?></p>
+                        <p>Genre(s) : <?php foreach ($gameTags as $tag) {
+                           echo($tag['name'].", ");
                         } ?></p>
+                        <p>Langues : <?php foreach ($gameLangs as $lang) {
+                        //     $string .= $lang['name'] . ", ";
+                        //     $stringWit = substr($string,0, -2);
+                        //    echo $stringWit;
+                        echo($lang['name'].", ");
+                        } ?></p>
+                        <a href="https://store.steampowered.com/app/<?= ($game['steam_appid']) ?>" target="_blank"><img class="steam-icon" src="../image/steam-icon.svg" alt=""><img class="target-icon" src="../image/target_blank.png" alt=""></a>
                     </div>
                 </div>
                 <div class="info-media">
-                    <img src="../image/lone-ruin-screen.jpg" alt="">
-                    <iframe width="560" height="315" src="<?= ($video[0]['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="slider-screen">
+                        <div id="previous-screen"><</div>
+                        <img src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
+                        <div id="next-screen">></div>
+                    </div>     
+                    <iframe width="560" height="315" src="<?= ($game['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <p class="desc"><?=($games[0]['games.description'])?></p>
+                <p class="desc"><?=($game['description'])?></p>
                 
 
             </div>

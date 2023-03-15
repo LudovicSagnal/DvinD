@@ -7,10 +7,14 @@
     $games = $req->fetchAll(PDO::FETCH_ASSOC);
     $title = "Actualités";
     $description = "Actualités des jeux indépendants.";
-    var_dump($games);
+
+    $searchGame = $db->query('SELECT id, name FROM games');
+    if(isset($_GET['query']) AND !empty($_GET['query'])) {
+       $query = htmlspecialchars($_GET['query']);
+       $searchGame = $db->query('SELECT id, name FROM games WHERE name LIKE "%'.$query.'%" ORDER BY name DESC');
+    }
     require './topHTML.php';
 ?>
-
 
     <header>
         <nav class="nav" role="navigation">
@@ -29,8 +33,13 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <img src="../image/Loupe.svg" class="glass" alt="">
-            <input type="text" placeholder="Rechercher ici" class="search">
+            <form>
+                <input type="text" class="search" name="users" onkeyup="showGame(this.value)" autocomplete="off">
+            </form>
+            <div class="modal-search">
+                <ul id="game-search"></ul>
+            </div>
+
             <div class="user-div">
                 <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
                 <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
@@ -102,7 +111,7 @@
                 <h2>Les prochaines sorties</h2>
                 <div id="next">></div>
             </div>
-            <div class="slider">
+            <div class="slider-actu">
                 <img src="../image/slide/loneRuin.jpg" alt="" id="pictures">
                 <h2>Date</h2>
             </div>
