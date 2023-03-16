@@ -36,7 +36,7 @@
             <form>
                 <input type="text" class="search" name="users" onkeyup="showGame(this.value)" autocomplete="off">
             </form>
-            <div class="modal-search">
+            <div id="modal-search" class="modal-search">
                 <ul id="game-search"></ul>
             </div>
 
