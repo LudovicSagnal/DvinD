@@ -32,6 +32,17 @@
     border-radius: 5px;
 }
 
+.info h3 {
+    color: var(--colorWhite);
+    text-align: center;
+    font-size: 25px;
+}
+
+.info p {
+    color: var(--colorWhite);
+    font-size: 18px;
+}
+
 .form-contact {
     display: flex;
     flex-direction: column;

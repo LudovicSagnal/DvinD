@@ -25,7 +25,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/randomGame.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="../script/showGame.js" defer></script>
     <script>
       $(document).ready(function(){
         $("#myInput").on("keyup", function() {
@@ -57,8 +57,11 @@
         </div>
         <div class="bottom-nav">
           <div class="line-1"></div>
-          <img src="../image/Loupe.svg" class="glass">
-          <input type="text" placeholder="Rechercher ici" class="search">
+          <input type="text" id="search-input" class="search">
+          <label for="search-input">Rechercher un jeu</label>
+          <div class="display-none" id="modal-search">
+              <ul id="games-list"></ul> 
+          </div>
           <div class="user-div">
           <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
                 <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
@@ -94,7 +97,7 @@
         <h2 class="game-title">Liste des jeux</h2>
         <div class="fil-main">
         <?php foreach($games as $game) { ?>
-          <ul >
+          <ul>
             <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
           </ul>
         <?php }  ?>
@@ -103,7 +106,6 @@
 
       <div class="right-actu">
         <h2>Affiner votre recherche</h2>
-        <input id="myInput" type="text">
         <form>
           <div class="multipleSelection">
             <div class="selectBox">

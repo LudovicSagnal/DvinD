@@ -18,6 +18,7 @@
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="../script/showGame.js" defer></script>
 
 </head>
 
@@ -39,8 +40,11 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <img src="../image/Loupe.svg" class="glass">
-            <input type="text" placeholder="Rechercher ici" class="search">
+            <input type="text" id="search-input" class="search">
+            <label for="search-input">Rechercher un jeu</label>
+            <div class="display-none" id="modal-search">
+               <ul id="games-list"></ul> 
+            </div>
             <div class="user-div">
             <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
                 <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
@@ -57,7 +61,9 @@
     <section class="main-contact">
         <div class="inform">
             <div class="info">
-
+                <h3>A propos de DvinD</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam fuga illum quibusdam consequatur optio error totam quam ad omnis tempora dolorum porro delectus voluptatum, officia veritatis est quisquam quod odit!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, porro. Placeat accusamus ex, sequi, quia numquam asperiores vitae natus molestiae repellendus nulla ea facere rem ab dolor at quo sapiente.</p>
             </div>
             <form method="post" class="form-contact">
                 <h2>Contactez-moi</h2>

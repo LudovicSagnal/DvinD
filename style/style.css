@@ -114,11 +114,26 @@ header .link {
   border: 1px solid var(--colorWhite);
   border-radius: 5px;
   z-index: 10;
+  animation: render 1s;
+}
+
+/* animation de l'arrivée de la modal */
+@keyframes render {
+  from{  
+    transform:translate(0);
+    opacity: 0;
+    z-index:-1;
+  } to{ 
+    transform: translate(1);
+    opacity: 1;
+    z-index:2;
+  }
 }
 
 .modal-search ul {
   display: flex;
   flex-direction: column;
+  list-style-type:none;
 }
 
 .user-div {

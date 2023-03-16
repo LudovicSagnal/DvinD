@@ -33,13 +33,11 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <form>
-                <input type="text" class="search" name="users" onkeyup="showGame(this.value)" autocomplete="off">
-            </form>
-            <div id="modal-search" class="modal-search">
-                <ul id="game-search"></ul>
+            <input type="text" id="search-input" class="search">
+            <label for="search-input">Rechercher un jeu</label>
+            <div class="display-none" id="modal-search">
+               <ul id="games-list"></ul> 
             </div>
-
             <div class="user-div">
                 <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
                 <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>

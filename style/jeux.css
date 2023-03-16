@@ -30,7 +30,7 @@
     margin-bottom: 0;
 }
 
-li a {
+#search-list a {
     color: var(--colorBlack);
     text-decoration: none;
 }

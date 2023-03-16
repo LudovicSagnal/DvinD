@@ -40,7 +40,11 @@
     $req6->bindParam(":id", $_GET['id']);
     $req6->execute();
     $gameScreenshots = $req6->fetchAll(PDO::FETCH_ASSOC);
-    $string = "";
+    $devString = "";
+    $tagString="";
+    $langString = "";
+
+    var_dump($gameScreenshots);
 ?>
 
 <!DOCTYPE html>
@@ -108,37 +112,38 @@
                     <img class="game-picture" src="../image//jeux/<?=($game['picture_url'])?>" alt="">
                     <div class="fiche-info">
                         <p>Développeur(s) : <?php foreach ($gameDevs as $dev) {
-                           echo($dev['name'].", ");
-                        } ?></p>
+                                        $devString .= $dev['name'] . ", ";
+                                    }
+                                        $devWithoutComma = substr($devString, 0, -2);
+                                    echo($devWithoutComma);
+                                    ?></p>
                         <p>Sortie : <?=($game['release_date'])?></p>
                         <p>Genre(s) : <?php foreach ($gameTags as $tag) {
-                           echo($tag['name'].", ");
-                        } ?></p>
+                                        $tagString .= $tag['name'] . ", ";
+                                    }
+                                        $tagWithoutComma = substr($tagString,0, -2);
+                                        echo($tagWithoutComma);
+                                    ?></p>
                         <p>Langues : <?php foreach ($gameLangs as $lang) {
-                        //     $string .= $lang['name'] . ", ";
-                        //     $stringWit = substr($string,0, -2);
-                        //    echo $stringWit;
-                        echo($lang['name'].", ");
-                        } ?></p>
+                                        $langString .= $lang['name'] . ", ";
+                                    }
+                                        $langsWithoutComma = substr($langString, 0, -2);
+                                        echo ($langsWithoutComma);
+                                    ?></p>
                         <a href="https://store.steampowered.com/app/<?= ($game['steam_appid']) ?>" target="_blank"><img class="steam-icon" src="../image/steam-icon.svg" alt=""><img class="target-icon" src="../image/target_blank.png" alt=""></a>
                     </div>
                 </div>
                 <div class="info-media">
                     <div class="slider-screen">
                         <div id="previous-screen"><</div>
-                        <img src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
-                        <div id="next-screen">></div>
+                            <img id="game-screen" src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
+                        <div id="next-screen" onclick="initSliderScreenshots()">></div>
                     </div>     
                     <iframe width="560" height="315" src="<?= ($game['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <p class="desc"><?=($game['description'])?></p>
                 
-
             </div>
-
-
-
-
 
         </div>
     </section>
