@@ -14,13 +14,7 @@ async function initSliderScreenshots(gameId) {
     });
 }
 
-function test() {
-    console.log(result.game_name);
-}
 let prev =document.getElementById("previous-screen");
 let next = document.getElementById("next-screen");
 
-prev.addEventListener("click",()=> {
-    console.log(result);
-});
-next.addEventListener("click",test);
+next.addEventListener("click",initSliderScreenshots);

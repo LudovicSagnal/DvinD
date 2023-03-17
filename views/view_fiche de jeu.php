@@ -63,7 +63,7 @@
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
-    <script src="../script/search.js" defer></script>
+    <script src="../script/search.js?v=<?=date("H-i-s")?>" defer></script>
 </head>
 
 <body>
@@ -140,7 +140,7 @@
                     <div class="slider-screen">
                         <div id="previous-screen"><</div>
                             <img id="game-screen" src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
-                        <div id="next-screen" onclick="initSliderScreenshots(salut)">></div>
+                        <div id="next-screen" onclick="initSliderScreenshots(<?=$game['id']?>)">></div>
                     </div>     
                     <iframe width="560" height="315" src="<?= ($game['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
