@@ -63,7 +63,7 @@
     <script src="../script/user.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
-    <script src="../script/slideScreenshots.js" defer></script>
+    <script src="../script/search.js" defer></script>
 </head>
 
 <body>
@@ -84,8 +84,11 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <img src="../image/Loupe.svg" class="glass" alt="">
-            <input type="text" placeholder="Rechercher ici" class="search">
+            <input type="text" id="search-input" class="search">
+            <label for="search-input">Rechercher un jeu</label>
+            <div class="display-none" id="modal-search">
+               <ul id="games-list"></ul> 
+            </div>
             <div class="user-div">
             <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
                 <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
@@ -99,7 +102,7 @@
         </div>
     </header>
 
-    <section class="main">
+    <section class="main">Z
         <h2><?=($game['name'])?></h2>
         <div class="main-game">
             <div class="platform">
@@ -137,7 +140,7 @@
                     <div class="slider-screen">
                         <div id="previous-screen"><</div>
                             <img id="game-screen" src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
-                        <div id="next-screen" onclick="initSliderScreenshots()">></div>
+                        <div id="next-screen" onclick="initSliderScreenshots(salut)">></div>
                     </div>     
                     <iframe width="560" height="315" src="<?= ($game['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -147,6 +150,7 @@
 
         </div>
     </section>
+    <script src="../script/slideScreenshots.js"> initSliderScreenshots(<?=$game['id']?>) </script>
 <?php
     require './bottomHTML.php';
 ?>

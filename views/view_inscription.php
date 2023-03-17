@@ -18,6 +18,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js" defer></script>
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/verif.js?v=<?=date("H-i-s")?>" defer></script>
+    <script src="../script/search.js" defer></script>
 </head>
 
 <body>
@@ -38,8 +39,11 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <img src="../image/Loupe.svg" class="glass">
-            <input type="text" placeholder="Rechercher ici" class="search">
+            <input type="text" id="search-input" class="search">
+            <label for="search-input">Rechercher un jeu</label>
+            <div class="display-none" id="modal-search">
+               <ul id="games-list"></ul> 
+            </div>
             <div class="user-div">
                 <img src="../image/avatar/User.svg" alt="" class="user">
             </div>

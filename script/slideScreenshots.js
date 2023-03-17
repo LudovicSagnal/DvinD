@@ -1,42 +1,26 @@
-let n =0 ;
 var gameScreen = document.getElementById("game-screen").src;
 
-async function initSliderScreenshots() {
+async function initSliderScreenshots(gameId) {
+    console.log(gameId);
     var formData = new FormData();
 
-    await fetch("../controllers/controller_screenshots.php", {
-        method: "GET",
+    await fetch("../controllers/controller_screenshots.php?id="+gameId, {
+        method: "GET"
     })
     .then((response) => response.json())
     .then((result) => {
-        gameScreen = "../image/screenshots/"+result.game_name+"/"+result.game_img[1];
+        console.log(result);
+        // gameScreen = "../image/screenshots/"+result.game_name+"/"+result.game_img[0];
     });
 }
 
-// let prev = document.getElementById("previous-screen");
-// let next = document.getElementById("next-screen");
+function test() {
+    console.log(result.game_name);
+}
+let prev =document.getElementById("previous-screen");
+let next = document.getElementById("next-screen");
 
-// // prev.addEventListener("click",changePrev);
-// next.addEventListener("click",changeNext);
-
-// function changeNext() {
-//     console.log(gameScreen);
-// }
-
-// function changeNext() { 
-//     if (n < (result.length-1)){
-//         n++;
-//         console.log("haha");
-//     }else {
-//         n = 0;
-//         console.log("hoho");
-//     }
-// };
-
-// function changePrev() {
-//     if (n <= 0) {
-//         n = 4;
-//     }else if (n <= (result.length-1)) {
-//         n--;
-//     }
-// };
+prev.addEventListener("click",()=> {
+    console.log(result);
+});
+next.addEventListener("click",test);
