@@ -1,6 +1,15 @@
 <?php
     include_once '../models/connect.php';
     $games = $db->query('SELECT * FROM games ORDER By name ASC')->fetchAll();
+
+    $tags = $db->query('SELECT tags.name FROM tags')->fetchAll();
+
+    $platforms = $db->query('SELECT platforms.name FROM platforms')->fetchAll();
+
+    $langs = $db->query('SELECT languages.name FROM games
+                        INNER JOIN games_languages ON games_languages.game_id = games.id        
+                        INNER JOIN languages ON languages.id = games_languages.language_id')->fetchAll();
+
     $title = "Liste de jeux";
     $description = "Liste des jeux indépendants.";
     // require './topHTML.php';
@@ -119,18 +128,11 @@
                 <input type="checkbox"  id="first" checked />
                 Toutes
               </label>
-              <label for="second">
-                <input type="checkbox" name="platform" id="second" />
-                Windows
-              </label>
-              <label for="third">
-                <input type="checkbox" name="platform" id="third" />
-                Mac
-              </label>
-              <label for="fourth">
-                <input type="checkbox" name="platform" id="fourth" />
-                Linux
-              </label>
+              <?php foreach($platforms as $platform) {?>
+                  <label for="<?php $platform['name'] ?>">
+                    <input type="checkbox" name="platform" id="<?php $platform['name'] ?>" /> <?php echo $platform['name'] ?>
+                  </label> <?php
+              } ?>
             </div>
           </div>
         </form>
@@ -153,8 +155,7 @@
               </label>
               <label for="thirdL">
                 <input type="checkbox" id="thirdL" />
-                <img src="../image/Flag_of_the_United_Kingdom.svg.png" alt="" />
-                Anglais
+                <img src="../image/Flag_of_the_United_Kingdom.svg.png" alt="" /> Anglais
               </label>
             </div>
           </div>
@@ -232,27 +233,27 @@
                 <input type="checkbox" id="thirdT" />
                 Combat
               </label>
-              <label for="secondT">
+              <label for="fourthT">
                 <input type="checkbox" id="fourthT" />
                 Gestion
               </label>
-              <label for="thirdT">
+              <label for="fifthT">
                 <input type="checkbox" id="fifthT" />
                 Horreur
               </label>
-              <label for="secondT">
+              <label for="sixthT">
                 <input type="checkbox" id="sixthT" />
                 Plateforme
               </label>
-              <label for="thirdT">
+              <label for="seventhT">
                 <input type="checkbox" id="seventhT" />
                 RPG
               </label>
-              <label for="secondT">
+              <label for="eighthT">
                 <input type="checkbox" id="eighthT" />
                 Sport
               </label>
-              <label for="thirdT">
+              <label for="ninthT">
                 <input type="checkbox" id="ninthT" />
                 Stratégie
               </label>

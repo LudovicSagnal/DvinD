@@ -43,8 +43,6 @@
     $devString = "";
     $tagString="";
     $langString = "";
-
-    var_dump($gameScreenshots);
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +100,7 @@
         </div>
     </header>
 
-    <section class="main">Z
+    <section class="main">
         <h2><?=($game['name'])?></h2>
         <div class="main-game">
             <div class="platform">
@@ -140,7 +138,7 @@
                     <div class="slider-screen">
                         <div id="previous-screen"><</div>
                             <img id="game-screen" src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
-                        <div id="next-screen" onclick="initSliderScreenshots(<?=$game['id']?>)">></div>
+                        <div id="next-screen">></div>
                     </div>     
                     <iframe width="560" height="315" src="<?= ($game['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -150,7 +148,8 @@
 
         </div>
     </section>
-    <script src="../script/slideScreenshots.js"> initSliderScreenshots(<?=$game['id']?>) </script>
+    <script src="../script/slideScreenshots.js"></script>
+    <script>initSliderScreenshots(<?=$game['id']?>)</script>
 <?php
     require './bottomHTML.php';
 ?>
