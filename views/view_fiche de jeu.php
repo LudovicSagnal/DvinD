@@ -1,7 +1,8 @@
 <?php
     include_once '../models/connect.php';
 
-    $req = $db->prepare('SELECT * FROM games
+    $req = $db->query("SET lc_time_names = 'fr_FR';");
+    $req = $db->prepare('SELECT *, DATE_FORMAT(release_date, "%d %M %Y") AS date FROM games
                         WHERE games.id = :id;');                   
     $req->bindParam(":id", $_GET['id']);
     $req->execute();
@@ -11,28 +12,28 @@
                         INNER JOIN tags ON tags.id = games_tags.tag_id
                         WHERE games.id = :id;');
     $req2->bindParam(":id", $_GET['id']);
-    $req2->execute();     
+    $req2->execute();
     $gameTags = $req2->fetchAll(PDO::FETCH_ASSOC);
     $req3 = $db->prepare('SELECT platforms.name FROM games
                         INNER JOIN games_platforms ON games_platforms.game_id = games.id
                         INNER JOIN platforms ON platforms.id = games_platforms.platform_id
                         WHERE games.id = :id;');
     $req3->bindParam(":id", $_GET['id']);
-    $req3->execute();     
+    $req3->execute();
     $gamePltaforms = $req3->fetchAll(PDO::FETCH_ASSOC);
     $req4 = $db->prepare('SELECT languages.name FROM games
                         INNER JOIN games_languages ON games_languages.game_id = games.id        
                         INNER JOIN languages ON languages.id = games_languages.language_id   
                         WHERE games.id = :id;');
     $req4->bindParam(":id", $_GET['id']);
-    $req4->execute();     
+    $req4->execute();
     $gameLangs = $req4->fetchAll(PDO::FETCH_ASSOC);
     $req5 = $db->prepare('SELECT developers.name FROM games
                         INNER JOIN games_developers ON games_developers.game_id = games.id        
                         INNER JOIN developers ON developers.id = games_developers.developer_id   
                         WHERE games.id = :id;');
     $req5->bindParam(":id", $_GET['id']);
-    $req5->execute();     
+    $req5->execute();
     $gameDevs = $req5->fetchAll(PDO::FETCH_ASSOC);
     $req6 = $db->prepare('SELECT screenshots.url FROM screenshots
                         INNER JOIN games ON screenshots.game_id = games.id
@@ -118,7 +119,11 @@
                                         $devWithoutComma = substr($devString, 0, -2);
                                     echo($devWithoutComma);
                                     ?></p>
-                        <p>Sortie : <?=($game['release_date'])?></p>
+                        <p>Sortie : <?php if($game['date'] == null) {
+                                              echo ($game['future_release']);
+                                              }else {
+                                                echo ($game['date']);
+                                              }?></p>
                         <p>Genre(s) : <?php foreach ($gameTags as $tag) {
                                         $tagString .= $tag['name'] . ", ";
                                     }
