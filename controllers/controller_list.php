@@ -15,41 +15,42 @@
                 foreach($_GET['platform'] as $value) {
                     $condition .= $value;
                     if($i < count($_GET['platform'])) {
-                        $condition .= " OR platforms.name LIKE ". $value;  
+                        $condition .= ' OR platforms.name = "'. $value .'"';  
                     }
                     $i++;
                 };
                 $checkedPlatforms = $db->prepare('SELECT DISTINCT games.name FROM games
                                             INNER JOIN games_platforms ON games_platforms.game_id = games.id
                                             INNER JOIN platforms ON platforms.id = games_platforms.platform_id
-                                            WHERE platforms.name = "Windows"'
-                                            .$condition);
+                                            WHERE platforms.name = '.$condition);
+var_dump($checkedPlatforms->debugDumpParams());
+die;
                 $checkedPlatforms->execute();
                 var_dump($checkedPlatforms);
             }
-                // foreach($_GET['platform'] as $value){
-                // echo "Value : ".$value.'<br/>';
-                // var_dump($value);
-                // $checkedPlatforms = $db->prepare('SELECT  games.name FROM games
-                //                             INNER JOIN games_platforms ON games_platforms.game_id = games.id
-                //                             INNER JOIN platforms ON platforms.id = games_platforms.platform_id
-                //                             WHERE platforms.name LIKE :platformValue
-                //                             GROUP BY games.id ORDER By games.name ASC;');
-                //   $checkedPlatforms->bindParam(':platformValue', $value);
-                //   $checkedPlatforms->execute();
+            //     foreach($_GET['platform'] as $value){
+            //     echo "Value : ".$value.'<br/>';
+            //     var_dump($value);
+            //     $checkedPlatforms = $db->prepare('SELECT  games.name FROM games
+            //                                 INNER JOIN games_platforms ON games_platforms.game_id = games.id
+            //                                 INNER JOIN platforms ON platforms.id = games_platforms.platform_id
+            //                                 WHERE platforms.name LIKE :platformValue
+            //                                 GROUP BY games.id ORDER By games.name ASC;');
+            //       $checkedPlatforms->bindParam(':platformValue', $value);
+            //       $checkedPlatforms->execute();
                 
-                //   $tests = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
-                //   var_dump($tests);
-                //   $allow = array($tests[0]['name']);
-                //   $yop = array_intersect_key($tests, array_flip($allow));
-                //   var_dump($yop);
-                //   var_dump($tests); 
-                //     foreach($yop as $test) {
-                //     echo $test['name'];
-                // }
-                // }
-            }
+            //       $tests = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
+            //       var_dump($tests);
+            //       $allow = array($tests[0]['name']);
+            //       $yop = array_intersect_key($tests, array_flip($allow));
+            //       var_dump($yop);
+            //       var_dump($tests); 
+            //         foreach($yop as $test) {
+            //         echo $test['name'];
+            //         }
+            //     }
+            // }
             // header("Location: ../views/view_liste de jeux.php");
         }
-    
+    }
 ?>
