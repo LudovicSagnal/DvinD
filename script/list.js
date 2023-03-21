@@ -1,9 +1,10 @@
 const multipleSelectBoxes = document.querySelectorAll(".multipleSelection");
 
 multipleSelectBoxes.forEach(multipleSelectBox => {
-    multipleSelectBox.addEventListener("click", () => {
-        const checkboxes = multipleSelectBox.querySelector(".checkBoxes");
+    const selectBox = multipleSelectBox.querySelector(".selectBox");
+    const checkboxes = multipleSelectBox.querySelector(".checkBoxes");
 
+    selectBox.addEventListener("click", () => {
         if (!checkboxes.style.display || checkboxes.style.display === "none") {
             checkboxes.style.display = "block";
         } else {
@@ -11,6 +12,20 @@ multipleSelectBoxes.forEach(multipleSelectBox => {
         }
     });
 });
+
+// const multipleSelectBoxes = document.querySelectorAll(".multipleSelection");
+
+// multipleSelectBoxes.forEach(multipleSelectBox => {
+//     multipleSelectBox.addEventListener("click", () => {
+//         const checkboxes = multipleSelectBox.querySelector(".checkBoxes");
+
+//         if (!checkboxes.style.display || checkboxes.style.display === "none") {
+//             checkboxes.style.display = "block";
+//         } else {
+//             checkboxes.style.display = "none";
+//         }
+//     });
+// });
 
 // function checkUncheck(checkBox) {
 

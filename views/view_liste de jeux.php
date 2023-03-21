@@ -7,10 +7,6 @@
     $platforms = $db->query('SELECT id, name FROM platforms')->fetchAll();
 
     $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
-
-    $title = "Liste de jeux";
-    $description = "Liste des jeux indépendants.";
-    // require './topHTML.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +15,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Liste des jeux indépendants."/>
     <title>Liste des jeux</title>
     <link rel="stylesheet" href="../style/style.css?v=<?=date("H-i-s")?>" />
     <link rel="stylesheet" href="../style/jeux.css?v=<?=date("H-i-s")?>" />
@@ -33,16 +30,6 @@
     <script src="../script/smart-nav.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/randomGame.js" defer></script>
     <script src="../script/showGame.js" defer></script>
-    <script>
-      $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-          var value = $(this).val().toLowerCase();
-          $("#search-list").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-        });
-      });
-    </script>
 
 </head>
 
@@ -113,7 +100,7 @@
 
       <div class="right-actu">
         <h2>Affiner votre recherche</h2>
-        <form>
+        <form method="GET" action="../controllers/controller_list.php">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
@@ -123,14 +110,15 @@
             </div>
             <div class="checkBoxes">
               <label for="first">
-                <input type="checkbox"  id="first" checked />
+                <input type="checkbox"  id="first" name="platform[]" value="Toutes" checked />
                 Toutes
               </label>
               <?php foreach($platforms as $platform) {?>
-                  <label for="<?php $platform['name'] ?>">
-                    <input type="checkbox" name="platform" id="<?php $platform['name'] ?>" /> <?php echo $platform['name'] ?>
+                  <label for="<?= $platform['name'] ?>">
+                    <input type="checkbox" name="platform[]" id="<?= $platform['name'] ?>" value="<?= $platform['name'] ?>" /> <?= $platform['name'] ?>
                   </label> <?php
               } ?>
+              <input type="submit" name="submit" value="Valider">
             </div>
           </div>
         </form>
@@ -224,8 +212,8 @@
                 Tous
               </label>
               <?php foreach($tags as $tag) {?>
-                  <label for="<?php $tag['name'] ?>">
-                    <input type="checkbox" name="tag" id="<?php $tag['name'] ?>" /> <?php echo $tag['name'] ?>
+                  <label for="<?= $tag['name'] ?>">
+                    <input type="checkbox" name="tag" id="<?= $tag['name'] ?>" /> <?= $tag['name'] ?>
                   </label> <?php
               } ?>
             </div>

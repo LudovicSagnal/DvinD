@@ -16,7 +16,7 @@ function spin() {
   }, "5000"); // durée de cinq secondes avant de retirer les classes
   setTimeout(() => {
     modalRoulette.classList.replace("display-none", "modal-roulette-show");
-  }, "4000"); // quatre secondes avant l'apparition de la modal
+  }, "4500"); // quatre secondes avant l'apparition de la modal
   render = true;
 };
 

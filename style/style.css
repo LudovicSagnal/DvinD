@@ -491,7 +491,7 @@ p {
 
 .lights-spin {
   transform: rotate(-360deg);
-  transition: 5s;
+  transition: 4.5s;
 }
 
 .modal-roulette-show {
