@@ -1,6 +1,6 @@
 <?php
     include('../models/connect.php');
-    // include('../views/view_liste de jeux.php');
+    
 
     if(isset($_GET['submit_platform'])){
         if(!empty($_GET['platform'])) {
@@ -81,8 +81,7 @@
     if(isset($_GET['submit_tag'])){
         if(!empty($_GET['tag'])) {
             if (in_array('Tous', $_GET['tag'])) {
-                $checkedPlatforms = $db->query('SELECT * FROM games GROUP BY id ORDER By name ASC')->fetchAll();
-                var_dump($checkedPlatforms);
+                $tagList = $db->query('SELECT * FROM games GROUP BY id ORDER By name ASC')->fetchAll();
             }
             else  {
                 $conditionT = "";
@@ -104,5 +103,6 @@
             }
         }
     }
+    include('../views/view_liste de jeux.php');
     // header("Location: ../views/view_liste de jeux.php");
 ?>

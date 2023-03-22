@@ -93,18 +93,18 @@
         <h2 class="game-title">Liste des jeux</h2>
         <div class="fil-main">
         <?php
-          if(isset($_GET['submit_tag'])) {?>
+          if(isset($_GET['submit_tag'])){
+            foreach($tagList as $tag) {?>
                 <ul>
-                  <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$tagList['id']?>"><?=($tagList['name'])?></a></li>
+                  <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$tag['id']?>"><?=($tag['name'])?></a></li>
                 </ul>
               <?php
-                var_dump($tagList);
-          }else
+          }} else {
             foreach($games as $game) { ?>
               <ul>
                 <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
               </ul>
-            <?php }  ?>
+            <?php } } ?>
         </div>
       </div>
 
