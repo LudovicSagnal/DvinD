@@ -1,5 +1,7 @@
 <?php
     include_once '../models/connect.php';
+    // include '../controllers/controller_list.php';
+
     $games = $db->query('SELECT * FROM games ORDER By name ASC')->fetchAll();
 
     $tags = $db->query('SELECT id, name FROM tags')->fetchAll();
@@ -90,11 +92,19 @@
       <div class="game-list">
         <h2 class="game-title">Liste des jeux</h2>
         <div class="fil-main">
-        <?php foreach($games as $game) { ?>
-          <ul>
-            <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
-          </ul>
-        <?php }  ?>
+        <?php
+          if(isset($_GET['submit_tag'])) {?>
+                <ul>
+                  <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$tagList['id']?>"><?=($tagList['name'])?></a></li>
+                </ul>
+              <?php
+                var_dump($tagList);
+          }else
+            foreach($games as $game) { ?>
+              <ul>
+                <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
+              </ul>
+            <?php }  ?>
         </div>
       </div>
 
@@ -118,11 +128,11 @@
                     <input type="checkbox" name="platform[]" id="<?= $platform['name'] ?>" value="<?= $platform['name'] ?>" /> <?= $platform['name'] ?>
                   </label> <?php
               } ?>
-              <input type="submit" name="submit" value="Valider">
+              <input type="submit" name="submit_platform" value="Valider">
             </div>
           </div>
         </form>
-        <form>
+        <form method="GET" action="../controllers/controller_list.php">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
@@ -132,21 +142,22 @@
             </div>
             <div class="checkBoxes">
               <label for="firstL">
-                <input type="checkbox" id="firstL" checked />
+                <input type="checkbox" id="firstL" name="lang[]" value="Toutes" checked />
                 Toutes
               </label>
               <label for="secondL">
-                <input type="checkbox" id="secondL" />
+                <input type="checkbox" id="secondL" name="lang[]" value="Français" />
                 <img src="../image/Flag_of_France.svg.png" alt="" /> Français
               </label>
               <label for="thirdL">
-                <input type="checkbox" id="thirdL" />
+                <input type="checkbox" id="thirdL" name="lang[]" value="Anglais" />
                 <img src="../image/Flag_of_the_United_Kingdom.svg.png" alt="" /> Anglais
               </label>
+              <input type="submit" name="submit_lang" value="Valider">
             </div>
           </div>
         </form>
-        <form>
+        <form method="GET" action="../controllers/controller_list.php">
             <div class="multipleSelection">
                 <div class="selectBox">
                     <select>
@@ -156,49 +167,50 @@
                 </div>     
                     <div class="checkBoxes">
                         <label for="firstD">
-                            <input type="checkbox" id="firstD" checked/>
+                            <input type="checkbox" id="firstD" name="date[]" value="Toutes" checked/>
                             Toutes
                         </label>                      
                         <label for="secondD">
-                            <input type="checkbox" id="secondD" />
+                            <input type="checkbox" id="secondD" name="date[]" value="2023" />
                             2023
                         </label>
                         <label for="thirdD">
-                            <input type="checkbox" id="thirdD" />
+                            <input type="checkbox" id="thirdD" name="date[]" value="2022" />
                             2022
                         </label>
                         <label for="fourthD">
-                            <input type="checkbox" id="fourthD" />
+                            <input type="checkbox" id="fourthD" name="date[]" value="2021" />
                             2021
                         </label>
                         <label for="fifthD">
-                            <input type="checkbox" id="fifthD" />
+                            <input type="checkbox" id="fifthD" name="date[]" value="2020" />
                             2020
                         </label>
                         <label for="sixthD">
-                            <input type="checkbox" id="sixthD" />
+                            <input type="checkbox" id="sixthD" name="date[]" value="2019" />
                             2019
                         </label>
                         <label for="seventhD">
-                            <input type="checkbox" id="seventhD" />
+                            <input type="checkbox" id="seventhD" name="date[]" value="2018" />
                             2018
                         </label>
                         <label for="eighthD">
-                            <input type="checkbox" id="eighthD" />
+                            <input type="checkbox" id="eighthD" name="date[]" value="2017" />
                             2017
                         </label>
                         <label for="ninthD">
-                            <input type="checkbox" id="ninthD" />
+                            <input type="checkbox" id="ninthD" name="date[]" value="2016" />
                             2016
                         </label>
                         <label for="tenthD">
-                            <input type="checkbox" id="tenthD" />
+                            <input type="checkbox" id="tenthD" name="date[]" value="2015" />
                             2015
                         </label>
+                        <input type="submit" name="submit_date" value="Valider">
                     </div> 
             </div>
         </form>
-        <form>
+        <form method="GET" action="../controllers/controller_list.php">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
@@ -208,14 +220,15 @@
             </div>
             <div class="checkBoxes">
               <label for="firstT">
-                <input type="checkbox" id="firstT" checked />
+                <input type="checkbox" id="firstT" name="tag[]" value="Tous" checked />
                 Tous
               </label>
               <?php foreach($tags as $tag) {?>
                   <label for="<?= $tag['name'] ?>">
-                    <input type="checkbox" name="tag" id="<?= $tag['name'] ?>" /> <?= $tag['name'] ?>
+                    <input type="checkbox" name="tag[]" id="<?= $tag['name'] ?>" value="<?= $tag['name'] ?>" /> <?= $tag['name'] ?>
                   </label> <?php
               } ?>
+              <input type="submit" name="submit_tag" value="Valider">
             </div>
           </div>
         </form>
@@ -223,5 +236,5 @@
     </main>
 
 <?php
-    require './bottomHTML.php';
+    require 'bottomHTML.php';
 ?>
