@@ -1,13 +1,9 @@
 <?php
     include_once '../models/connect.php';
-    // include '../controllers/controller_list.php';
 
     $games = $db->query('SELECT * FROM games ORDER By name ASC')->fetchAll();
-
     $tags = $db->query('SELECT id, name FROM tags')->fetchAll();
-
     $platforms = $db->query('SELECT id, name FROM platforms')->fetchAll();
-
     $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
 ?>
 
@@ -92,6 +88,7 @@
       <div class="game-list">
         <h2 class="game-title">Liste des jeux</h2>
         <div class="fil-main">
+          
         <?php
           if(isset($_GET['submit_tag'])){
             foreach($tagList as $tag) {?>
@@ -100,11 +97,10 @@
                 </ul>
               <?php
           }} else {
-            foreach($games as $game) { ?>
-              <ul>
+            ?><ul> <?php
+            foreach($games as $game) { ?>         
                 <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
-              </ul>
-            <?php } } ?>
+            <?php } } ?></ul>
         </div>
       </div>
 

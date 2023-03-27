@@ -21,6 +21,7 @@
     <script src="../script/router.js?v=<?=date("H-i-s")?>" type="module" defer></script>
     <script src="../script/randomGame.js?v=<?=date("H-i-s")?>" defer></script>
     <script src="../script/showGame.js" defer></script>
+    <script src="../script/news.js" defer></script>
 </head>
 
 <body>

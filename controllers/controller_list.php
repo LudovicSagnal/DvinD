@@ -22,17 +22,15 @@
                                             INNER JOIN platforms ON platforms.id = games_platforms.platform_id
                                             WHERE platforms.name = '.$condition.'ORDER BY games.name');
                 $checkedPlatforms->execute();
-
-                $tests = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
-                var_dump($tests);
+                $platformList = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
+                var_dump($platformList);
             }
         }
     }
     if(isset($_GET['submit_lang'])){
         if(!empty($_GET['lang'])) {
             if (in_array('Toutes', $_GET['lang'])) {
-                $checkedPlatforms = $db->query('SELECT * FROM games GROUP BY id ORDER By name ASC')->fetchAll();
-                var_dump($checkedPlatforms);
+                $checkedLangs = $db->query('SELECT * FROM games GROUP BY id ORDER By name ASC')->fetchAll();
             }
             else  {
                 $conditionL = "";
@@ -43,22 +41,20 @@
                         $conditionL .= ' OR languages.name = "'. $value .'"';
                     }
                 };
-                $checkedPlatforms = $db->prepare('SELECT DISTINCT games.name, games.id FROM games
+                $checkedLangs= $db->prepare('SELECT DISTINCT games.name, games.id FROM games
                                             INNER JOIN games_languages ON games_languages.game_id = games.id
                                             INNER JOIN languages ON languages.id = games_languages.language_id
                                             WHERE languages.name = '.$conditionL.'ORDER BY games.name');
-                $checkedPlatforms->execute();
-
-                $tests = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
-                var_dump($tests);
+                $checkedLangs->execute();
+                $langList = $checkedLangs->fetchAll(PDO::FETCH_ASSOC);
+                var_dump($langList);
             }
         }
     }
     if(isset($_GET['submit_date'])){
         if(!empty($_GET['date'])) {
             if (in_array('Toutes', $_GET['date'])) {
-                $checkedPlatforms = $db->query('SELECT * FROM games GROUP BY id ORDER By name ASC')->fetchAll();
-                var_dump($checkedPlatforms);
+                $checkedDates = $db->query('SELECT * FROM games GROUP BY id ORDER By name ASC')->fetchAll();
             }
             else  {
                 $conditionD = "";
@@ -69,12 +65,11 @@
                         $conditionD .= ' OR YEAR(release_date) = "'. $value .'"';
                     }
                 };
-                $checkedPlatforms = $db->prepare('SELECT DISTINCT games.name, games.id FROM games
+                $checkedDates = $db->prepare('SELECT DISTINCT games.name, games.id FROM games
                                             WHERE YEAR(release_date) = '.$conditionD.'ORDER BY games.name');
-                $checkedPlatforms->execute();
-
-                $tests = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
-                var_dump($tests);
+                $checkedDates->execute();
+                $dateList = $checkedDates->fetchAll(PDO::FETCH_ASSOC);
+                var_dump($dateList);
             }
         }
     }
@@ -92,14 +87,13 @@
                         $conditionT .= ' OR tags.name = "'. $value .'"';
                     }
                 };
-                $checkedPlatforms = $db->prepare('SELECT DISTINCT games.name, games.id FROM games
+                $checkedTags= $db->prepare('SELECT DISTINCT games.name, games.id FROM games
                                                 INNER JOIN games_tags ON games_tags.game_id = games.id
                                                 INNER JOIN tags ON tags.id = games_tags.tag_id
                                                 WHERE tags.name = '.$conditionT.'ORDER BY games.name');
-                $checkedPlatforms->execute();
-
-                $tagList = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
-                // var_dump($tagList);
+                $checkedTags->execute();
+                $tagList = $checkedTags->fetchAll(PDO::FETCH_ASSOC);
+                var_dump($tagList);
             }
         }
     }

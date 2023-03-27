@@ -30,6 +30,22 @@
     margin-bottom: 0;
 }
 
+ul {
+  column-count: 2;
+  height: auto;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+li {
+    height: 40px;
+}
+
+li::marker {
+    content: "\22B3";
+    color: var(--colorOrange);
+}
+
 #search-list a {
     color: var(--colorBlack);
     text-decoration: none;

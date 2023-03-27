@@ -7,6 +7,14 @@
     $req->bindParam(":id", $_GET['id']);
     $req->execute();
     $game = $req->fetch(PDO::FETCH_ASSOC);
+
+    function RemoveSpecialChar($str) {
+        $res = str_replace( array( `'\', '/', ':' ,'"',
+        '*' , '|', '<', '>', '?' `), '', $str);
+        return $res;
+    }
+    $cleanName = RemoveSpecialChar($game['name']);
+    
     $req2 = $db->prepare('SELECT tags.name FROM games
                         INNER JOIN games_tags ON games_tags.game_id = games.id
                         INNER JOIN tags ON tags.id = games_tags.tag_id
@@ -20,7 +28,7 @@
                         WHERE games.id = :id;');
     $req3->bindParam(":id", $_GET['id']);
     $req3->execute();
-    $gamePltaforms = $req3->fetchAll(PDO::FETCH_ASSOC);
+    $gamePlatforms = $req3->fetchAll(PDO::FETCH_ASSOC);
     $req4 = $db->prepare('SELECT languages.name FROM games
                         INNER JOIN games_languages ON games_languages.game_id = games.id        
                         INNER JOIN languages ON languages.id = games_languages.language_id   
@@ -105,7 +113,7 @@
         <h2><?=($game['name'])?></h2>
         <div class="main-game">
             <div class="platform">
-                <?php foreach ($gamePltaforms as $platform) {
+                <?php foreach ($gamePlatforms as $platform) {
                     echo('<p>'.$platform['name'].'</p>');
                 } ?>
             </div>
@@ -142,7 +150,7 @@
                 <div class="info-media">
                     <div class="slider-screen">
                         <div id="previous-screen"><</div>
-                            <img id="game-screen" src="../image/screenshots/<?= $game['name']."/".$gameScreenshots[0]['url'] ?>" alt="">
+                            <img id="game-screen" src="../image/screenshots/<?=$cleanName."/".$gameScreenshots[0]['url'] ?>" alt="">
                         <div id="next-screen">></div>
                     </div>     
                     <iframe width="560" height="315" src="<?= ($game['video_url']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
