@@ -115,11 +115,13 @@ require './topHTML.php';
                 <div id="next">></div>
             </div>
             <div class="slider-actu">
-                <img src="../image/slide/loneRuin.jpg" alt="" id="pictures">
-                <h2>Date</h2>
+                <img src="" alt="" id="slider-pictures">
+                <h2 id="slider-date">Date</h2>
             </div>
         </div>
     </main>
+    <script src="../script/slider.js"></script>
+    <script>initSlider()</script>
 
 <?php
     require './bottomHTML.php';

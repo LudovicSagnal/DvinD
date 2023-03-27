@@ -9,8 +9,7 @@
     $game = $req->fetch(PDO::FETCH_ASSOC);
 
     function RemoveSpecialChar($str) {
-        $res = str_replace( array( `'\', '/', ':' ,'"',
-        '*' , '|', '<', '>', '?' `), '', $str);
+        $res = str_replace( array('\\', '/', ':', '"', '*', '|', '<', '>', '?'), '', $str);
         return $res;
     }
     $cleanName = RemoveSpecialChar($game['name']);
