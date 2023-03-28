@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 27 mars 2023 à 14:34
+-- Généré le : mar. 28 mars 2023 à 13:49
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -61,7 +61,12 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (20, 'Juvty Worlds'),
 (21, 'CarloC'),
 (22, 'Pierre Vigier'),
-(23, 'Lost Relic Games');
+(23, 'Lost Relic Games'),
+(24, 'Fictiorama Studios'),
+(25, 'Sleeping Eight Studio'),
+(26, 'Chicken Launcher'),
+(27, 'KO.DLL'),
+(28, 'Smartmelon Games');
 
 -- --------------------------------------------------------
 
@@ -81,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -109,7 +114,12 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (19, 'GrimGrad', 'Construisez votre propre village slave. Surmontez les difficultés de la vie médiévale et n\'offensez pas les Dieux !', '2023-04-05', 'Prochainement', 1837340, 'grimgrad.jpg', 'https://www.youtube.com/embed/66g3ENSCglY', 0),
 (20, 'Full Metal Sergeant', 'Devenez l\'instructeur ! Insultez vos recrues sans remords ! Pourrez-vous transformer des recrues mou du genou en machine de guerre en 12 semaines ?', '2023-04-03', 'Prochainement', NULL, 'fullMetalSergeant.jpg', 'https://www.youtube.com/embed/sgoTGpBC8fc', 0),
 (21, 'Vagabond', 'Explorez des mondes vivants générés procéduralement dans ce RPG bac-à-sable 2D. Rencontrez des centaines de personnages dans les villages, accomplissez des quêtes, fabriquez de puissants objets, achetez et meublez votre maison ou combattez des monstres dans des donjons.', NULL, '2ᵉ trimestre 2023', 1673090, 'vagabond.jpg', 'https://www.youtube.com/embed/-wk0L8bHkYU', 0),
-(22, 'Blood And Mead', 'Decimate deadly foes and formidable bosses, unlock combat abilities, drink mead and go full Berserker Mode! Join Usyldor on a bone-crushing quest for revenge that will make him a legend.\r\n\r\nDécime ennemis mortels et redoutables boss, débloque des compétences de combat, bois de l\'hydromel et passe en mode Berserker ! Rejoins Usyldor dans une sanglante quête de revanche qui fera de lui une légende.', NULL, 'Quand Odin l\'aura décidé !', 1081830, 'bloodAndMead.jpg', 'https://www.youtube.com/embed/SZH5StcDUFA', 0);
+(22, 'Blood And Mead', 'Decimate deadly foes and formidable bosses, unlock combat abilities, drink mead and go full Berserker Mode! Join Usyldor on a bone-crushing quest for revenge that will make him a legend.\r\n\r\nDécime ennemis mortels et redoutables boss, débloque des compétences de combat, bois de l\'hydromel et passe en mode Berserker ! Rejoins Usyldor dans une sanglante quête de revanche qui fera de lui une légende.', NULL, 'Quand Odin l\'aura décidé !', 1081830, 'bloodAndMead.jpg', 'https://www.youtube.com/embed/SZH5StcDUFA', 0),
+(23, 'Myriads: Renaissance', 'Myriads: Renaissance est un jeu de stratégie au tour par tour avec construction de ville et mécanique 4X. Situé dans un monde fantastique composé de milliers d\'îles flottantes, vous devez développer votre capital et étendre votre royaume. Résistez aux vagues de corsaires puissants et construisez des tours de défense pour survivre à leurs incursions.', '2023-06-01', 'Prochainement', 1737220, 'myriadsRenaissance.jpg', 'https://www.youtube.com/embed/jQMtLVX3S7M', 0),
+(24, 'Do Not Feed the Monkeys 2099', 'Espionnez à travers les caméras, envahissez des vies privées et découvrez des secrets dans ce simulateur de voyeurisme. Bienvenue dans le futur du Primate Observation Club (Club d’observation des primates). En 2099, la règle d\'or demeure : DO NOT feed the monkeys ! : NE nourrissez PAS les singes !', '2023-05-25', 'Prochainement', 1964040, 'DoNotFeedtheMonkeys2099.jpg', 'https://www.youtube.com/embed/cTQqpwYk5nc', 0),
+(25, 'Pan\'orama', 'Pan\'orama est un jeu de simulation de puzzle relaxant et apaisant dans lequel vous créez des paysages incroyables en utilisant différents types de tuiles, mais surtout en découvrant les connexions entre elles et en trouvant des combinaisons uniques.', '2023-07-11', 'Prochainement', 1730250, 'pan\'orama.jpg', 'https://www.youtube.com/embed/yg_IPfzLQ3g', 0),
+(26, 'Bzzzt', 'Empêchez le terrible scientifique Badbert de conquérir le monde dans ce génial jeu de plateforme réalisé en pixel art tout droit sorti des années 80 ! contrôlez ZX8000, le petit robot rusé et maîtrisez vos compétences dans un monde en constante évolution rempli de pièges astucieux et de robots.', '2023-07-20', 'Prochainement', 1293170, 'Bzzzt.jpg', 'https://www.youtube.com/embed/Opp65mYyQT8', 0),
+(27, 'Lightracer Spark', 'Lightracer Spark est un jeu narratif de science-fiction. Vous êtes un Amender d\'une haute civilisation, descendant dans divers mondes extraterrestres. Guidez les êtres vivants vers la prospérité ou étouffez l\'étincelle dans l\'œuf. Accumulez de la force grâce à des choix et des stratégies pour saisir l\'ascension et la chute de toutes les civilisations.', '2023-04-12', 'Prochainement', 2094270, 'LightracerSpark.jpg', 'https://www.youtube.com/embed/S1koMM19tGA', 0);
 
 -- --------------------------------------------------------
 
@@ -152,7 +162,12 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (19, 20),
 (20, 21),
 (21, 22),
-(22, 23);
+(22, 23),
+(24, 24),
+(23, 25),
+(25, 26),
+(26, 27),
+(27, 28);
 
 -- --------------------------------------------------------
 
@@ -186,6 +201,8 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (17, 1),
 (20, 1),
 (21, 1),
+(25, 1),
+(26, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -207,7 +224,12 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (19, 2),
 (20, 2),
 (21, 2),
-(22, 2);
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2),
+(26, 2),
+(27, 2);
 
 -- --------------------------------------------------------
 
@@ -250,6 +272,11 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (20, 1),
 (21, 1),
 (22, 1),
+(23, 1),
+(24, 1),
+(25, 1),
+(26, 1),
+(27, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -257,13 +284,16 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (8, 2),
 (16, 2),
 (21, 2),
+(26, 2),
 (1, 3),
 (3, 3),
 (8, 3),
 (10, 3),
 (15, 3),
 (16, 3),
-(22, 3);
+(22, 3),
+(24, 3),
+(26, 3);
 
 -- --------------------------------------------------------
 
@@ -292,6 +322,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (11, 1),
 (17, 1),
 (22, 1),
+(26, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -302,6 +333,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (15, 2),
 (21, 2),
 (22, 2),
+(26, 2),
 (7, 3),
 (1, 4),
 (3, 4),
@@ -312,11 +344,13 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (18, 4),
 (19, 4),
 (20, 4),
+(23, 4),
 (4, 5),
 (17, 5),
 (5, 6),
 (10, 6),
 (22, 6),
+(26, 6),
 (3, 7),
 (5, 7),
 (6, 7),
@@ -326,11 +360,16 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (15, 7),
 (21, 7),
 (22, 7),
+(27, 7),
 (6, 9),
 (9, 9),
 (16, 9),
 (19, 9),
-(20, 9);
+(20, 9),
+(23, 9),
+(24, 9),
+(25, 9),
+(27, 9);
 
 -- --------------------------------------------------------
 
@@ -369,7 +408,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`),
   KEY `posted_by_id` (`posted_by_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `news`
@@ -379,7 +418,8 @@ INSERT INTO `news` (`id`, `title`, `content`, `date`, `posted_by_id`, `is_visibl
 (1, 'Bienvenu à tous sur DvinD !', '<p>Dvind est votre nouvelle plateforme d\'actualité et de communication autour du jeu vidéo indépendant. Ici, nous pourrons échanger entre passionnés et développeurs sur nos jeux indés préférés et contribuer à leur visibilité.</p>\r\n\r\n<p>Venez participer !</p>', '2023-03-27 09:53:54', 2, 0),
 (2, 'Une bonne actu test', '<p> La bonne vieille news test qui fait zizir. </p>', '2023-03-27 10:26:21', 2, 0),
 (3, 'Demonologist sort aujourd\'hui !', '<p>Le jeu d\'horreur <a href=\"http://localhost/DvinD/views/view_fiche%20de%20jeu.php?id=17\">Demonologist</a> sort de son accès anticipé ce lundi 27 mars.</p>\r\n\r\n<p>Demonologist est un jeu d\'horreur en coopération qui peut être joué avec au moins 1 et jusqu\'à 4 joueurs.</p>\r\n', '2023-03-27 12:23:20', 2, 0),
-(4, 'La news du futur', 'Pour voir si tout va bien <3', '2023-03-28 14:22:55', 14, 0);
+(4, 'La news du futur', '<p>Pour voir si tout va bien <3</p>', '2023-03-28 08:22:55', 14, 0),
+(5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche de jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -400,7 +440,8 @@ CREATE TABLE IF NOT EXISTS `news_games` (
 --
 
 INSERT INTO `news_games` (`news_id`, `game_id`) VALUES
-(3, 17);
+(3, 17),
+(5, 27);
 
 -- --------------------------------------------------------
 
@@ -459,7 +500,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -553,7 +594,27 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (85, 'bloodAndMead1.jpg', 22),
 (86, 'bloodAndMead2.jpg', 22),
 (87, 'bloodAndMead3.jpg', 22),
-(88, 'bloodAndMead4.jpg', 22);
+(88, 'bloodAndMead4.jpg', 22),
+(89, 'MyriadsRenaissance1.jpg', 23),
+(90, 'MyriadsRenaissance2.jpg', 23),
+(91, 'MyriadsRenaissance3.jpg', 23),
+(92, 'MyriadsRenaissance4.jpg', 23),
+(93, 'DoNotFeedtheMonkeys20991.jpg', 24),
+(94, 'DoNotFeedtheMonkeys20992.jpg', 24),
+(95, 'DoNotFeedtheMonkeys20993.jpg', 24),
+(96, 'DoNotFeedtheMonkeys20994.jpg', 24),
+(97, 'Bzzzt1.jpg', 26),
+(98, 'Bzzzt2.jpg', 26),
+(99, 'Bzzzt3.jpg', 26),
+(100, 'Bzzzt4.jpg', 26),
+(101, 'Pan\'orama1.jpg', 25),
+(102, 'Pan\'orama2.jpg', 25),
+(103, 'Pan\'orama3.jpg', 25),
+(104, 'Pan\'orama4.jpg', 25),
+(105, 'LightracerSpark1.jpg', 27),
+(106, 'LightracerSpark2.jpg', 27),
+(107, 'LightracerSpark3.jpg', 27),
+(108, 'LightracerSpark4.jpg', 27);
 
 -- --------------------------------------------------------
 

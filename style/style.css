@@ -601,8 +601,9 @@ p>a {
 .slider-actu {
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 35%;
   width: 100%;
+  background-color: #fefafa90;
   position: relative;
 }
 

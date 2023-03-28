@@ -5,6 +5,7 @@
     let prev = document.getElementById("previous");
     let next = document.getElementById("next");
     let image = document.querySelector("#slider-pictures");
+    let link = document.querySelector("#slider-link");
     let date = document.querySelector("#slider-date");
     let gameArray;
     let cleanName;
@@ -19,6 +20,7 @@
             firstDate = new Date(gameArray[0].release_date);
             image.src = "../image/jeux/"+gameArray[0].picture_url;
             date.innerHTML = "Sortie le "+firstDate.toLocaleDateString('fr-FR');
+            link.href = "view_fiche de jeu.php?id="+gameArray[0].id;
         });
     }
     
@@ -31,11 +33,13 @@
             gameDate = new Date(gameArray[n].release_date);
             image.src = "../image/jeux/"+gameArray[n].picture_url;
             date.innerHTML = "Sortie le "+gameDate.toLocaleDateString('fr-FR');
+            link.href = "view_fiche de jeu.php?id="+gameArray[n].id;
         }else {
             n = 0;
             gameDate = new Date(gameArray[n].release_date);
             image.src = "../image/jeux/"+gameArray[n].picture_url;
             date.innerHTML = "Sortie le "+gameDate.toLocaleDateString('fr-FR');
+            link.href = "view_fiche de jeu.php?id="+gameArray[n].id;
         }
     };
     
@@ -45,11 +49,13 @@
             gameDate = new Date(gameArray[n].release_date);
             image.src = "../image/jeux/"+gameArray[n].picture_url;
             date.innerHTML = "Sortie le "+gameDate.toLocaleDateString('fr-FR');
+            link.href = "view_fiche de jeu.php?id="+gameArray[n].id;
         }else if (n <= 4) {
             n--;
             gameDate = new Date(gameArray[n].release_date);
             image.src = "../image/jeux/"+gameArray[n].picture_url;
             date.innerHTML = "Sortie le "+gameDate.toLocaleDateString('fr-FR');
+            link.href = "view_fiche de jeu.php?id="+gameArray[n].id;
         }
     };
 // }

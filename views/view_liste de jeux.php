@@ -1,10 +1,21 @@
 <?php
     include_once '../models/connect.php';
 
-    $games = $db->query('SELECT * FROM games ORDER By name ASC')->fetchAll();
     $tags = $db->query('SELECT id, name FROM tags')->fetchAll();
     $platforms = $db->query('SELECT id, name FROM platforms')->fetchAll();
     $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
+
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $gamesPerPage = 20;
+    $startIndex = ($page - 1) * $gamesPerPage;
+    $req = $db->prepare("SELECT * FROM games ORDER By name ASC LIMIT :startIndex, :gamesPerPage ");
+    $req->bindParam(":startIndex", $startIndex, PDO::PARAM_INT);
+    $req->bindParam(":gamesPerPage", $gamesPerPage, PDO::PARAM_INT);
+    $req->execute();
+    $games = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    $totalGames = $db->query("SELECT COUNT(*) FROM games")->fetchColumn();
+    $totalPages = ceil($totalGames / $gamesPerPage);
 ?>
 
 <!DOCTYPE html>
@@ -95,15 +106,24 @@
                 <ul>
                   <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$tag['id']?>"><?=($tag['name'])?></a></li>
                 </ul>
-              <?php
-          }} else {
-            ?><ul> <?php
-            foreach($games as $game) { ?>         
-                <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
-            <?php } } ?></ul>
+              <?php }
+          } else { ?>
+                <ul> <?php
+                  foreach($games as $game) { ?>         
+                      <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
+                  <?php } 
+            } ?></ul>
+        </div>
+        <div class="pagination">
+            <?php for ($i = 1; $i <= $totalPages; $i++) { 
+                if ($i == $page) { ?>
+                    <span><?= $i ?></span>
+                <?php } else { ?>
+                    <a href="?page=<?= $i ?>"><?= $i ?></a>
+                <?php }
+              } ?>
         </div>
       </div>
-
       <div class="right-actu">
         <h2>Affiner votre recherche</h2>
         <form method="GET" action="../controllers/controller_list.php">

@@ -115,7 +115,7 @@ require './topHTML.php';
                 <div id="next">></div>
             </div>
             <div class="slider-actu">
-                <img src="" alt="" id="slider-pictures">
+                <a id="slider-link" href=""><img src="" alt="" id="slider-pictures"></a>
                 <h2 id="slider-date">Date</h2>
             </div>
         </div>
