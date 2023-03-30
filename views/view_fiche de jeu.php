@@ -162,6 +162,7 @@
     </section>
     <script src="../script/slideScreenshots.js"></script>
     <script>initSliderScreenshots(<?=$game['id']?>)</script>
+
 <?php
     require './bottomHTML.php';
 ?>

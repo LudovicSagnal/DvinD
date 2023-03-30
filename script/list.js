@@ -13,6 +13,59 @@ multipleSelectBoxes.forEach(multipleSelectBox => {
     });
 });
 
+const checkboxesAll = document.querySelectorAll('input[value="Tous"]');
+const platformCheckboxes = document.querySelectorAll('input[name="platform[]"]:not([value="Tous"])');
+const langCheckboxes = document.querySelectorAll('input[name="lang[]"]:not([value="Tous"])');
+const dateCheckboxes = document.querySelectorAll('input[name="date[]"]:not([value="Tous"])');
+const tagCheckboxes = document.querySelectorAll('input[name="tag[]"]:not([value="Tous"])');
+
+checkboxesAll[0].addEventListener('change', function() {
+  if (this.checked) {
+    platformCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = true;
+    });
+  } else {
+    platformCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = false;
+    });
+  }
+});
+checkboxesAll[1].addEventListener('change', function() {
+  if (this.checked) {
+    langCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = true;
+    });
+  } else {
+    langCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = false;
+    });
+  }
+});
+checkboxesAll[2].addEventListener('change', function() {
+  if (this.checked) {
+    dateCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = true;
+    });
+  } else {
+    dateCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = false;
+    });
+  }
+});
+checkboxesAll[3].addEventListener('change', function() {
+  if (this.checked) {
+    tagCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = true;
+    });
+  } else {
+    tagCheckboxes.forEach(function(checkbox) {
+      checkbox.checked = false;
+    });
+  }
+});
+
+
+
 // const multipleSelectBoxes = document.querySelectorAll(".multipleSelection");
 
 // multipleSelectBoxes.forEach(multipleSelectBox => {

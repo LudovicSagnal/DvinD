@@ -174,16 +174,17 @@
                                     <option value="1">Action</option>
                                     <option value="2">Aventure</option>
                                     <option value="3">Combat</option>
-                                    <option value="1">Gestion</option>
-                                    <option value="2">Horreur</option>
-                                    <option value="3">Plateforme</option>
-                                    <option value="1">RPG</option>
-                                    <option value="2">Sport</option>
-                                    <option value="3">Stratégie</option>
+                                    <option value="4">Gestion</option>
+                                    <option value="5">Horreur</option>
+                                    <option value="6">Plateforme</option>
+                                    <option value="7">RPG</option>
+                                    <option value="8">Sport</option>
+                                    <option value="9">Stratégie</option>
                                 </select>
                             </label>
                             <label>Plateformes:
                                 <select name="platforms">
+                                    <!-- <input type="checkbox"/> Windows -->
                                     <option value="1">Windows</option>
                                     <option value="2">Mac</option>
                                     <option value="3">Linux</option>
@@ -193,7 +194,7 @@
                                 <textarea name="" id="" cols="30" rows="10" name="description" style="resize: none;"></textarea>
                             </label>
                             <label>Date de sortie:
-                                <input type="text" name="release_date">
+                                <input type="date" name="release_date">
                             </label>
                             <input type="submit" value="Enregistrer">
                         </form>

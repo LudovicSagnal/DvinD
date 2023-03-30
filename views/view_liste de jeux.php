@@ -136,7 +136,7 @@
             </div>
             <div class="checkBoxes">
               <label for="first">
-                <input type="checkbox"  id="first" name="platform[]" value="Toutes" checked />
+                <input type="checkbox"  id="first" name="platform[]" value="Tous" checked />
                 Toutes
               </label>
               <?php foreach($platforms as $platform) {?>
@@ -158,7 +158,7 @@
             </div>
             <div class="checkBoxes">
               <label for="firstL">
-                <input type="checkbox" id="firstL" name="lang[]" value="Toutes" checked />
+                <input type="checkbox" id="firstL" name="lang[]" value="Tous" checked />
                 Toutes
               </label>
               <label for="secondL">
@@ -183,7 +183,7 @@
                 </div>     
                     <div class="checkBoxes">
                         <label for="firstD">
-                            <input type="checkbox" id="firstD" name="date[]" value="Toutes" checked/>
+                            <input type="checkbox" id="firstD" name="date[]" value="Tous" checked/>
                             Toutes
                         </label>                      
                         <label for="secondD">
