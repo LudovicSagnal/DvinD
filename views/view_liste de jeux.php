@@ -98,8 +98,8 @@
       </div>
       <div class="game-list">
         <h2 class="game-title">Liste des jeux</h2>
+        
         <div class="fil-main">
-          
         <?php
           if(isset($_GET['submit_tag'])){
             foreach($tagList as $tag) {?>
@@ -126,7 +126,7 @@
       </div>
       <div class="right-actu">
         <h2>Affiner votre recherche</h2>
-        <form method="GET" action="../controllers/controller_list.php">
+        <form id="form-platform" method="GET" action="">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
@@ -144,7 +144,7 @@
                     <input type="checkbox" name="platform[]" id="<?= $platform['name'] ?>" value="<?= $platform['name'] ?>" /> <?= $platform['name'] ?>
                   </label> <?php
               } ?>
-              <input type="submit" name="submit_platform" value="Valider">
+              <input type="submit" name="submit_platform" value="Valider" onclick="initPlatform()">
             </div>
           </div>
         </form>

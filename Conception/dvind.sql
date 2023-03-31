@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 28 mars 2023 à 13:49
+-- Généré le : ven. 31 mars 2023 à 13:03
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -66,7 +66,12 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (25, 'Sleeping Eight Studio'),
 (26, 'Chicken Launcher'),
 (27, 'KO.DLL'),
-(28, 'Smartmelon Games');
+(28, 'Smartmelon Games'),
+(29, 'Crytek'),
+(30, 'Genesz'),
+(31, 'Flamebait Games'),
+(32, 'Angry Mob Games'),
+(33, 'Black Tower Basement');
 
 -- --------------------------------------------------------
 
@@ -86,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -119,7 +124,12 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (24, 'Do Not Feed the Monkeys 2099', 'Espionnez à travers les caméras, envahissez des vies privées et découvrez des secrets dans ce simulateur de voyeurisme. Bienvenue dans le futur du Primate Observation Club (Club d’observation des primates). En 2099, la règle d\'or demeure : DO NOT feed the monkeys ! : NE nourrissez PAS les singes !', '2023-05-25', 'Prochainement', 1964040, 'DoNotFeedtheMonkeys2099.jpg', 'https://www.youtube.com/embed/cTQqpwYk5nc', 0),
 (25, 'Pan\'orama', 'Pan\'orama est un jeu de simulation de puzzle relaxant et apaisant dans lequel vous créez des paysages incroyables en utilisant différents types de tuiles, mais surtout en découvrant les connexions entre elles et en trouvant des combinaisons uniques.', '2023-07-11', 'Prochainement', 1730250, 'pan\'orama.jpg', 'https://www.youtube.com/embed/yg_IPfzLQ3g', 0),
 (26, 'Bzzzt', 'Empêchez le terrible scientifique Badbert de conquérir le monde dans ce génial jeu de plateforme réalisé en pixel art tout droit sorti des années 80 ! contrôlez ZX8000, le petit robot rusé et maîtrisez vos compétences dans un monde en constante évolution rempli de pièges astucieux et de robots.', '2023-07-20', 'Prochainement', 1293170, 'Bzzzt.jpg', 'https://www.youtube.com/embed/Opp65mYyQT8', 0),
-(27, 'Lightracer Spark', 'Lightracer Spark est un jeu narratif de science-fiction. Vous êtes un Amender d\'une haute civilisation, descendant dans divers mondes extraterrestres. Guidez les êtres vivants vers la prospérité ou étouffez l\'étincelle dans l\'œuf. Accumulez de la force grâce à des choix et des stratégies pour saisir l\'ascension et la chute de toutes les civilisations.', '2023-04-12', 'Prochainement', 2094270, 'LightracerSpark.jpg', 'https://www.youtube.com/embed/S1koMM19tGA', 0);
+(27, 'Lightracer Spark', 'Lightracer Spark est un jeu narratif de science-fiction. Vous êtes un Amender d\'une haute civilisation, descendant dans divers mondes extraterrestres. Guidez les êtres vivants vers la prospérité ou étouffez l\'étincelle dans l\'œuf. Accumulez de la force grâce à des choix et des stratégies pour saisir l\'ascension et la chute de toutes les civilisations.', '2023-04-12', 'Prochainement', 2094270, 'LightracerSpark.jpg', 'https://www.youtube.com/embed/S1koMM19tGA', 0),
+(28, 'Hunt: Showdown', 'Hunt: Showdown est un palpitant jeu de tir à la première personne, en JcJcE. Terrassez des monstres cauchemardesques et disputez-vous des primes qui vous apporteront gloire, équipement et de l\'or dans cette implacable – et inoubliable – expérience multijoueur en ligne.', '2019-08-27', 'Prochainement', 594650, 'HuntShowdown.jpg', 'https://www.youtube.com/embed/e0SVpjWn7CM', 0),
+(29, 'The Long Drive', 'Jeu de conduite de voiture de survie semi-post apocalyptique en monde ouvert généré aléatoirement.', '2019-09-25', 'Prochainement', 1017180, 'TheLongDrive.jpg', 'https://www.youtube.com/embed/qJ6WmkGrbjo', 0),
+(30, 'Trinity Fusion', 'Prenez le contrôle de vos alter egos et partez en mission pour sauver le multivers dans ce rogue-lite de plateforme plein d\'action ! Explorez des mondes de science-fiction et plongez dans des combats effrénés qui mettront vos talents à l\'épreuve.', '2023-04-13', 'Prochainement', 1911360, 'TrinityFusion.jpg', 'https://www.youtube.com/embed/2WorxtJuqP8', 0),
+(31, 'Greedventory', 'Greedventory est une expérience d\'action RPG en pixel-art, où la seule chose qui vous sépare d\'une mort rapide est votre souris. Frappez, parez et lancez de puissants sorts sur vos ennemis, trouvez des trésors, explorez un royaume brutal et devenez le héros que vous n\'avez jamais rêvé d\'être !', '2023-05-17', 'Prochainement', 1895820, 'Greedventory.jpg', 'https://www.youtube.com/embed/q7eg7GKHuw4', 0),
+(32, 'Passpartout 2: The Lost Artist', 'Lancez-vous dans votre aventure d\'artiste en difficulté. Dessinez et vendez de l\'art à des critiques effrontés pour récupérer votre carrière artistique perdue. Explorez l\'attachante ville affamée d\'art de Phénix et montrez-leur que vous êtes un véritable artiste !', '2023-04-04', 'Prochainement', 1571100, 'Passpartout2TheLostArtist.jpg', 'https://www.youtube.com/embed/qM7OUD_9sOc', 0);
 
 -- --------------------------------------------------------
 
@@ -167,7 +177,12 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (23, 25),
 (25, 26),
 (26, 27),
-(27, 28);
+(27, 28),
+(28, 29),
+(29, 30),
+(32, 31),
+(30, 32),
+(31, 33);
 
 -- --------------------------------------------------------
 
@@ -203,6 +218,9 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (21, 1),
 (25, 1),
 (26, 1),
+(28, 1),
+(30, 1),
+(31, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -229,7 +247,12 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (24, 2),
 (25, 2),
 (26, 2),
-(27, 2);
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 2),
+(31, 2),
+(32, 2);
 
 -- --------------------------------------------------------
 
@@ -277,6 +300,11 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (25, 1),
 (26, 1),
 (27, 1),
+(28, 1),
+(29, 1),
+(30, 1),
+(31, 1),
+(32, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -293,7 +321,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (16, 3),
 (22, 3),
 (24, 3),
-(26, 3);
+(26, 3),
+(32, 3);
 
 -- --------------------------------------------------------
 
@@ -323,6 +352,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (17, 1),
 (22, 1),
 (26, 1),
+(28, 1),
+(30, 1),
+(31, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -334,6 +366,8 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (21, 2),
 (22, 2),
 (26, 2),
+(29, 2),
+(31, 2),
 (7, 3),
 (1, 4),
 (3, 4),
@@ -345,12 +379,17 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (19, 4),
 (20, 4),
 (23, 4),
+(29, 4),
+(32, 4),
 (4, 5),
 (17, 5),
+(28, 5),
+(29, 5),
 (5, 6),
 (10, 6),
 (22, 6),
 (26, 6),
+(30, 6),
 (3, 7),
 (5, 7),
 (6, 7),
@@ -361,6 +400,8 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (21, 7),
 (22, 7),
 (27, 7),
+(30, 7),
+(31, 7),
 (6, 9),
 (9, 9),
 (16, 9),
@@ -408,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`),
   KEY `posted_by_id` (`posted_by_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `news`
@@ -419,7 +460,9 @@ INSERT INTO `news` (`id`, `title`, `content`, `date`, `posted_by_id`, `is_visibl
 (2, 'Une bonne actu test', '<p> La bonne vieille news test qui fait zizir. </p>', '2023-03-27 10:26:21', 2, 0),
 (3, 'Demonologist sort aujourd\'hui !', '<p>Le jeu d\'horreur <a href=\"http://localhost/DvinD/views/view_fiche%20de%20jeu.php?id=17\">Demonologist</a> sort de son accès anticipé ce lundi 27 mars.</p>\r\n\r\n<p>Demonologist est un jeu d\'horreur en coopération qui peut être joué avec au moins 1 et jusqu\'à 4 joueurs.</p>\r\n', '2023-03-27 12:23:20', 2, 0),
 (4, 'La news du futur', '<p>Pour voir si tout va bien <3</p>', '2023-03-28 08:22:55', 14, 0),
-(5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche de jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0);
+(5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche de jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0),
+(6, 'Hunt: Showdown - The Ward of the Reptilian Questline', '<p>De nouvelles quêtes sont arrivées !</p>\r\n\r\n<p>Avec la mise à jour 1.12, il y aura deux nouvelles séries de quêtes dans le bayou : \"La protection des reptiliens\" et \"La vengeance des écorchés\". Ces séries de quêtes offrent aux chasseurs de nouveaux types d\'activités à poursuivre, ainsi que de précieuses récompenses à gagner en six actes, notamment le déverrouillage de nouvelles variantes d\'armes, de l\'équipement légendaire, etc.</p>\r\n<p>Les principales récompenses pour les séries de quêtes à venir sont les suivantes. Assurez-vous de jouer à travers les séries de quêtes dans les délais impartis afin de ne pas manquer les récompenses !</p>\r\n\r\n<p>\"Le service du reptilien\"29 mars - 1er mai 2023 </p>\r\n\r\n<ul><li>Acte 1 – Dusters légendaires \"Monongahela Bruiser\"</li>\r\n<li>Acte 2 – Winfield M1876 Centennial Short (déverrouillage d\'arme)</li>\r\n<li>Acte 3 – Légendaire Scottfield Model 3 Précision \"Somber Gale\"</li>\r\n<li>Acte 4 – Winfield M1876 Centennial Shorty (déverrouillage d\'arme)</li>\r\n<li>Acte 5 - Légendaire Berthier Mle 1892 \"Aviron du Passeur\"</li>\r\n<li>Acte 6 – Chasseur Légendaire \"The Scaled Ward\"</li></ul>\r\n\r\n<p>\"La vengeance des écorchés\" arrive peu après The Ward of the Reptilian ! </p>\r\n\r\n<ul><li>Acte 1 - Baïonnette Springfield M1892 Krag (déverrouillage d\'arme)</li>\r\n<li>Acte 2 - Officier légendaire Nagant M1895 Brawler \"Killian\'s Chance\"</li>\r\n<li>Acte 3 – Springfield M1892 Krag Sniper (déverrouillage d\'arme)</li>\r\n<li>Acte 4 – Lance-bombes légendaire \"La vis de Nola\"</li>\r\n<li>Acte 5 – Charme d\'arme \"Marred Murex\"</li>\r\n<li>Acte 6 – Chasseur légendaire \"Le écorché\"</li></ul>\r\n', '2023-03-29 13:28:22', 2, 0),
+(7, 'Papa\'s Freezeria Deluxe sort aujourd\'hui', '<img src=\"../image/jeux/PapasFreezeriaDeluxe.jpg\" alt=\"\">\r\n\r\n<p><a href=\"view_fiche de jeu.php?id=18\">Papa\'s Freezeria Deluxe</a>, le dernier jeu de la série des Papa\'s de Flipline Studios, sort ce vendredi 31 mars sur Steam.</p>\r\n\r\n<p>Le prix n\'a toujours pas été officiellement annoncé.</p>', '2023-03-31 10:02:27', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -441,7 +484,9 @@ CREATE TABLE IF NOT EXISTS `news_games` (
 
 INSERT INTO `news_games` (`news_id`, `game_id`) VALUES
 (3, 17),
-(5, 27);
+(7, 18),
+(5, 27),
+(6, 28);
 
 -- --------------------------------------------------------
 
@@ -500,7 +545,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -614,7 +659,27 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (105, 'LightracerSpark1.jpg', 27),
 (106, 'LightracerSpark2.jpg', 27),
 (107, 'LightracerSpark3.jpg', 27),
-(108, 'LightracerSpark4.jpg', 27);
+(108, 'LightracerSpark4.jpg', 27),
+(109, 'HuntShowdown1.jpg', 28),
+(110, 'HuntShowdown2.jpg', 28),
+(111, 'HuntShowdown3.jpg', 28),
+(112, 'HuntShowdown4.jpg', 28),
+(113, 'TheLongDrive1.jpg', 29),
+(114, 'TheLongDrive2.jpg', 29),
+(115, 'TheLongDrive3.jpg', 29),
+(116, 'TheLongDrive4.jpg', 29),
+(117, 'TrinityFusion1.jpg', 30),
+(118, 'TrinityFusion2.jpg', 30),
+(119, 'TrinityFusion3.jpg', 30),
+(120, 'TrinityFusion4.jpg', 30),
+(121, 'Greedventory1.jpg', 31),
+(122, 'Greedventory2.jpg', 31),
+(123, 'Greedventory3.jpg', 31),
+(124, 'Greedventory4.jpg', 31),
+(125, 'Passpartout2TheLostArtist1.jpg', 32),
+(126, 'Passpartout2TheLostArtist2.jpg', 32),
+(127, 'Passpartout2TheLostArtist3.jpg', 32),
+(128, 'Passpartout2TheLostArtist4.jpg', 32);
 
 -- --------------------------------------------------------
 

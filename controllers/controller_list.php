@@ -1,7 +1,6 @@
 <?php
     include('../models/connect.php');
     
-
     if(isset($_GET['submit_platform'])){
         if(!empty($_GET['platform'])) {
             if (in_array('Toutes', $_GET['platform'])) {
@@ -24,6 +23,7 @@
                 $checkedPlatforms->execute();
                 $platformList = $checkedPlatforms->fetchAll(PDO::FETCH_ASSOC);
                 var_dump($platformList);
+                // die(json_encode($platformList));
             }
         }
     }
@@ -98,5 +98,5 @@
         }
     }
     include('../views/view_liste de jeux.php');
-    // header("Location: ../views/view_liste de jeux.php");
+    header("Location: ../views/view_liste de jeux.php");
 ?>

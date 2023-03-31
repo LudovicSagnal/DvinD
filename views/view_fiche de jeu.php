@@ -118,7 +118,7 @@
             </div>
             <div class="main-middle">
                 <div class="fiche-jeu">
-                    <img class="game-picture" src="../image//jeux/<?=($game['picture_url'])?>" alt="">
+                    <img class="game-picture" src="../image/jeux/<?=($game['picture_url'])?>" alt="">
                     <div class="fiche-info">
                         <p>Développeur(s) : <?php foreach ($gameDevs as $dev) {
                                         $devString .= $dev['name'] . ", ";

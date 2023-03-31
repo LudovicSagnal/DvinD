@@ -64,7 +64,37 @@ checkboxesAll[3].addEventListener('change', function() {
   }
 });
 
+// list = document.querySelector('#search-list');
 
+// function initPlatform() {
+
+//     fetch("../controllers/controller_list.php?", {
+//     })
+//     .then((response) => response.json())
+//     .then((result) => {
+//         list.innerHTML = `<a href="view_fiche de jeu.php?id=`+result.id`"><`+result.name`</a>result.`
+//     });
+// }
+
+// let list = document.querySelector('#search-list');
+// let form = document.querySelector('#form-platform');
+// form.preventDefault;
+
+// function initPlatform() {
+//     fetch("../controllers/controller_list.php", {})
+//         .then((response) => response.json())
+//         .then((result) => {
+//             console.log(result);
+//             result.forEach((platform) => {
+//                 const li = document.createElement('li');
+//                 const a = document.createElement('a');
+//                 a.href = 'view_fiche de jeu.php?id=' + platform.id;
+//                 a.innerText = platform.name;
+//                 li.appendChild(a);
+//                 list.appendChild(li);
+//             });
+//         });
+// }
 
 // const multipleSelectBoxes = document.querySelectorAll(".multipleSelection");
 
