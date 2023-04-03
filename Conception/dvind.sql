@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 31 mars 2023 à 13:03
+-- Généré le : lun. 03 avr. 2023 à 14:38
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -71,7 +71,13 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (30, 'Genesz'),
 (31, 'Flamebait Games'),
 (32, 'Angry Mob Games'),
-(33, 'Black Tower Basement');
+(33, 'Black Tower Basement'),
+(34, 'IndieGala'),
+(35, 'Red Unit Studios'),
+(36, 'Crate Entertainment'),
+(37, 'Lost Pilgrims Studio'),
+(38, 'Dr. Kucho! Games'),
+(39, 'MrSuicideSheep');
 
 -- --------------------------------------------------------
 
@@ -91,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -119,7 +125,7 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (19, 'GrimGrad', 'Construisez votre propre village slave. Surmontez les difficultés de la vie médiévale et n\'offensez pas les Dieux !', '2023-04-05', 'Prochainement', 1837340, 'grimgrad.jpg', 'https://www.youtube.com/embed/66g3ENSCglY', 0),
 (20, 'Full Metal Sergeant', 'Devenez l\'instructeur ! Insultez vos recrues sans remords ! Pourrez-vous transformer des recrues mou du genou en machine de guerre en 12 semaines ?', '2023-04-03', 'Prochainement', NULL, 'fullMetalSergeant.jpg', 'https://www.youtube.com/embed/sgoTGpBC8fc', 0),
 (21, 'Vagabond', 'Explorez des mondes vivants générés procéduralement dans ce RPG bac-à-sable 2D. Rencontrez des centaines de personnages dans les villages, accomplissez des quêtes, fabriquez de puissants objets, achetez et meublez votre maison ou combattez des monstres dans des donjons.', NULL, '2ᵉ trimestre 2023', 1673090, 'vagabond.jpg', 'https://www.youtube.com/embed/-wk0L8bHkYU', 0),
-(22, 'Blood And Mead', 'Decimate deadly foes and formidable bosses, unlock combat abilities, drink mead and go full Berserker Mode! Join Usyldor on a bone-crushing quest for revenge that will make him a legend.\r\n\r\nDécime ennemis mortels et redoutables boss, débloque des compétences de combat, bois de l\'hydromel et passe en mode Berserker ! Rejoins Usyldor dans une sanglante quête de revanche qui fera de lui une légende.', NULL, 'Quand Odin l\'aura décidé !', 1081830, 'bloodAndMead.jpg', 'https://www.youtube.com/embed/SZH5StcDUFA', 0),
+(22, 'Blood And Mead', 'Décime ennemis mortels et redoutables boss, débloque des compétences de combat, bois de l\'hydromel et passe en mode Berserker ! Rejoins Usyldor dans une sanglante quête de revanche qui fera de lui une légende.', NULL, 'Quand Odin l\'aura décidé !', 1081830, 'bloodAndMead.jpg', 'https://www.youtube.com/embed/SZH5StcDUFA', 0),
 (23, 'Myriads: Renaissance', 'Myriads: Renaissance est un jeu de stratégie au tour par tour avec construction de ville et mécanique 4X. Situé dans un monde fantastique composé de milliers d\'îles flottantes, vous devez développer votre capital et étendre votre royaume. Résistez aux vagues de corsaires puissants et construisez des tours de défense pour survivre à leurs incursions.', '2023-06-01', 'Prochainement', 1737220, 'myriadsRenaissance.jpg', 'https://www.youtube.com/embed/jQMtLVX3S7M', 0),
 (24, 'Do Not Feed the Monkeys 2099', 'Espionnez à travers les caméras, envahissez des vies privées et découvrez des secrets dans ce simulateur de voyeurisme. Bienvenue dans le futur du Primate Observation Club (Club d’observation des primates). En 2099, la règle d\'or demeure : DO NOT feed the monkeys ! : NE nourrissez PAS les singes !', '2023-05-25', 'Prochainement', 1964040, 'DoNotFeedtheMonkeys2099.jpg', 'https://www.youtube.com/embed/cTQqpwYk5nc', 0),
 (25, 'Pan\'orama', 'Pan\'orama est un jeu de simulation de puzzle relaxant et apaisant dans lequel vous créez des paysages incroyables en utilisant différents types de tuiles, mais surtout en découvrant les connexions entre elles et en trouvant des combinaisons uniques.', '2023-07-11', 'Prochainement', 1730250, 'pan\'orama.jpg', 'https://www.youtube.com/embed/yg_IPfzLQ3g', 0),
@@ -129,7 +135,13 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (29, 'The Long Drive', 'Jeu de conduite de voiture de survie semi-post apocalyptique en monde ouvert généré aléatoirement.', '2019-09-25', 'Prochainement', 1017180, 'TheLongDrive.jpg', 'https://www.youtube.com/embed/qJ6WmkGrbjo', 0),
 (30, 'Trinity Fusion', 'Prenez le contrôle de vos alter egos et partez en mission pour sauver le multivers dans ce rogue-lite de plateforme plein d\'action ! Explorez des mondes de science-fiction et plongez dans des combats effrénés qui mettront vos talents à l\'épreuve.', '2023-04-13', 'Prochainement', 1911360, 'TrinityFusion.jpg', 'https://www.youtube.com/embed/2WorxtJuqP8', 0),
 (31, 'Greedventory', 'Greedventory est une expérience d\'action RPG en pixel-art, où la seule chose qui vous sépare d\'une mort rapide est votre souris. Frappez, parez et lancez de puissants sorts sur vos ennemis, trouvez des trésors, explorez un royaume brutal et devenez le héros que vous n\'avez jamais rêvé d\'être !', '2023-05-17', 'Prochainement', 1895820, 'Greedventory.jpg', 'https://www.youtube.com/embed/q7eg7GKHuw4', 0),
-(32, 'Passpartout 2: The Lost Artist', 'Lancez-vous dans votre aventure d\'artiste en difficulté. Dessinez et vendez de l\'art à des critiques effrontés pour récupérer votre carrière artistique perdue. Explorez l\'attachante ville affamée d\'art de Phénix et montrez-leur que vous êtes un véritable artiste !', '2023-04-04', 'Prochainement', 1571100, 'Passpartout2TheLostArtist.jpg', 'https://www.youtube.com/embed/qM7OUD_9sOc', 0);
+(32, 'Passpartout 2: The Lost Artist', 'Lancez-vous dans votre aventure d\'artiste en difficulté. Dessinez et vendez de l\'art à des critiques effrontés pour récupérer votre carrière artistique perdue. Explorez l\'attachante ville affamée d\'art de Phénix et montrez-leur que vous êtes un véritable artiste !', '2023-04-04', 'Prochainement', 1571100, 'Passpartout2TheLostArtist.jpg', 'https://www.youtube.com/embed/qM7OUD_9sOc', 0),
+(33, 'Vorax', 'VORAX est un jeu Open World Survival Horror qui se déroule sur une île méditerranéenne où un mystérieux agent pathogène a infecté la population locale. Un bataillon de l\'armée est envoyé pour mettre la population en quarantaine mais 48 heures plus tard toute communication avec le bataillon est perdue. Avez-vous ce qu\'il faut pour survivre?', NULL, '1er trimestre 2024', 1874190, 'Vorax.jpg', 'https://www.youtube.com/embed/hIW9NsY-RnQ', 0),
+(34, 'Plague Lords', 'L\'enquête sur de multiples disparitions en pleine peste noire se transforme en une prise de position sanglante contre une nouvelle menace mystérieuse. Survivez dans un bac à sable tactique au tour par tour, en gérant une colonie et des dizaines de paysans, d\'artisans et de guerriers pour arrêter le Fléau à venir.', NULL, 'Prochainement', 1827240, 'PlagueLords.jpg', 'https://www.youtube.com/embed/r5vBJ4KHp6Y', 0),
+(35, 'Grim Dawn', 'Entrez dans un monde fantastique apocalyptique où l\'humanité est au bord de l\'extinction, le fer est valorisé au-dessus de l\'or et la confiance est durement gagnée. Cet ARPG propose un développement de personnage complexe, des centaines d\'objets uniques, de l\'artisanat et des quêtes avec choix et conséquence.', '2016-02-25', 'Prochainement', 219990, 'GrimDawn.jpg', 'https://www.youtube.com/embed/V9Z1e2QCGAE', 0),
+(36, 'Vagrus - The Riven Realms', 'Embarquez pour un voyage périlleux à travers un royaume abandonné par les dieux et dévasté par un cataclysme arcanique. Accompagné d\'un équipage robuste, vous devez échanger, combattre et explorer votre chemin vers le succès en tant que chef d\'une entreprise itinérante dans Vagrus, un RPG fantastique post-apocalyptique au tour par tour primé.', '2021-10-05', 'Prochainement', 909660, 'Vagrus-TheRivenRealms.jpg', 'https://www.youtube.com/embed/8UqSUmkuJ28', 0),
+(37, 'Sheepy: A Short Adventure', 'Un petit jeu de plateforme Pixel Art artisanal qui suit Sheepy, une peluche abandonnée qui prend vie. Sheepy : A Short Adventure est le premier jeu de MrSuicideSheep.', '2023-05-10', 'Prochainement', 1568400, 'SheepyAShortAdventure.jpg', 'https://www.youtube.com/embed/OHNuFr0VBD0', 0),
+(38, 'Moons Of Darsalon', 'Jeu de plateforme d\'action rétro \"save-them-all\" comprenant une physique avancée combinée à une sensation rétro unique. Terminez des missions de sauvetage en menant vos collègues à la station de base la plus proche. Combattez les ennemis à l\'aide de votre pistolet laser, de votre jet pack, détruisez le décor et créez même de nouveaux chemins avec le ground maker.', '2023-04-19', 'Prochainement', 1234180, 'MoonsOfDarsalon.jpg', 'https://www.youtube.com/embed/P8bOcQHrXL8', 0);
 
 -- --------------------------------------------------------
 
@@ -182,7 +194,13 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (29, 30),
 (32, 31),
 (30, 32),
-(31, 33);
+(31, 33),
+(33, 34),
+(34, 35),
+(35, 36),
+(36, 37),
+(38, 38),
+(37, 39);
 
 -- --------------------------------------------------------
 
@@ -221,6 +239,8 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (28, 1),
 (30, 1),
 (31, 1),
+(33, 1),
+(35, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -252,7 +272,13 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (29, 2),
 (30, 2),
 (31, 2),
-(32, 2);
+(32, 2),
+(33, 2),
+(34, 2),
+(35, 2),
+(36, 2),
+(37, 2),
+(38, 2);
 
 -- --------------------------------------------------------
 
@@ -305,6 +331,12 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (30, 1),
 (31, 1),
 (32, 1),
+(33, 1),
+(34, 1),
+(35, 1),
+(36, 1),
+(37, 1),
+(38, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -313,6 +345,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (16, 2),
 (21, 2),
 (26, 2),
+(33, 2),
+(36, 2),
 (1, 3),
 (3, 3),
 (8, 3),
@@ -322,7 +356,9 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (22, 3),
 (24, 3),
 (26, 3),
-(32, 3);
+(32, 3),
+(36, 3),
+(38, 3);
 
 -- --------------------------------------------------------
 
@@ -355,6 +391,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (28, 1),
 (30, 1),
 (31, 1),
+(33, 1),
+(35, 1),
+(38, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -368,6 +407,10 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (26, 2),
 (29, 2),
 (31, 2),
+(33, 2),
+(35, 2),
+(37, 2),
+(38, 2),
 (7, 3),
 (1, 4),
 (3, 4),
@@ -381,15 +424,19 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (23, 4),
 (29, 4),
 (32, 4),
+(36, 4),
 (4, 5),
 (17, 5),
 (28, 5),
 (29, 5),
+(33, 5),
 (5, 6),
 (10, 6),
 (22, 6),
 (26, 6),
 (30, 6),
+(37, 6),
+(38, 6),
 (3, 7),
 (5, 7),
 (6, 7),
@@ -402,6 +449,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (27, 7),
 (30, 7),
 (31, 7),
+(34, 7),
+(35, 7),
+(36, 7),
 (6, 9),
 (9, 9),
 (16, 9),
@@ -410,7 +460,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (23, 9),
 (24, 9),
 (25, 9),
-(27, 9);
+(27, 9),
+(34, 9),
+(36, 9);
 
 -- --------------------------------------------------------
 
@@ -458,11 +510,11 @@ CREATE TABLE IF NOT EXISTS `news` (
 INSERT INTO `news` (`id`, `title`, `content`, `date`, `posted_by_id`, `is_visible`) VALUES
 (1, 'Bienvenu à tous sur DvinD !', '<p>Dvind est votre nouvelle plateforme d\'actualité et de communication autour du jeu vidéo indépendant. Ici, nous pourrons échanger entre passionnés et développeurs sur nos jeux indés préférés et contribuer à leur visibilité.</p>\r\n\r\n<p>Venez participer !</p>', '2023-03-27 09:53:54', 2, 0),
 (2, 'Une bonne actu test', '<p> La bonne vieille news test qui fait zizir. </p>', '2023-03-27 10:26:21', 2, 0),
-(3, 'Demonologist sort aujourd\'hui !', '<p>Le jeu d\'horreur <a href=\"http://localhost/DvinD/views/view_fiche%20de%20jeu.php?id=17\">Demonologist</a> sort de son accès anticipé ce lundi 27 mars.</p>\r\n\r\n<p>Demonologist est un jeu d\'horreur en coopération qui peut être joué avec au moins 1 et jusqu\'à 4 joueurs.</p>\r\n', '2023-03-27 12:23:20', 2, 0),
+(3, 'Demonologist sort aujourd\'hui !', '<p>Le jeu d\'horreur <a href=\"http://localhost/DvinD/views/view_fiche_de_jeu.php?id=17\">Demonologist</a> sort de son accès anticipé ce lundi 27 mars.</p>\r\n\r\n<p>Demonologist est un jeu d\'horreur en coopération qui peut être joué avec au moins 1 et jusqu\'à 4 joueurs.</p>\r\n', '2023-03-27 12:23:20', 2, 0),
 (4, 'La news du futur', '<p>Pour voir si tout va bien <3</p>', '2023-03-28 08:22:55', 14, 0),
-(5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche de jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0),
+(5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche_de_jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0),
 (6, 'Hunt: Showdown - The Ward of the Reptilian Questline', '<p>De nouvelles quêtes sont arrivées !</p>\r\n\r\n<p>Avec la mise à jour 1.12, il y aura deux nouvelles séries de quêtes dans le bayou : \"La protection des reptiliens\" et \"La vengeance des écorchés\". Ces séries de quêtes offrent aux chasseurs de nouveaux types d\'activités à poursuivre, ainsi que de précieuses récompenses à gagner en six actes, notamment le déverrouillage de nouvelles variantes d\'armes, de l\'équipement légendaire, etc.</p>\r\n<p>Les principales récompenses pour les séries de quêtes à venir sont les suivantes. Assurez-vous de jouer à travers les séries de quêtes dans les délais impartis afin de ne pas manquer les récompenses !</p>\r\n\r\n<p>\"Le service du reptilien\"29 mars - 1er mai 2023 </p>\r\n\r\n<ul><li>Acte 1 – Dusters légendaires \"Monongahela Bruiser\"</li>\r\n<li>Acte 2 – Winfield M1876 Centennial Short (déverrouillage d\'arme)</li>\r\n<li>Acte 3 – Légendaire Scottfield Model 3 Précision \"Somber Gale\"</li>\r\n<li>Acte 4 – Winfield M1876 Centennial Shorty (déverrouillage d\'arme)</li>\r\n<li>Acte 5 - Légendaire Berthier Mle 1892 \"Aviron du Passeur\"</li>\r\n<li>Acte 6 – Chasseur Légendaire \"The Scaled Ward\"</li></ul>\r\n\r\n<p>\"La vengeance des écorchés\" arrive peu après The Ward of the Reptilian ! </p>\r\n\r\n<ul><li>Acte 1 - Baïonnette Springfield M1892 Krag (déverrouillage d\'arme)</li>\r\n<li>Acte 2 - Officier légendaire Nagant M1895 Brawler \"Killian\'s Chance\"</li>\r\n<li>Acte 3 – Springfield M1892 Krag Sniper (déverrouillage d\'arme)</li>\r\n<li>Acte 4 – Lance-bombes légendaire \"La vis de Nola\"</li>\r\n<li>Acte 5 – Charme d\'arme \"Marred Murex\"</li>\r\n<li>Acte 6 – Chasseur légendaire \"Le écorché\"</li></ul>\r\n', '2023-03-29 13:28:22', 2, 0),
-(7, 'Papa\'s Freezeria Deluxe sort aujourd\'hui', '<img src=\"../image/jeux/PapasFreezeriaDeluxe.jpg\" alt=\"\">\r\n\r\n<p><a href=\"view_fiche de jeu.php?id=18\">Papa\'s Freezeria Deluxe</a>, le dernier jeu de la série des Papa\'s de Flipline Studios, sort ce vendredi 31 mars sur Steam.</p>\r\n\r\n<p>Le prix n\'a toujours pas été officiellement annoncé.</p>', '2023-03-31 10:02:27', 2, 0);
+(7, 'Papa\'s Freezeria Deluxe sort aujourd\'hui', '<img src=\"../image/jeux/PapasFreezeriaDeluxe.jpg\" alt=\"\">\r\n\r\n<p><a href=\"view_fiche_de_jeu.php?id=18\">Papa\'s Freezeria Deluxe</a>, le dernier jeu de la série des Papa\'s de Flipline Studios, sort ce vendredi 31 mars sur Steam.</p>\r\n\r\n<p>Le prix n\'a toujours pas été officiellement annoncé.</p>', '2023-03-31 10:02:27', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -545,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -679,7 +731,31 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (125, 'Passpartout2TheLostArtist1.jpg', 32),
 (126, 'Passpartout2TheLostArtist2.jpg', 32),
 (127, 'Passpartout2TheLostArtist3.jpg', 32),
-(128, 'Passpartout2TheLostArtist4.jpg', 32);
+(128, 'Passpartout2TheLostArtist4.jpg', 32),
+(129, 'Vorax1.jpg', 33),
+(130, 'Vorax2.jpg', 33),
+(131, 'Vorax3.jpg', 33),
+(132, 'Vorax4.jpg', 33),
+(133, 'PlagueLords1.jpg', 34),
+(134, 'PlagueLords2.jpg', 34),
+(135, 'PlagueLords3.jpg', 34),
+(136, 'PlagueLords4.jpg', 34),
+(137, 'GrimDawn1.jpg', 35),
+(138, 'GrimDawn2.jpg', 35),
+(139, 'GrimDawn3.jpg', 35),
+(140, 'GrimDawn4.jpg', 35),
+(141, 'Vagrus-TheRivenRealms1.jpg', 36),
+(142, 'Vagrus-TheRivenRealms2.jpg', 36),
+(143, 'Vagrus-TheRivenRealms3.jpg', 36),
+(144, 'Vagrus-TheRivenRealms4.jpg', 36),
+(145, 'MoonsOfDarsalon1.jpg', 38),
+(146, 'MoonsOfDarsalon2.jpg', 38),
+(147, 'MoonsOfDarsalon3.jpg', 38),
+(148, 'MoonsOfDarsalon4.jpg', 38),
+(149, 'SheepyAShortAdventure1.jpg', 37),
+(150, 'SheepyAShortAdventure2.jpg', 37),
+(151, 'SheepyAShortAdventure3.jpg', 37),
+(152, 'SheepyAShortAdventure4.jpg', 37);
 
 -- --------------------------------------------------------
 

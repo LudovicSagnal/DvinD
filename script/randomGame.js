@@ -7,6 +7,6 @@ async function randomGame() {
     .then((result) => {
         document.getElementById("game_title").innerHTML = result.game_title;
         document.getElementById("game_img").src = "../image/jeux/"+result.game_img;
-        document.getElementById("game_link").href = "view_fiche de jeu.php?id="+result.game_id;
+        document.getElementById("game_link").href = "view_fiche_de_jeu.php?id="+result.game_id;
     });
 }

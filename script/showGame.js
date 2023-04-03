@@ -32,7 +32,7 @@ searchInput.addEventListener('keyup', () => {
 
                     games.forEach(game => { // For each game in the games array, create a new <li> element with the link inside, and append it to the games list
                         const gameElement = document.createElement('li');
-                        gameElement.innerHTML = `<a href="view_fiche de jeu.php?id=${game.id}">${game.name}</a>`;
+                        gameElement.innerHTML = `<a href="view_fiche_de_jeu.php?id=${game.id}">${game.name}</a>`;
 
                         gamesList.append(gameElement);
                     });

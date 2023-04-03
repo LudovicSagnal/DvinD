@@ -9,6 +9,6 @@
                     WHERE news.id = :id;');
     $req->bindParam(":id", $_GET['id']);
     $req->execute();
-    $news = $req->fetchAll(PDO::FETCH_ASSOC);
+    $news = $req->fetch(PDO::FETCH_ASSOC);
 
     die(json_encode($news));

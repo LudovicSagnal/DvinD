@@ -202,14 +202,12 @@ header .link {
 }
 
 .login-modal-show {
-  display: none;
   display: flex;
   flex-direction: column;
   position: absolute;
   width: 400px;
   margin: auto;
   padding-top: 10px;
-  /* left: 0; */
   right: 150px;
   text-align: center;
   background-color: var(--colorBlack);
@@ -410,7 +408,7 @@ p>a {
   height: 40px;
   text-align: center;
   box-shadow: 0px 1px 5px 1px gray ;
-  border-left: var(--colorBlack) 1px solid;
+  /* border-left: var(--colorBlack) 1px solid; */
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -661,6 +659,90 @@ p>a {
 
 }
 
+@media (max-width: 768px) {
+
+  header {
+    height: 25vh;
+  }
+
+  nav {
+    justify-content: space-around;
+  }
+
+  nav .link, nav .active {
+    font-size: 18px;
+  }
+
+  .logo {
+    height: 400px;
+  }
+
+  .user-div {
+    margin-right: 10%;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 0px;
+  }
+
+  .left-actu, .right-actu, .fil-actu {
+    width: 100%;
+    margin: 0;
+    border: var(--colorBlack) 0.5px 0px 0.5px 0px solid;
+  }
+
+  .modal-roulette-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+    background-color: var(--colorBlack);
+    height: 450px;
+    width: 80%;
+    border: var(--colorOrange) 2px 0px 2px 0px solid;
+    border-radius: 5px;
+    opacity:1;
+    z-index:20;
+    animation: show 1s;
+  }
+
+  .fil-main {
+    text-align: center;
+    background-color: var(--colorWhite);
+    font-size: 20px;
+    height: auto;
+    width: 75%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .inner-fil {
+    position: relative;
+    min-height: 500px;
+  }
+  
+  .fil-list {
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 25%;
+    height: 100%;
+    align-self: center;
+    border-left: var(--colorBlack) 1px solid;
+  }
+
+}
+
 @media (max-width: 380px) {
 
   header {
@@ -729,6 +811,23 @@ p>a {
     color: var(--colorWhite);
   }
 
+  .login-modal-show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    padding-top: 10px;
+    right: 0;
+    text-align: center;
+    background-color: var(--colorBlack);
+    height: 220px;
+    z-index: 500;
+    border: var(--colorOrange) 2px 0px 2px 0px solid;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+
   main {
     display: flex;
     flex-direction: column;
@@ -742,10 +841,27 @@ p>a {
   .left-actu, .right-actu, .fil-actu {
     width: 100%;
     margin: 0;
+    border: var(--colorBlack) 0.5px 0px 0.5px 0px solid;
   }
 
   .left-actu {
     margin-top: 5px;
+  }
+
+  .modal-roulette-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    background-color: var(--colorBlack);
+    height: 400px;
+    width: 100%;
+    border: var(--colorOrange) 2px 0px 2px 0px solid;
+    border-radius: 5px;
+    opacity:1;
+    z-index:20;
+    animation: show 1s;
   }
 
   .right-actu {
@@ -756,7 +872,7 @@ p>a {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  border: var(--colorBlack) 0.5px solid;
+  border: var(--colorBlack) 0.5px 0px 0.5px 0px solid;
   border-radius: 5px;
   width: 100%;
   background-color: var(--colorWhite);
@@ -796,11 +912,12 @@ p>a {
   .fil-list {
     display: flex;
     flex-direction: column;
+    position:initial;
     overflow-x: hidden;
     overflow-y: auto;
     width: 100%;
     height: 300px;
-    border-left: var(--colorBlack) 1px solid;
+    /* border-left: var(--colorBlack) 1px solid; */
   }
   
   .fil-list h4 {
@@ -819,7 +936,7 @@ p>a {
     height: 40px;
     text-align: center;
     box-shadow: 0px 1px 5px 1px gray ;
-    border-left: var(--colorBlack) 1px solid;
+    /* border-left: var(--colorBlack) 1px solid; */
     margin-top: -20px;
   }
   
@@ -830,7 +947,7 @@ p>a {
     height: 40px;
     text-align: center;
     box-shadow: 0px 1px 5px 1px gray ;
-    border-left: var(--colorBlack) 1px solid;
+    /* border-left: var(--colorBlack) 1px solid; */
     margin-top: 0;
     margin-bottom: 0;
   }

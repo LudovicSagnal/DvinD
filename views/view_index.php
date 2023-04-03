@@ -33,7 +33,7 @@ require './topHTML.php';
     <header>
         <nav class="nav" role="navigation">
             <a href="view_index.php" class="active">Actualités</a>
-            <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
+            <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
             <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
@@ -41,7 +41,7 @@ require './topHTML.php';
         </nav>
         <div class="display-none" id="smart-nav">
             <a href="view_index.php" class="active">Actualités</a>
-            <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
+            <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </div>

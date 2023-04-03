@@ -97,6 +97,6 @@
             }
         }
     }
-    include('../views/view_liste de jeux.php');
-    header("Location: ../views/view_liste de jeux.php");
+    include('../views/view_liste_de_jeux.php');
+    header("Location: ../views/view_liste_de_jeux.php");
 ?>

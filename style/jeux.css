@@ -126,7 +126,7 @@ select {
     font-weight: bolder;
 }
 
-label {
+.checkBoxes label {
     font-size: 20PX;
     font-weight: 600;
 }
@@ -178,5 +178,12 @@ label img {
 
       .fil-main {
         height: 200px;
+      }
+
+      ul {
+        column-count: 1;
+        height: auto;
+        -webkit-columns: 1;
+        -moz-columns: 1;
       }
 }

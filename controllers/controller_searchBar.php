@@ -24,7 +24,7 @@
 
   // while($row = mysqli_fetch_array($result)) {
 
-  // echo '<li><a href="view_fiche de jeu.php?id='.$row['id'].'">' . $row['name'] . '</a></li>';
+  // echo '<li><a href="view_fiche_de_jeu.php?id='.$row['id'].'">' . $row['name'] . '</a></li>';
 
   // }
   // mysqli_close($con);

@@ -26,7 +26,7 @@
 <body>
     <nav class="nav">
         <a href="view_index.php" class="link">Actualités</a>
-        <a href="view_liste de jeux.php" class="link">Liste de jeux</a>
+        <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
         <a href="view_contact.php" class="link">Contact</a>
         <a href="view_forum.php" class="link">Forum</a>
     </nav>

@@ -72,7 +72,7 @@ checkboxesAll[3].addEventListener('change', function() {
 //     })
 //     .then((response) => response.json())
 //     .then((result) => {
-//         list.innerHTML = `<a href="view_fiche de jeu.php?id=`+result.id`"><`+result.name`</a>result.`
+//         list.innerHTML = `<a href="view_fiche_de_jeu.php?id=`+result.id`"><`+result.name`</a>result.`
 //     });
 // }
 
@@ -88,7 +88,7 @@ checkboxesAll[3].addEventListener('change', function() {
 //             result.forEach((platform) => {
 //                 const li = document.createElement('li');
 //                 const a = document.createElement('a');
-//                 a.href = 'view_fiche de jeu.php?id=' + platform.id;
+//                 a.href = 'view_fiche_de_jeu.php?id=' + platform.id;
 //                 a.innerText = platform.name;
 //                 li.appendChild(a);
 //                 list.appendChild(li);

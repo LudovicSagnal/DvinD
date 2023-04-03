@@ -92,7 +92,7 @@
     display: none;
 }
 
-label {
+form label {
     font-size: 20px;
     text-decoration: none;
 }
@@ -168,7 +168,7 @@ form button:hover {
         width: 100%;
         gap: 10px;
         border-radius: 5px;
-        border: 1px solid var(--colorWhite);
+        border: 1px 0px 1px 0px solid var(--colorWhite);
     }
 
     .input-email label {
@@ -182,7 +182,7 @@ form button:hover {
         color: var(--colorWhite);
     }
     
-    label {
+    form label {
         font-size: 20px;
         text-decoration: none;
         color: var(--colorWhite);

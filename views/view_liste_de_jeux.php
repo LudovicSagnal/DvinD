@@ -46,7 +46,7 @@
     <header>
         <nav class="nav">
             <a href="view_index.php" class="link">Actualités</a>
-            <a href="view_liste de jeux.php" class="active">Liste de jeux</a>
+            <a href="view_liste_de_jeux.php" class="active">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
             <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
@@ -54,7 +54,7 @@
         </nav>
         <div class="display-none" id="smart-nav">
             <a href="view_index.php" class="link">Actualités</a>
-            <a href="view_liste de jeux.php" class="active">Liste de jeux</a>
+            <a href="view_liste_de_jeux.php" class="active">Liste de jeux</a>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </div>
@@ -104,13 +104,13 @@
           if(isset($_GET['submit_tag'])){
             foreach($tagList as $tag) {?>
                 <ul>
-                  <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$tag['id']?>"><?=($tag['name'])?></a></li>
+                  <li id="search-list"><a href="view_fiche_de_jeu.php?id=<?=$tag['id']?>"><?=($tag['name'])?></a></li>
                 </ul>
               <?php }
           } else { ?>
                 <ul> <?php
                   foreach($games as $game) { ?>         
-                      <li id="search-list"><a href="view_fiche de jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
+                      <li id="search-list"><a href="view_fiche_de_jeu.php?id=<?=$game['id']?>"><?=($game['name'])?></a></li>
                   <?php } 
             } ?></ul>
         </div>

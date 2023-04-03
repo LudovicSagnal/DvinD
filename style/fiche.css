@@ -47,6 +47,8 @@ h2 {
 .platform p {
     background-color: var(--colorOrange);
     color: var(--colorBlack);
+    font-size: 15px;
+    font-weight: 600;
     border-radius: 0px 0px 5px 5px;
     margin-top: 0;
 }
@@ -143,4 +145,98 @@ h2 {
     background-color: var(--colorOrange);
     opacity: 1;
     transition: 0.4s;
+  }
+
+  @media (max-width: 380px) {
+
+    h2 {
+        color: var(--colorWhite);
+        background-color: var(--colorBlack);
+        width: auto;
+        height: 30px;
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 0px;
+        padding: 5px;
+    }
+
+    .main-game {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--colorBlack);
+        margin-top: 0px;
+        border: 1px solid var(--colorWhite);
+        border-radius: 5px;
+        height: auto;
+        width: auto;
+        position: relative;
+    }
+
+    .main-middle {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .fiche-jeu {
+        justify-self: start;
+        gap: 0px;
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    .game-picture {
+        object-fit: contain;
+        height: 200px;
+        margin-bottom: 0px;
+        max-width: 100%;
+    }
+
+    .fiche-info {
+        background-color: var(--colorWhite);
+        width: 100%;
+
+    }
+
+    .platform {
+        display: flex;
+        justify-content: space-evenly;
+        align-self: center;
+        width: 40%;
+        height: 50px;
+        gap: 50px;
+    }
+
+    .slider-screen {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        margin: none;
+      }
+
+    .info-media {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 180px;
+    }
+    
+    .info-media img, iframe {
+        height: 300px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .desc {
+        color: var(--colorWhite);
+        position: absolute;
+        top: 500px;
+        margin-left: 0px;
+    }
+
+    #previous-screen, #next-screen {
+        z-index: 2;
+      }
+
   }
