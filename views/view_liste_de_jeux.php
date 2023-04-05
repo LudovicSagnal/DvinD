@@ -125,8 +125,8 @@
         </div>
       </div>
       <div class="right-actu">
-        <h2>Affiner votre recherche</h2>
-        <form id="form-platform" method="GET" action="">
+        <h2 class="div1" >Affiner votre recherche</h2>
+        <form id="form-platform" method="GET" action="" class="div2">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
@@ -148,7 +148,7 @@
             </div>
           </div>
         </form>
-        <form method="GET" action="../controllers/controller_list.php">
+        <form method="GET" action="../controllers/controller_list.php" class="div3">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
@@ -173,7 +173,7 @@
             </div>
           </div>
         </form>
-        <form method="GET" action="../controllers/controller_list.php">
+        <form method="GET" action="../controllers/controller_list.php" class="div4">
             <div class="multipleSelection">
                 <div class="selectBox">
                     <select>
@@ -226,7 +226,7 @@
                     </div> 
             </div>
         </form>
-        <form method="GET" action="../controllers/controller_list.php">
+        <form method="GET" action="../controllers/controller_list.php" class="div5">
           <div class="multipleSelection">
             <div class="selectBox">
               <select>
