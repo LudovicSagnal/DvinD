@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 03 avr. 2023 à 14:38
+-- Généré le : mar. 11 avr. 2023 à 14:26
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -77,7 +77,15 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (36, 'Crate Entertainment'),
 (37, 'Lost Pilgrims Studio'),
 (38, 'Dr. Kucho! Games'),
-(39, 'MrSuicideSheep');
+(39, 'MrSuicideSheep'),
+(40, 'GROUND Game Atelier'),
+(41, 'Lowbirth Games'),
+(42, 'Cassel Games'),
+(43, 'Supergiant Games'),
+(44, 'Landfall'),
+(45, 'Freebird Games'),
+(46, 'adamgryu'),
+(47, 'House House');
 
 -- --------------------------------------------------------
 
@@ -97,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -141,7 +149,15 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (35, 'Grim Dawn', 'Entrez dans un monde fantastique apocalyptique où l\'humanité est au bord de l\'extinction, le fer est valorisé au-dessus de l\'or et la confiance est durement gagnée. Cet ARPG propose un développement de personnage complexe, des centaines d\'objets uniques, de l\'artisanat et des quêtes avec choix et conséquence.', '2016-02-25', 'Prochainement', 219990, 'GrimDawn.jpg', 'https://www.youtube.com/embed/V9Z1e2QCGAE', 0),
 (36, 'Vagrus - The Riven Realms', 'Embarquez pour un voyage périlleux à travers un royaume abandonné par les dieux et dévasté par un cataclysme arcanique. Accompagné d\'un équipage robuste, vous devez échanger, combattre et explorer votre chemin vers le succès en tant que chef d\'une entreprise itinérante dans Vagrus, un RPG fantastique post-apocalyptique au tour par tour primé.', '2021-10-05', 'Prochainement', 909660, 'Vagrus-TheRivenRealms.jpg', 'https://www.youtube.com/embed/8UqSUmkuJ28', 0),
 (37, 'Sheepy: A Short Adventure', 'Un petit jeu de plateforme Pixel Art artisanal qui suit Sheepy, une peluche abandonnée qui prend vie. Sheepy : A Short Adventure est le premier jeu de MrSuicideSheep.', '2023-05-10', 'Prochainement', 1568400, 'SheepyAShortAdventure.jpg', 'https://www.youtube.com/embed/OHNuFr0VBD0', 0),
-(38, 'Moons Of Darsalon', 'Jeu de plateforme d\'action rétro \"save-them-all\" comprenant une physique avancée combinée à une sensation rétro unique. Terminez des missions de sauvetage en menant vos collègues à la station de base la plus proche. Combattez les ennemis à l\'aide de votre pistolet laser, de votre jet pack, détruisez le décor et créez même de nouveaux chemins avec le ground maker.', '2023-04-19', 'Prochainement', 1234180, 'MoonsOfDarsalon.jpg', 'https://www.youtube.com/embed/P8bOcQHrXL8', 0);
+(38, 'Moons Of Darsalon', 'Jeu de plateforme d\'action rétro \"save-them-all\" comprenant une physique avancée combinée à une sensation rétro unique. Terminez des missions de sauvetage en menant vos collègues à la station de base la plus proche. Combattez les ennemis à l\'aide de votre pistolet laser, de votre jet pack, détruisez le décor et créez même de nouveaux chemins avec le ground maker.', '2023-04-19', 'Prochainement', 1234180, 'MoonsOfDarsalon.jpg', 'https://www.youtube.com/embed/P8bOcQHrXL8', 0),
+(39, 'The Time I Have Left', 'The Time I Have Left est l\'histoire d\'une évasion chronométrée avec des éléments de RPG se déroulant dans une installation souterraine complexe. Un phénomène mystérieux connu uniquement sous le nom de \"The Miasma\" a marqué Aline pour une mort certaine. Pouvez-vous l\'aider à s\'échapper des couloirs désolés de Colony 7 ?', NULL, 'Décembre 2023', 1918830, 'TheTimeIHaveLeft.jpg', 'https://www.youtube.com/embed/WHVryJ9QcWE', 0),
+(40, 'This Bed We Made', 'This Bed We Made est jeu de mystère à la troisième personne. Plongez dans la peau d\'une femme de chambre d\'hôtel des années 50 et fouinez dans les possessions d\'inconnus afin de découvrir leurs terribles secrets. Découvrez ce qui lie les clients entre eux dans cette histoire d\'amour et de meurtre!', '0000-00-00', 'Prochainement', 1243850, 'ThisBedWeMade.jpg', 'https://www.youtube.com/embed/8hOWwuMu01A', 0),
+(41, 'Ratopia', 'Nouveau jeu avec un genre combiné de survie stratégique, sandbox et simulation de construction de ville. Profitez de la simulation avec un vaste monde à explorer et énormément de contenus. Construisez votre propre système économique pour soutenir votre ville idéale de Ratopia.', '0000-00-00', '4ᵉ trimestre 2023', 2244130, 'Ratopia.jpg', 'https://www.youtube.com/embed/lZIDecbFTxM', 0),
+(42, 'Hades', 'Défiez le dieu des morts et frayez-vous un chemin hors des Enfers dans ce rogue-like en mode dungeon crawler développé par les créateurs de Bastion, Transistor et Pyre.', '2020-09-17', 'Prochainement', 1145360, 'Hades.jpg', 'https://www.youtube.com/embed/a2SbZVYQ0Go', 0),
+(43, 'Totally Accurate Battle Simulator', 'Dirigez des personnages flageolants bleus et rouges venant de terres anciennes, de lieux effrayants et de mondes fantastiques. Admirez-les se battre dans des simulations où la physique est totalement bancale.', '2021-04-01', 'Prochainement', 508440, 'TotallyAccurateBattleSimulator.jpg', 'https://www.youtube.com/embed/UvtYpRbhRjc', 0),
+(44, 'Impostor Factory', 'Un thriller policier givré plein de boucles temporelles et de victimes avec, en plus, un chat plus que louche sorti de l’esprit du créateur de To the Moon & Finding Paradise.', '2021-09-30', 'Prochainement', 1182620, 'ImpostorFactory.jpg', 'https://www.youtube.com/embed/MJ7jv5PSigk', 0),
+(45, 'A Short Hike', 'Randonnez, escaladez, et planez dans le Parc provincial de Hawk Peak, et découvrez ses paysages paisibles sur le chemin du sommet.', '2019-07-30', 'Prochainement', 1055540, 'AShortHike.jpg', 'https://www.youtube.com/embed/is5Vlvd6hfk', 0),
+(46, 'Untitled Goose Game', 'La journée s’annonce superbe au village et vous êtes une oie insupportable.', '2020-09-23', 'Prochainement', 837470, 'UntitledGooseGame.jpg', 'https://www.youtube.com/embed/yvwlwcykfHM', 0);
 
 -- --------------------------------------------------------
 
@@ -200,7 +216,15 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (35, 36),
 (36, 37),
 (38, 38),
-(37, 39);
+(37, 39),
+(39, 40),
+(40, 41),
+(41, 42),
+(42, 43),
+(43, 44),
+(44, 45),
+(45, 46),
+(46, 47);
 
 -- --------------------------------------------------------
 
@@ -241,6 +265,12 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (31, 1),
 (33, 1),
 (35, 1),
+(40, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -278,7 +308,15 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (35, 2),
 (36, 2),
 (37, 2),
-(38, 2);
+(38, 2),
+(39, 2),
+(40, 2),
+(41, 2),
+(42, 2),
+(43, 2),
+(44, 2),
+(45, 2),
+(46, 2);
 
 -- --------------------------------------------------------
 
@@ -337,6 +375,14 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (36, 1),
 (37, 1),
 (38, 1),
+(39, 1),
+(40, 1),
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -347,6 +393,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (26, 2),
 (33, 2),
 (36, 2),
+(44, 2),
+(45, 2),
 (1, 3),
 (3, 3),
 (8, 3),
@@ -358,7 +406,12 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (26, 3),
 (32, 3),
 (36, 3),
-(38, 3);
+(38, 3),
+(42, 3),
+(43, 3),
+(44, 3),
+(45, 3),
+(46, 3);
 
 -- --------------------------------------------------------
 
@@ -394,6 +447,8 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (33, 1),
 (35, 1),
 (38, 1),
+(42, 1),
+(46, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -411,6 +466,11 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (35, 2),
 (37, 2),
 (38, 2),
+(39, 2),
+(40, 2),
+(44, 2),
+(45, 2),
+(46, 2),
 (7, 3),
 (1, 4),
 (3, 4),
@@ -425,6 +485,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (29, 4),
 (32, 4),
 (36, 4),
+(41, 4),
 (4, 5),
 (17, 5),
 (28, 5),
@@ -452,6 +513,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (34, 7),
 (35, 7),
 (36, 7),
+(39, 7),
+(42, 7),
+(44, 7),
 (6, 9),
 (9, 9),
 (16, 9),
@@ -462,7 +526,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (25, 9),
 (27, 9),
 (34, 9),
-(36, 9);
+(36, 9),
+(41, 9),
+(43, 9);
 
 -- --------------------------------------------------------
 
@@ -501,7 +567,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`),
   KEY `posted_by_id` (`posted_by_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `news`
@@ -514,7 +580,8 @@ INSERT INTO `news` (`id`, `title`, `content`, `date`, `posted_by_id`, `is_visibl
 (4, 'La news du futur', '<p>Pour voir si tout va bien <3</p>', '2023-03-28 08:22:55', 14, 0),
 (5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche_de_jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0),
 (6, 'Hunt: Showdown - The Ward of the Reptilian Questline', '<p>De nouvelles quêtes sont arrivées !</p>\r\n\r\n<p>Avec la mise à jour 1.12, il y aura deux nouvelles séries de quêtes dans le bayou : \"La protection des reptiliens\" et \"La vengeance des écorchés\". Ces séries de quêtes offrent aux chasseurs de nouveaux types d\'activités à poursuivre, ainsi que de précieuses récompenses à gagner en six actes, notamment le déverrouillage de nouvelles variantes d\'armes, de l\'équipement légendaire, etc.</p>\r\n<p>Les principales récompenses pour les séries de quêtes à venir sont les suivantes. Assurez-vous de jouer à travers les séries de quêtes dans les délais impartis afin de ne pas manquer les récompenses !</p>\r\n\r\n<p>\"Le service du reptilien\"29 mars - 1er mai 2023 </p>\r\n\r\n<ul><li>Acte 1 – Dusters légendaires \"Monongahela Bruiser\"</li>\r\n<li>Acte 2 – Winfield M1876 Centennial Short (déverrouillage d\'arme)</li>\r\n<li>Acte 3 – Légendaire Scottfield Model 3 Précision \"Somber Gale\"</li>\r\n<li>Acte 4 – Winfield M1876 Centennial Shorty (déverrouillage d\'arme)</li>\r\n<li>Acte 5 - Légendaire Berthier Mle 1892 \"Aviron du Passeur\"</li>\r\n<li>Acte 6 – Chasseur Légendaire \"The Scaled Ward\"</li></ul>\r\n\r\n<p>\"La vengeance des écorchés\" arrive peu après The Ward of the Reptilian ! </p>\r\n\r\n<ul><li>Acte 1 - Baïonnette Springfield M1892 Krag (déverrouillage d\'arme)</li>\r\n<li>Acte 2 - Officier légendaire Nagant M1895 Brawler \"Killian\'s Chance\"</li>\r\n<li>Acte 3 – Springfield M1892 Krag Sniper (déverrouillage d\'arme)</li>\r\n<li>Acte 4 – Lance-bombes légendaire \"La vis de Nola\"</li>\r\n<li>Acte 5 – Charme d\'arme \"Marred Murex\"</li>\r\n<li>Acte 6 – Chasseur légendaire \"Le écorché\"</li></ul>\r\n', '2023-03-29 13:28:22', 2, 0),
-(7, 'Papa\'s Freezeria Deluxe sort aujourd\'hui', '<img src=\"../image/jeux/PapasFreezeriaDeluxe.jpg\" alt=\"\">\r\n\r\n<p><a href=\"view_fiche_de_jeu.php?id=18\">Papa\'s Freezeria Deluxe</a>, le dernier jeu de la série des Papa\'s de Flipline Studios, sort ce vendredi 31 mars sur Steam.</p>\r\n\r\n<p>Le prix n\'a toujours pas été officiellement annoncé.</p>', '2023-03-31 10:02:27', 2, 0);
+(7, 'Papa\'s Freezeria Deluxe sort aujourd\'hui', '<img src=\"../image/jeux/PapasFreezeriaDeluxe.jpg\" alt=\"\">\r\n\r\n<p><a href=\"view_fiche_de_jeu.php?id=18\">Papa\'s Freezeria Deluxe</a>, le dernier jeu de la série des Papa\'s de Flipline Studios, sort ce vendredi 31 mars sur Steam.</p>\r\n\r\n<p>Le prix n\'a toujours pas été officiellement annoncé.</p>', '2023-03-31 10:02:27', 2, 0),
+(9, 'Indie Fighting Games Fest', '<p>Du 13 au 17 avril se tient l\'Indie Fighting Games Fest, une célébration en ligne de cinq jours autour des jeux de combat créés par des développeurs indépendants.</p>\r\n\r\n<p>Réductions, démos et jeux gratuits !</p>\r\n<p>Ne manquez pas cette chance d\'obtenir vos jeux de combat indépendants préférés à petit prix ! De nombreux développeurs proposent également des démos de leurs jeux, et les combattants innovants de la collection \"Free to Play\" ne coûtent rien !</p>\r\n\r\n<p>Regardez #IndieFightingGamesFest en direct !</p>\r\n<p>#IndieFightingGamesFest s\'est associé à des dizaines de streamers et de YouTubers pour mettre en lumière les jeux de combat indépendants prometteurs. Consultez le calendrier des diffusions <a href=\"https://supercombo.gg/2023/04/02/indie-fighting-games-fest-2023/\">ici</a> et gardez un œil sur les diffusions Steam de la communauté et des développeurs !</p>', '2023-04-11 11:27:58', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -597,7 +664,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -755,7 +822,39 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (149, 'SheepyAShortAdventure1.jpg', 37),
 (150, 'SheepyAShortAdventure2.jpg', 37),
 (151, 'SheepyAShortAdventure3.jpg', 37),
-(152, 'SheepyAShortAdventure4.jpg', 37);
+(152, 'SheepyAShortAdventure4.jpg', 37),
+(153, 'TheTimeIHaveLeft1.jpg', 39),
+(154, 'TheTimeIHaveLeft2.jpg', 39),
+(155, 'TheTimeIHaveLeft3.jpg', 39),
+(156, 'TheTimeIHaveLeft4.jpg', 39),
+(157, 'ThisBedWeMade1.jpg', 40),
+(158, 'ThisBedWeMade2.jpg', 40),
+(159, 'ThisBedWeMade3.jpg', 40),
+(160, 'ThisBedWeMade4.jpg', 40),
+(161, 'Ratopia1.jpg', 41),
+(162, 'Ratopia2.jpg', 41),
+(163, 'Ratopia3.jpg', 41),
+(164, 'Ratopia4.jpg', 41),
+(165, 'Hades1.jpg', 42),
+(166, 'Hades2.jpg', 42),
+(167, 'Hades3.jpg', 42),
+(168, 'Hades4.jpg', 42),
+(169, 'TotallyAccurateBattleSimulator1.jpg', 43),
+(170, 'TotallyAccurateBattleSimulator2.jpg', 43),
+(171, 'TotallyAccurateBattleSimulator3.jpg', 43),
+(172, 'TotallyAccurateBattleSimulator4.jpg', 43),
+(173, 'ImpostorFactory1.jpg', 44),
+(174, 'ImpostorFactory2.jpg', 44),
+(175, 'ImpostorFactory3.jpg', 44),
+(176, 'ImpostorFactory4.jpg', 44),
+(177, 'AShortHike1.jpg', 45),
+(178, 'AShortHike2.jpg', 45),
+(179, 'AShortHike3.jpg', 45),
+(180, 'AShortHike4.jpg', 45),
+(181, 'UntitledGooseGame1.jpg', 46),
+(182, 'UntitledGooseGame2.jpg', 46),
+(183, 'UntitledGooseGame3.jpg', 46),
+(184, 'UntitledGooseGame4.jpg', 46);
 
 -- --------------------------------------------------------
 

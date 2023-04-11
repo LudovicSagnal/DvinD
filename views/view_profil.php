@@ -56,9 +56,11 @@
 
     <main>
         <form action="../controllers/controller_modification.php" method="post" enctype="multipart/form-data"> 
-                <label for="form_pseudo">Pseudo</label>
-                <input type="text" name="form_pseudo" value="<?=$_SESSION['user']['username']?>" required>
                 <div>
+                    <label for="form_pseudo">Pseudo</label>
+                    <input class="pseudo" type="text" name="form_pseudo" value="<?=$_SESSION['user']['username']?>" required>
+                </div>
+                <div class="login-info">
                     <div class="form-div">
                         <label for="form_email">Email</label>
                         <input type="text" name="form_email" value="<?=$_SESSION['user']['email']?>" required>
@@ -81,7 +83,7 @@
                 </div>      
                 <div class="line"></div>     
                 <h3>Informations personnelles</h3>
-                <div>
+                <div class="personnal-info">
                     <div class="form-div">
                         <label for="form_nom">Nom</label>
                         <input type="text" name="form_nom" value="<?=$_SESSION['user']['lastname']?>" required>
@@ -97,6 +99,8 @@
             </form>
 
     </main>
+
     
-</body>
-</html>
+<?php
+    require './bottomHTML.php';
+?>

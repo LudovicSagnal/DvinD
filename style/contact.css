@@ -20,12 +20,12 @@
     height: 80%;
     width: 80%;
     gap: 10%;
+    margin-top: 50px;
 }
 
 .info {
     height: 95%;
     width: 60%;
-    margin-top: 50px;
     background-color: var(--colorBlack);
     /* box-shadow: 0px 2px 35px 1px gray; */
     border: 1px solid var(--colorWhite);
@@ -50,7 +50,6 @@
     justify-content: center;
     background-color: var(--colorBlack);
     height: 90%;
-    margin-top: 50px;
     width: 50%;
     gap: 10px;
     border-radius: 5px;
@@ -95,6 +94,7 @@
 form label {
     font-size: 20px;
     text-decoration: none;
+    visibility: hidden;
 }
 
 textarea {
@@ -134,29 +134,58 @@ form button:hover {
     display: none;
 }
 
-@media (max-width: 380px) {
-
-    .main-contact {  
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: auto;
-        gap: 5%;
-    }
+@media ( min-width: 1366px ) and (max-height:768px) {
 
     .inform {
-        display: flex;
+        margin-top: 150px;
+    }
+    .form-contact h2 {
+        margin: 20px;
+    }
+    .form-contact {
+        gap: 0px;
+    }
+}
+
+@media (max-width: 920px) {
+
+    .inform {
+        height: 90%;
+        width: 98%;
+        gap: 5px;
+        margin-top: 30px;
+    }
+    .info {
+        height: 90%;
+        width: 50%;
+    }
+    .form-contact {
+        gap: 5px;
+        border-radius: 5px;
+    }
+    .input-names input {
+        width: 40%;
+    }
+}
+@media (max-width: 600px) {
+    .info p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .main-contact {  
+        height: auto;
+    }
+    .inform {
         flex-direction: column-reverse;
         height: auto;
         width: 100%;
     }
-
     .form-contact {
         display: none;
     }
-
     .smart-form {
         display: flex;
         flex-direction: column;
@@ -170,41 +199,35 @@ form button:hover {
         border-radius: 5px;
         border: 1px 0px 1px 0px solid var(--colorWhite);
     }
-
     .input-email label {
         display: block;
         font-size: 20px;
         text-decoration: none;
         color: var(--colorWhite);
     }
-
     h2 {
         color: var(--colorWhite);
-    }
-    
+    }  
     form label {
         font-size: 20px;
         text-decoration: none;
         color: var(--colorWhite);
+        visibility: visible;
     }
-
     .info {
         display: none;
     }
-
     .smart-form input, .input-mail {
         height: 30px;
         font-size: 22px;
         width: 90%;
         text-align: center;
     }
-
     .smart-form label {
         display: block;
         font-size: 20px;
         text-decoration: none;
-    }
-    
+    }  
     textarea {
         border: 1px solid var(--colorOrange);
         border-radius: 5px;
@@ -213,8 +236,4 @@ form button:hover {
         font-size: 22px;
         resize: none;
     }
-
-
-
-
 }

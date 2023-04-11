@@ -5,7 +5,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-main {
+main-profil {
     width: 100%;
     min-height: 75vh;
 }
@@ -20,6 +20,7 @@ form {
     margin-top: 4%;
     border: 1px solid var(--colorWhite);
     border-radius: 10px;
+    position: relative;
 }
 
 .label-file {
@@ -29,6 +30,11 @@ form {
 
 .input-file {
     display: none;
+}
+
+.message-to {
+    position: absolute;
+    top: 50px;
 }
 
 .form-div {
@@ -140,4 +146,80 @@ h3 {
     position: absolute;
     margin-top: -70px;
     z-index: 10;
+}
+
+@media (min-width: 1366px) and (max-height: 768px) {
+    form {
+        padding: 20px;
+        height: auto;
+        gap: 0px;
+    }
+    .avatar-preview-container {
+        margin-top: -25%;
+    }
+    .preview {
+        height: 200px;
+        width: 200px;
+    }
+    .form-div label {
+        font-size: 20px;
+    }
+    h3 {
+        margin: 5px;
+    }
+    #button {
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 920px) {
+    form {
+        margin-bottom: 5px;
+        padding: 40px;
+    }
+    .pseudo {
+        width: 50%;
+    }
+    form input {
+        width: 80%;
+    }
+    .avatar-preview-container {
+        margin-left: 20%;
+        margin-top: 0%;
+    }
+    .line {
+        width: 80%;
+    }
+    .personnal-info {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 480px) {
+
+    form {
+        width: 100%;
+        padding: 0px;
+        align-items: center;
+        gap: 5px;
+    }
+    form input { 
+        width: 100%;
+    }
+    .avatar-preview-container {
+        margin-top: 0px;
+    }
+    .login-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .personnal-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-div {
+        margin-right: 0px;
+    }
 }

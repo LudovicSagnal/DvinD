@@ -39,7 +39,7 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <input type="text" id="search-input" class="search">
+            <input type="text" id="search-input" class="search" autocomplete="off">
             <label for="search-input">Rechercher un jeu</label>
             <div class="display-none" id="modal-search">
                <ul id="games-list"></ul> 
@@ -61,9 +61,11 @@
     </header>
     <main>
         <form action="../controllers/controller_inscription.php" method="post" enctype="multipart/form-data"> 
-            <label for="form_username">Pseudo</label>
-            <input type="text" name="form_username" required>
             <div>
+                <label for="form_username">Pseudo</label>
+                <input class="pseudo" type="text" name="form_username" required>
+            </div>  
+            <div class="login-info">
                 <div class="form-div">
                     <label for="form_email" id="lab-email" required>Email</label>
                     <input type="text" name="form_email" id="mail" class="invalid">
@@ -71,6 +73,7 @@
                     <input type="text" name="form_remail" id="remail" class="invalid">
                 </div> 
                 <div class="form-div">
+                    <p class="message-to"></p>
                     <div class="dnone" id="explain-pass">
                         <p>Minimum : 8 caractères, une majuscule, une minuscule, un numéro et un caractère spécial (@ $ ! % * ? &)</p>
                     </div>
@@ -90,7 +93,7 @@
             </div>      
             <div class="line"></div>     
             <h3>Informations personnelles</h3>
-            <div>
+            <div class="personnal-info">
                 <div class="form-div">
                     <label for="form_lastname">Nom</label>
                     <input type="text" name="form_lastname" required>
@@ -107,6 +110,6 @@
     </main>
 
  
-</body>
-
-</html>
+<?php
+    require './bottomHTML.php';
+?>

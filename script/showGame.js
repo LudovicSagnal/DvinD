@@ -26,7 +26,7 @@ searchInput.addEventListener('keyup', () => {
         delayTimer = setTimeout(() => { // Then set a new timer, that will execute the AJAX request
             modal.classList.replace('display-none', 'modal-search');
             fetch('../controllers/controller_searchBar.php?search=' + searchInput.value) // Provide searchInput parameter
-                .then(response => response.json()) // Converting the response from JSON to JavaScript (JSON is just text)
+                .then(response => response.json()) // Converting the response from JSON to JavaScript
                 .then(games => { // After the JSON -> JS convertion, we can access the games array
                     gamesList.innerHTML = ''; // Empty the games list for each request, so we can add games after that
 

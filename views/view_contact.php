@@ -91,13 +91,7 @@
                 <textarea id="text" name="message" required></textarea>
                 <button type="submit">Envoyer</button>
             </form>
-            <?php
-            if (isset($_POST['message'])) {
-                $retour = mail('DvinD@laposte.net', 'Envoi depuis la page Contact', '', $_POST['email']);
-                if($retour)
-                    echo '<p>Votre message a bien été envoyé.</p>';
-            }
-            ?>
+
         </div>
     </section>
 

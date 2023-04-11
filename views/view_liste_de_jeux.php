@@ -174,56 +174,56 @@
           </div>
         </form>
         <form method="GET" action="../controllers/controller_list.php" class="div4">
-            <div class="multipleSelection">
-                <div class="selectBox">
-                    <select>
-                        <option>Année de sortie</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>     
-                    <div class="checkBoxes">
-                        <label for="firstD">
-                            <input type="checkbox" id="firstD" name="date[]" value="Tous" checked/>
-                            Toutes
-                        </label>                      
-                        <label for="secondD">
-                            <input type="checkbox" id="secondD" name="date[]" value="2023" />
-                            2023
-                        </label>
-                        <label for="thirdD">
-                            <input type="checkbox" id="thirdD" name="date[]" value="2022" />
-                            2022
-                        </label>
-                        <label for="fourthD">
-                            <input type="checkbox" id="fourthD" name="date[]" value="2021" />
-                            2021
-                        </label>
-                        <label for="fifthD">
-                            <input type="checkbox" id="fifthD" name="date[]" value="2020" />
-                            2020
-                        </label>
-                        <label for="sixthD">
-                            <input type="checkbox" id="sixthD" name="date[]" value="2019" />
-                            2019
-                        </label>
-                        <label for="seventhD">
-                            <input type="checkbox" id="seventhD" name="date[]" value="2018" />
-                            2018
-                        </label>
-                        <label for="eighthD">
-                            <input type="checkbox" id="eighthD" name="date[]" value="2017" />
-                            2017
-                        </label>
-                        <label for="ninthD">
-                            <input type="checkbox" id="ninthD" name="date[]" value="2016" />
-                            2016
-                        </label>
-                        <label for="tenthD">
-                            <input type="checkbox" id="tenthD" name="date[]" value="2015" />
-                            2015
-                        </label>
-                        <input type="submit" name="submit_date" value="Valider">
-                    </div> 
+          <div class="multipleSelection">
+            <div class="selectBox">
+                <select>
+                    <option>Année de sortie</option>
+                </select>
+                <div class="overSelect"></div>
+            </div>     
+              <div class="checkBoxes">
+                <label for="firstD">
+                    <input type="checkbox" id="firstD" name="date[]" value="Tous" checked/>
+                    Toutes
+                </label>                      
+                <label for="secondD">
+                    <input type="checkbox" id="secondD" name="date[]" value="2023" />
+                    2023
+                </label>
+                <label for="thirdD">
+                    <input type="checkbox" id="thirdD" name="date[]" value="2022" />
+                    2022
+                </label>
+                <label for="fourthD">
+                    <input type="checkbox" id="fourthD" name="date[]" value="2021" />
+                    2021
+                </label>
+                <label for="fifthD">
+                    <input type="checkbox" id="fifthD" name="date[]" value="2020" />
+                    2020
+                </label>
+                <label for="sixthD">
+                    <input type="checkbox" id="sixthD" name="date[]" value="2019" />
+                    2019
+                </label>
+                <label for="seventhD">
+                    <input type="checkbox" id="seventhD" name="date[]" value="2018" />
+                    2018
+                </label>
+                <label for="eighthD">
+                    <input type="checkbox" id="eighthD" name="date[]" value="2017" />
+                    2017
+                </label>
+                <label for="ninthD">
+                    <input type="checkbox" id="ninthD" name="date[]" value="2016" />
+                    2016
+                </label>
+                <label for="tenthD">
+                    <input type="checkbox" id="tenthD" name="date[]" value="2015" />
+                    2015
+                </label>
+                <input type="submit" name="submit_date" value="Valider">
+              </div> 
             </div>
         </form>
         <form method="GET" action="../controllers/controller_list.php" class="div5">
