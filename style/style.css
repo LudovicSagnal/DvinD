@@ -136,6 +136,11 @@ header .link {
   list-style-type:none;
 }
 
+li::marker {
+  content: "\22B3";
+  color: var(--colorOrange);
+}
+
 .user-div {
   display: flex;
   align-items: center;

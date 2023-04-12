@@ -159,18 +159,18 @@
 
                         <legend>Ajout</legend>
                         <form action="../controllers/controller_admin.php" method="post" enctype='multipart/form-data'>
-                            <input type="hidden" name="form_insert" value="1">
+                            <input type="hidden" name="form_insert_game" value="1">
                             <label>Nom:
                                 <input type="text" name="name">
                             </label>
-                            <label>Steam ID:
-                                <input type="text" name="steam_appid">
+                            <label>Steam ID (null ok):
+                                <input type="number" name="steam_appid">
                             </label>
                             <label>Développeur:
                                 <input type="text" name="developer">
                             </label>
-                            <label>Tags:
-                                <select name="tags">
+                            <ul>Tags:
+                                <!-- <select name="tags">
                                     <option value="1">Action</option>
                                     <option value="2">Aventure</option>
                                     <option value="3">Combat</option>
@@ -180,21 +180,43 @@
                                     <option value="7">RPG</option>
                                     <option value="8">Sport</option>
                                     <option value="9">Stratégie</option>
-                                </select>
-                            </label>
-                            <label>Plateformes:
+                                </select> -->
+                                <li><input type="checkbox" value="1"> Action</li>
+                                <li><input type="checkbox" value="2"> Aventure</li>
+                                <li><input type="checkbox" value="3"> Combat</li>
+                                <li><input type="checkbox" value="4"> Gestion</li>
+                                <li><input type="checkbox" value="5"> Horreur</li>
+                                <li><input type="checkbox" value="6"> Plateforme</li>
+                                <li><input type="checkbox" value="7"> RPG</li>
+                                <li><input type="checkbox" value="8"> Sport</li>
+                                <li><input type="checkbox" value="9"> Stratégie</li>
+                                </ul>
+                            <!-- <label>Plateformes:
                                 <select name="platforms">
-                                    <!-- <input type="checkbox"/> Windows -->
                                     <option value="1">Windows</option>
                                     <option value="2">Mac</option>
                                     <option value="3">Linux</option>
                                 </select>
-                            </label>
+                            </label> -->
+                            <ul>Plateformes:
+                                <li><input type="checkbox" value="1"> Windows</li>
+                                <li><input type="checkbox" value="2"> Mac</li>
+                                <li><input type="checkbox" value="3"> Linux</li>
+                            </ul>
                             <label>Description:
                                 <textarea name="" id="" cols="30" rows="10" name="description" style="resize: none;"></textarea>
                             </label>
-                            <label>Date de sortie:
+                            <label>Date de sortie (null ok):
                                 <input type="date" name="release_date">
+                            </label>
+                            <label>Annonce (null ok):
+                                <input type="text" name="future_release">
+                            </label>
+                            <label>Image/Jaquette:
+                                <input type="file" name="picture_url">
+                            </label>
+                            <label>Url de la vidéo:
+                                <input type="text" name="video_url">
                             </label>
                             <input type="submit" value="Enregistrer">
                         </form>

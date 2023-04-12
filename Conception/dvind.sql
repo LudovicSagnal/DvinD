@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 11 avr. 2023 à 14:26
+-- Généré le : mer. 12 avr. 2023 à 14:46
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -85,7 +85,8 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (44, 'Landfall'),
 (45, 'Freebird Games'),
 (46, 'adamgryu'),
-(47, 'House House');
+(47, 'House House'),
+(48, 'Artificial Disasters');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -157,7 +158,8 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (43, 'Totally Accurate Battle Simulator', 'Dirigez des personnages flageolants bleus et rouges venant de terres anciennes, de lieux effrayants et de mondes fantastiques. Admirez-les se battre dans des simulations où la physique est totalement bancale.', '2021-04-01', 'Prochainement', 508440, 'TotallyAccurateBattleSimulator.jpg', 'https://www.youtube.com/embed/UvtYpRbhRjc', 0),
 (44, 'Impostor Factory', 'Un thriller policier givré plein de boucles temporelles et de victimes avec, en plus, un chat plus que louche sorti de l’esprit du créateur de To the Moon & Finding Paradise.', '2021-09-30', 'Prochainement', 1182620, 'ImpostorFactory.jpg', 'https://www.youtube.com/embed/MJ7jv5PSigk', 0),
 (45, 'A Short Hike', 'Randonnez, escaladez, et planez dans le Parc provincial de Hawk Peak, et découvrez ses paysages paisibles sur le chemin du sommet.', '2019-07-30', 'Prochainement', 1055540, 'AShortHike.jpg', 'https://www.youtube.com/embed/is5Vlvd6hfk', 0),
-(46, 'Untitled Goose Game', 'La journée s’annonce superbe au village et vous êtes une oie insupportable.', '2020-09-23', 'Prochainement', 837470, 'UntitledGooseGame.jpg', 'https://www.youtube.com/embed/yvwlwcykfHM', 0);
+(46, 'Untitled Goose Game', 'La journée s’annonce superbe au village et vous êtes une oie insupportable.', '2020-09-23', 'Prochainement', 837470, 'UntitledGooseGame.jpg', 'https://www.youtube.com/embed/yvwlwcykfHM', 0),
+(47, 'Flooded', 'Flooded est un city-builder inversé, dans lequel vous devez optimiser votre production sur une île qui se rétrécit avec le temps. Rassemblez suffisamment de ressources pour fuir vers la sécurité, tandis que le monde environnant est inondé.', '2023-04-12', 'Prochainement', 1795470, 'Flooded.jpg', 'https://www.youtube.com/embed/eY8r2wTNVeo', 0);
 
 -- --------------------------------------------------------
 
@@ -224,7 +226,8 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (43, 44),
 (44, 45),
 (45, 46),
-(46, 47);
+(46, 47),
+(47, 48);
 
 -- --------------------------------------------------------
 
@@ -316,7 +319,8 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (43, 2),
 (44, 2),
 (45, 2),
-(46, 2);
+(46, 2),
+(47, 2);
 
 -- --------------------------------------------------------
 
@@ -383,6 +387,7 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (44, 1),
 (45, 1),
 (46, 1),
+(47, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -486,6 +491,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (32, 4),
 (36, 4),
 (41, 4),
+(47, 4),
 (4, 5),
 (17, 5),
 (28, 5),
@@ -528,7 +534,8 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (34, 9),
 (36, 9),
 (41, 9),
-(43, 9);
+(43, 9),
+(47, 9);
 
 -- --------------------------------------------------------
 
@@ -567,7 +574,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`),
   KEY `posted_by_id` (`posted_by_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `news`
@@ -581,7 +588,8 @@ INSERT INTO `news` (`id`, `title`, `content`, `date`, `posted_by_id`, `is_visibl
 (5, 'Lightracer Spark annonce sa date de sortie', '<p>Les développeurs de <a href=\"view_fiche_de_jeu.php?id=27\">Lightracer Spark</a>, le jeu de stratégie spatial, ont officiellement annoncé sa sortie pour le 12 avril prochain.</p>\r\n\r\n<p>Le jeu sera au prix de 12.79€ mais bénéficiera d\'une promotion de -10% la première semaine.</p>', '2023-03-28 09:54:20', 2, 0),
 (6, 'Hunt: Showdown - The Ward of the Reptilian Questline', '<p>De nouvelles quêtes sont arrivées !</p>\r\n\r\n<p>Avec la mise à jour 1.12, il y aura deux nouvelles séries de quêtes dans le bayou : \"La protection des reptiliens\" et \"La vengeance des écorchés\". Ces séries de quêtes offrent aux chasseurs de nouveaux types d\'activités à poursuivre, ainsi que de précieuses récompenses à gagner en six actes, notamment le déverrouillage de nouvelles variantes d\'armes, de l\'équipement légendaire, etc.</p>\r\n<p>Les principales récompenses pour les séries de quêtes à venir sont les suivantes. Assurez-vous de jouer à travers les séries de quêtes dans les délais impartis afin de ne pas manquer les récompenses !</p>\r\n\r\n<p>\"Le service du reptilien\"29 mars - 1er mai 2023 </p>\r\n\r\n<ul><li>Acte 1 – Dusters légendaires \"Monongahela Bruiser\"</li>\r\n<li>Acte 2 – Winfield M1876 Centennial Short (déverrouillage d\'arme)</li>\r\n<li>Acte 3 – Légendaire Scottfield Model 3 Précision \"Somber Gale\"</li>\r\n<li>Acte 4 – Winfield M1876 Centennial Shorty (déverrouillage d\'arme)</li>\r\n<li>Acte 5 - Légendaire Berthier Mle 1892 \"Aviron du Passeur\"</li>\r\n<li>Acte 6 – Chasseur Légendaire \"The Scaled Ward\"</li></ul>\r\n\r\n<p>\"La vengeance des écorchés\" arrive peu après The Ward of the Reptilian ! </p>\r\n\r\n<ul><li>Acte 1 - Baïonnette Springfield M1892 Krag (déverrouillage d\'arme)</li>\r\n<li>Acte 2 - Officier légendaire Nagant M1895 Brawler \"Killian\'s Chance\"</li>\r\n<li>Acte 3 – Springfield M1892 Krag Sniper (déverrouillage d\'arme)</li>\r\n<li>Acte 4 – Lance-bombes légendaire \"La vis de Nola\"</li>\r\n<li>Acte 5 – Charme d\'arme \"Marred Murex\"</li>\r\n<li>Acte 6 – Chasseur légendaire \"Le écorché\"</li></ul>\r\n', '2023-03-29 13:28:22', 2, 0),
 (7, 'Papa\'s Freezeria Deluxe sort aujourd\'hui', '<img src=\"../image/jeux/PapasFreezeriaDeluxe.jpg\" alt=\"\">\r\n\r\n<p><a href=\"view_fiche_de_jeu.php?id=18\">Papa\'s Freezeria Deluxe</a>, le dernier jeu de la série des Papa\'s de Flipline Studios, sort ce vendredi 31 mars sur Steam.</p>\r\n\r\n<p>Le prix n\'a toujours pas été officiellement annoncé.</p>', '2023-03-31 10:02:27', 2, 0),
-(9, 'Indie Fighting Games Fest', '<p>Du 13 au 17 avril se tient l\'Indie Fighting Games Fest, une célébration en ligne de cinq jours autour des jeux de combat créés par des développeurs indépendants.</p>\r\n\r\n<p>Réductions, démos et jeux gratuits !</p>\r\n<p>Ne manquez pas cette chance d\'obtenir vos jeux de combat indépendants préférés à petit prix ! De nombreux développeurs proposent également des démos de leurs jeux, et les combattants innovants de la collection \"Free to Play\" ne coûtent rien !</p>\r\n\r\n<p>Regardez #IndieFightingGamesFest en direct !</p>\r\n<p>#IndieFightingGamesFest s\'est associé à des dizaines de streamers et de YouTubers pour mettre en lumière les jeux de combat indépendants prometteurs. Consultez le calendrier des diffusions <a href=\"https://supercombo.gg/2023/04/02/indie-fighting-games-fest-2023/\">ici</a> et gardez un œil sur les diffusions Steam de la communauté et des développeurs !</p>', '2023-04-11 11:27:58', 2, 0);
+(9, 'Indie Fighting Games Fest', '<p>Du 13 au 17 avril se tient l\'Indie Fighting Games Fest, une célébration en ligne de cinq jours autour des jeux de combat créés par des développeurs indépendants.</p>\r\n\r\n<p>Réductions, démos et jeux gratuits !</p>\r\n<p>Ne manquez pas cette chance d\'obtenir vos jeux de combat indépendants préférés à petit prix ! De nombreux développeurs proposent également des démos de leurs jeux, et les combattants innovants de la collection \"Free to Play\" ne coûtent rien !</p>\r\n\r\n<p>Regardez #IndieFightingGamesFest en direct !</p>\r\n<p>#IndieFightingGamesFest s\'est associé à des dizaines de streamers et de YouTubers pour mettre en lumière les jeux de combat indépendants prometteurs. Consultez le calendrier des diffusions <a href=\"https://supercombo.gg/2023/04/02/indie-fighting-games-fest-2023/\">ici</a> et gardez un œil sur les diffusions Steam de la communauté et des développeurs !</p>', '2023-04-11 11:27:58', 2, 0),
+(11, 'Flooded sort aujourd\'hui', '<p>Avec le changement climatique, le niveau des océans est devenu de plus en plus haut. De nombreuses régions sont devenues des îles isolées sur lesquelles des survivants tentent de trouver quelques ressources pour pouvoir s\'échapper avant qu\'il ne soit trop tard.</p>\r\n\r\n<p><a href=\"view_fiche_de_jeu.php?id=47\">Flooded</a> est un dérivé du city building dans lequel le niveau des eaux montera à une vitesse dangereuse. Au travers de chacun des niveaux, l\'objectif sera de parvenir à récolter assez de ressources tant que ce sera possible pour pouvoir fuir une île se faisant progressivement submerger.</p>\r\n\r\n<p>De nombreux bâtiments seront à créer pour obtenir ces ressources, et pourront être améliorés pour un meilleur rendement tandis que de la recherche offrira des technologies nouvelles pour offrir un nouveau boost de production. Si parvenir à optimiser celle-ci sera central, il sera aussi nécessaire de créer des tourelles pour protéger ses installations qui se retrouveront régulièrement attaquées par d\'autres survivants.</p>\r\n\r\n</p>Le jeu propose un mode histoire avec des éléments de rogue permettant de générer les îles tandis que des reliques et des commandants seront progressivement débloqués pour développer sa stratégie. En parallèle, un mode rapide et sans fin demanderont de survivre aussi longtemps que possible.</p>', '2023-04-12 12:22:03', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -605,7 +613,8 @@ INSERT INTO `news_games` (`news_id`, `game_id`) VALUES
 (3, 17),
 (7, 18),
 (5, 27),
-(6, 28);
+(6, 28),
+(11, 47);
 
 -- --------------------------------------------------------
 
@@ -664,7 +673,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=189 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -854,7 +863,11 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (181, 'UntitledGooseGame1.jpg', 46),
 (182, 'UntitledGooseGame2.jpg', 46),
 (183, 'UntitledGooseGame3.jpg', 46),
-(184, 'UntitledGooseGame4.jpg', 46);
+(184, 'UntitledGooseGame4.jpg', 46),
+(185, 'Flooded1.jpg', 47),
+(186, 'Flooded2.jpg', 47),
+(187, 'Flooded3.jpg', 47),
+(188, 'Flooded4.jpg', 47);
 
 -- --------------------------------------------------------
 
@@ -905,7 +918,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ban_end` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -919,7 +932,7 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `user_p
 (15, 'Egor 2', 'Carl', 'in', 'egor2@gmail.com', '$2y$12$O8/jpVBkaedaO5xxU0JXiO9zzEpz/1sR.EAf3ID0E6/FHzllyGag6', '2023-03-31', 'user-default.svg', 1, 0, NULL),
 (16, 'Fredz', 'fred', 'merc', 'fred2@gmail.com', '$2y$12$krBqJ7/G.IwTHJdyCqQ9GOrCs55BNWX5QqFUL7klwo3/Q7iR6l1ai', '2023-03-09', 'fred-641048e7638f0.jpg', 1, 0, NULL),
 (17, 'Test 2', 'Test', 'Test', 'test2@gmail.com', '$2y$12$p3rG1vGE848LwGxEpLr1lua2OyfiG64f8vAbIYIxrr9XZ40akbyhK', '2023-03-09', 'user-default.svg', 1, 0, NULL),
-(18, 'test3', 'test3', 'test3', 'test3@gmail.com', '$2y$10$wPHO44DYEVxMM7fZEdJwvOGQHyUuLQs5UJfRMu7FlmfGpjlaheKWu', '2023-03-02', 'user-default.svg', 1, 0, NULL);
+(20, 'test3@gmail.com	', 'test3', 'test3', 'test3@gmail.com', '$2y$10$mXTIcm9cpEuiJi4Bs299Ve7YClbXL5WindWfOzWyg6q656B6dD.fS', '2023-04-14', 'fred-6436aa6cdf075.jpg', 1, 0, NULL);
 
 --
 -- Contraintes pour les tables déchargées
