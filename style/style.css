@@ -296,6 +296,10 @@ footer {
   background-color: var(--colorBlack);
 }
 
+.to-top {
+  display: none;
+}
+
 /**************************************  ACTUALITE  *****************************************/
 
 .left-actu, .right-actu {
@@ -545,7 +549,7 @@ p>a {
   }
 }
 
-#modal-roulette h2, a{
+#modal-roulette h2, #modal-roulette a{
   color: var(--colorWhite);
   margin: 10px;
 }
@@ -889,6 +893,14 @@ p>a {
   }
   footer {
     height: 150px;
+  }
+  .to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .to-top img {
+    width: 80px;
   }
 
 }

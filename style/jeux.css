@@ -50,7 +50,7 @@ li::marker {
     color: var(--colorOrange);
 }
 
-#search-list a {
+.search-list {
     color: var(--colorBlack);
     text-decoration: none;
 }

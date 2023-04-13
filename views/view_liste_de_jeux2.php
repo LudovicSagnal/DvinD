@@ -4,6 +4,18 @@ include_once '../models/connect.php';
 $tags = $db->query('SELECT id, name FROM tags')->fetchAll();
 $platforms = $db->query('SELECT id, name FROM platforms')->fetchAll();
 $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
+
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$gamesPerPage = 20;
+$startIndex = ($page - 1) * $gamesPerPage;
+$req = $db->prepare("SELECT * FROM games ORDER By name ASC LIMIT :startIndex, :gamesPerPage ");
+$req->bindParam(":startIndex", $startIndex, PDO::PARAM_INT);
+$req->bindParam(":gamesPerPage", $gamesPerPage, PDO::PARAM_INT);
+$req->execute();
+$games = $req->fetchAll(PDO::FETCH_ASSOC);
+
+$totalGames = $db->query("SELECT COUNT(*) FROM games")->fetchColumn();
+$totalPages = ceil($totalGames / $gamesPerPage);
 ?>
 
 <!DOCTYPE html>
@@ -87,10 +99,32 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
     </div>
     <div class="game-list">
       <h2 class="game-title">Liste des jeux</h2>
+
       <div class="fil-main">
-          <ul class="dynamic-list"></ul>
+        <?php
+        if (isset($_GET['submit_tag'])) {
+          foreach ($tagList as $tag) { ?>
+            <ul>
+              <li id="search-list"><a href="view_fiche_de_jeu.php?id=<?= $tag['id'] ?>"><?= ($tag['name']) ?></a></li>
+            </ul>
+          <?php }
+        } else { ?>
+          <ul> <?php
+                foreach ($games as $game) { ?>
+              <li id="search-list"><a href="view_fiche_de_jeu.php?id=<?= $game['id'] ?>"><?= ($game['name']) ?></a></li>
+          <?php }
+              } ?>
+          </ul>
       </div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <?php for ($i = 1; $i <= $totalPages; $i++) {
+          if ($i == $page) { ?>
+            <span><?= $i ?></span>
+          <?php } else { ?>
+            <a href="?page=<?= $i ?>"><?= $i ?></a>
+        <?php }
+        } ?>
+      </div>
     </div>
     <div class="right-actu">
       <h2 class="div1">Affiner votre recherche</h2>
@@ -104,12 +138,12 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="first">
-              <input type="checkbox" id="first" name="platform[]" value="Tous" <?=(!isset($_SESSION['list_game']['platform']) ? "checked" : "")?> />
+              <input type="checkbox" id="first" name="platform[]" value="Tous" checked />
               Toutes
             </label>
             <?php foreach ($platforms as $platform) { ?>
               <label for="<?= $platform['name'] ?>">
-                <input type="checkbox" name="platform[]" id="<?= $platform['name'] ?>" value="<?= $platform['name'] ?>" <?=(!empty($_SESSION['list_game']['platform']) && in_array($platform['name'], $_SESSION['list_game']['platform']) ? "checked" : "")?> /> <?= $platform['name'] ?>
+                <input type="checkbox" name="platform[]" id="<?= $platform['name'] ?>" value="<?= $platform['name'] ?>" /> <?= $platform['name'] ?>
               </label> <?php
                       } ?>
           </div>
@@ -123,15 +157,15 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstL">
-              <input type="checkbox" id="firstL" name="lang[]" value="Tous" <?=(!isset($_SESSION['list_game']['lang']) ? "checked" : "")?>  />
+              <input type="checkbox" id="firstL" name="lang[]" value="Tous" checked />
               Toutes
             </label>
             <label for="secondL">
-              <input type="checkbox" id="secondL" name="lang[]" value="Français" <?=(!empty($_SESSION['list_game']['lang']) && in_array("Français", $_SESSION['list_game']['lang']) == "Français" ? "checked" : "")?> />
+              <input type="checkbox" id="secondL" name="lang[]" value="Français" />
               <img src="../image/Flag_of_France.svg.png" alt="" /> Français
             </label>
             <label for="thirdL">
-              <input type="checkbox" id="thirdL" name="lang[]" value="Anglais" <?=(!empty($_SESSION['list_game']['lang']) && in_array("Anglais", $_SESSION['list_game']['lang']) ? "checked" : "")?> />
+              <input type="checkbox" id="thirdL" name="lang[]" value="Anglais" />
               <img src="../image/Flag_of_the_United_Kingdom.svg.png" alt="" /> Anglais
             </label>
           </div>
@@ -145,43 +179,43 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstD">
-              <input type="checkbox" id="firstD" name="date[]" value="Tous" <?=(!isset($_SESSION['list_game']['date']) ? "checked" : "")?> />
+              <input type="checkbox" id="firstD" name="date[]" value="Tous" checked />
               Toutes
             </label>
             <label for="secondD">
-              <input type="checkbox" id="secondD" name="date[]" value="2023" <?=(!empty($_SESSION['list_game']['date']) && in_array(2023, $_SESSION['list_game']['date']) ? "checked" : "")?> />
+              <input type="checkbox" id="secondD" name="date[]" value="2023" />
               2023
             </label>
             <label for="thirdD">
-              <input type="checkbox" id="thirdD" name="date[]" value="2022" <?=(!empty($_SESSION['list_game']['date']) && in_array(2022, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="thirdD" name="date[]" value="2022" />
               2022
             </label>
             <label for="fourthD">
-              <input type="checkbox" id="fourthD" name="date[]" value="2021" <?=(!empty($_SESSION['list_game']['date']) && in_array(2021, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="fourthD" name="date[]" value="2021" />
               2021
             </label>
             <label for="fifthD">
-              <input type="checkbox" id="fifthD" name="date[]" value="2020" <?=(!empty($_SESSION['list_game']['date']) && in_array(2020, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="fifthD" name="date[]" value="2020" />
               2020
             </label>
             <label for="sixthD">
-              <input type="checkbox" id="sixthD" name="date[]" value="2019" <?=(!empty($_SESSION['list_game']['date']) && in_array(2019, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="sixthD" name="date[]" value="2019" />
               2019
             </label>
             <label for="seventhD">
-              <input type="checkbox" id="seventhD" name="date[]" value="2018" <?=(!empty($_SESSION['list_game']['date']) && in_array(2018, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="seventhD" name="date[]" value="2018" />
               2018
             </label>
             <label for="eighthD">
-              <input type="checkbox" id="eighthD" name="date[]" value="2017" <?=(!empty($_SESSION['list_game']['date']) && in_array(2017, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="eighthD" name="date[]" value="2017" />
               2017
             </label>
             <label for="ninthD">
-              <input type="checkbox" id="ninthD" name="date[]" value="2016" <?=(!empty($_SESSION['list_game']['date']) && in_array(2016, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="ninthD" name="date[]" value="2016" />
               2016
             </label>
             <label for="tenthD">
-              <input type="checkbox" id="tenthD" name="date[]" value="2015" <?=(!empty($_SESSION['list_game']['date']) && in_array(2015, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="tenthD" name="date[]" value="2015" />
               2015
             </label>
           </div>
@@ -195,12 +229,12 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstT">
-              <input type="checkbox" id="firstT" name="tag[]" value="Tous"<?=(!isset($_SESSION['list_game']['tag']) ? "checked" : "")?>/>
+              <input type="checkbox" id="firstT" name="tag[]" value="Tous" checked />
               Tous
             </label>
             <?php foreach ($tags as $tag) { ?>
               <label for="<?= $tag['name'] ?>">
-                <input type="checkbox" name="tag[]" id="<?= $tag['name'] ?>" value="<?= $tag['name'] ?>"<?=(!empty($_SESSION['list_game']['tag']) && in_array($tag['name'], $_SESSION['list_game']['tag']) ? "checked" : "")?>/> <?= $tag['name'] ?>
+                <input type="checkbox" name="tag[]" id="<?= $tag['name'] ?>" value="<?= $tag['name'] ?>" /> <?= $tag['name'] ?>
               </label> <?php
                       } ?>
           </div>
@@ -208,6 +242,7 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
       </form>
     </div>
   </main>
+
   <?php
   require 'bottomHTML.php';
   ?>

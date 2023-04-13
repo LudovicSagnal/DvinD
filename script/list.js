@@ -50,6 +50,74 @@ initCheckboxes(checkboxesAll[2], dateCheckboxes);
 initCheckboxes(checkboxesAll[3], tagCheckboxes);
 
 
+async function getFilters(page) {
+  var formData = new FormData();
+  formData.append("filter", 1);
+
+  document.getElementsByName("platform[]").forEach((element) => {
+    if(element.checked) {
+      formData.append("platform[]", element.value);
+    }
+  });
+
+  document.getElementsByName("lang[]").forEach((element) => {
+    if(element.checked) {
+      formData.append("lang[]", element.value);
+    }
+  });
+
+  document.getElementsByName("date[]").forEach((element) => {
+    if(element.checked) {
+      formData.append("date[]", element.value);
+    }
+  });
+
+  document.getElementsByName("tag[]").forEach((element) => {
+    if(element.checked) {
+      formData.append("tag[]", element.value);
+    }
+  });
+
+  try {
+    const response = await fetch("../controllers/controller_list.php", {
+      method: "POST",
+      body: formData,
+    });
+    const result = await response.json();
+    console.log(result);
+
+    const ul = document.querySelector('.dynamic-list');
+    ul.innerHTML = '';
+
+    result.finalQuery.forEach(game => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a class="search-list" href="view_fiche_de_jeu.php?id=${game.id}">${game.name}</a>`;
+        ul.appendChild(li);
+    });
+
+    const pagination = document.querySelector('.pagination');
+    pagination.innerHTML = '';
+    const totalPages = Math.ceil(result.nbResult / 20); // Calculate the total number of pages
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === page) {
+        const span = document.createElement('span');
+        span.textContent = i;
+        pagination.appendChild(span);
+      } else {
+        const a = document.createElement('a');
+        a.href = `?page=${i}`;
+        a.textContent = i;
+        pagination.appendChild(a);
+      }
+    }
+
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
+
 // list = document.querySelector('#search-list');
 
 // function initPlatform() {
@@ -139,3 +207,4 @@ initCheckboxes(checkboxesAll[3], tagCheckboxes);
 //     });
 
 // });
+document.querySelector("#form-platform").onchange();
