@@ -96,7 +96,7 @@ h2 {
 .desc {
     color: var(--colorWhite);
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     margin-left: 30%;
 }
 .slider-screen {

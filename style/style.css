@@ -135,10 +135,12 @@ header .link {
   flex-direction: column;
   list-style-type:none;
 }
-
 li::marker {
   content: "\22B3";
   color: var(--colorOrange);
+}
+.modal-search a {
+  color: var(--colorWhite);
 }
 
 .user-div {
@@ -376,10 +378,12 @@ footer {
   color: var(--colorBlack);
   text-decoration: underline;
   padding-left: 1%;
+  font-size: 16px;
 }
 
 .fil-list h4 {
   margin: 10px;
+  font-size: 16px;
 }
 .fil-list h4:hover {
   cursor: pointer;
@@ -891,6 +895,9 @@ p>a {
   .smart-list {
     margin-top: 20px;
   }
+  .smart-list h3, .smart-list h4 {
+    font-size: 22px;
+  }
   footer {
     height: 150px;
   }
@@ -911,5 +918,7 @@ p>a {
     width: 80%;
     margin: 5px 0px 5px 0px;
   }
-
+  .smart-list h3, .smart-list h4 {
+    font-size: 12px;
+  }
 }

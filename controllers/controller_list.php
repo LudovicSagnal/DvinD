@@ -1,10 +1,10 @@
 <?php
     include('../models/connect.php');
 
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $_SESSION['list_game']['page'] = isset($_POST['page']) ? $_POST['page'] : 1;
     $limit = 20;
-    $offset = ($page - 1) * $limit;
-    
+    $offset = ($_SESSION['list_game']['page'] - 1) * $limit;
+
     if (!empty($_POST['filter']) || !empty($_SESSION['list_game'])) {
         $_SESSION['list_game']['platform'] = $_POST['platform'];
         $_SESSION['list_game']['lang'] = $_POST['lang'];

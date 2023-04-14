@@ -94,7 +94,8 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
     </div>
     <div class="right-actu">
       <h2 class="div1">Affiner votre recherche</h2>
-      <form id="form-platform" onchange="getFilters();">
+      <form id="form-filters" onchange="getFilters();">
+      <input type="hidden" name="pagination" id="pagination" value="1">
         <div class="multipleSelection">
           <div class="selectBox">
             <select>
@@ -206,6 +207,8 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
         </div>
       </form>
+      <input id="reset" type="submit" value="Réinitialiser" onclick="resetFilters()">
+      
     </div>
   </main>
   <?php

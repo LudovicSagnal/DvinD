@@ -1,4 +1,7 @@
 <?php
+
+use Detection\MobileDetect;
+
     include_once '../models/connect.php';
     $req = $db->prepare('SELECT * FROM games  
                         WHERE games.id=:id;'); //penser à faire un INNER JOIN pour developers
@@ -96,13 +99,22 @@ require './topHTML.php';
                     <h3 class="actu-title-list">Les news du jour</h3>
                     <div class="smart-list">
                        <?php
+                       include_once '../models/MobileDetect.php';
+                       $model = new MobileDetect();
                         $current_date = null;
                         foreach ($news as $new) {
                             if ($current_date != DateTime::createFromFormat('Y-m-d H:i:s', $new['date'])->format('d.m.Y')) {
                                 $current_date = DateTime::createFromFormat('Y-m-d H:i:s', $new['date'])->format('d.m.Y');
                                 echo "<h3 class='news-day'> Actualités du " . $current_date . "</h3>";
                             }
-                            echo "<h4 onclick='initNews(". $new['id'].")'><time>" .DateTime::createFromFormat('Y-d-m H:i:s', $new['date'])->format('h\hi ')."</time>" .mb_strimwidth($new['title'], 0, 19, "...") . "</h4>";
+                            if($model->isMobile()) { 
+                                $titleLength = 50; 
+                            } elseif($model->isTablet()) {
+                                $titleLength = 120; 
+                            } else {
+                                $titleLength = 19; 
+                            }
+                            echo "<h4 onclick='initNews(". $new['id'].")'><time>" .DateTime::createFromFormat('Y-d-m H:i:s', $new['date'])->format('h\hi ')."</time>" . mb_strimwidth($new['title'], 0, $titleLength, "...") . "</h4>";
                         } ?>
                     </div>          
                 </div>

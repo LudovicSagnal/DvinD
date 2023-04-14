@@ -49,10 +49,11 @@ initCheckboxes(checkboxesAll[1], langCheckboxes);
 initCheckboxes(checkboxesAll[2], dateCheckboxes);
 initCheckboxes(checkboxesAll[3], tagCheckboxes);
 
-
-async function getFilters(page) {
+async function getFilters() {
+  var page = document.querySelector("#pagination").value;
   var formData = new FormData();
   formData.append("filter", 1);
+  formData.append("page", page);
 
   document.getElementsByName("platform[]").forEach((element) => {
     if(element.checked) {
@@ -99,13 +100,17 @@ async function getFilters(page) {
     pagination.innerHTML = '';
     const totalPages = Math.ceil(result.nbResult / 20); // Calculate the total number of pages
     for (let i = 1; i <= totalPages; i++) {
-      if (i === page) {
+      if (i == page) {
         const span = document.createElement('span');
         span.textContent = i;
         pagination.appendChild(span);
       } else {
         const a = document.createElement('a');
-        a.href = `?page=${i}`;
+        a.href = `#`;
+        a.addEventListener("click", function() {
+          changePagination(i);
+          document.querySelector("#form-filters").dispatchEvent(new Event("change"));
+        });
         a.textContent = i;
         pagination.appendChild(a);
       }
@@ -117,6 +122,21 @@ async function getFilters(page) {
 
 }
 
+function changePagination(value) {
+  document.querySelector("#pagination").value = value;
+}
+
+function resetFilters() {
+  // sessionStorage.clear();
+  checkboxesAll.forEach(checkbox => checkbox.checked = true);
+  platformCheckboxes.forEach(checkbox => checkbox.checked = false);
+  langCheckboxes.forEach(checkbox => checkbox.checked = false);
+  dateCheckboxes.forEach(checkbox => checkbox.checked = false);
+  tagCheckboxes.forEach(checkbox => checkbox.checked = false);
+  window.location.reload();
+}
+
+// document.querySelector('#reset').addEventListener("click", resetFilters());
 
 // list = document.querySelector('#search-list');
 
@@ -131,7 +151,7 @@ async function getFilters(page) {
 // }
 
 // let list = document.querySelector('#search-list');
-// let form = document.querySelector('#form-platform');
+// let form = document.querySelector('#form-filters');
 // form.preventDefault;
 
 // function initPlatform() {
@@ -207,4 +227,4 @@ async function getFilters(page) {
 //     });
 
 // });
-document.querySelector("#form-platform").onchange();
+document.querySelector("#form-filters").onchange();
