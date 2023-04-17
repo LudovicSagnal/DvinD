@@ -85,7 +85,6 @@ async function getFilters() {
       body: formData,
     });
     const result = await response.json();
-    console.log(result);
 
     const ul = document.querySelector('.dynamic-list');
     ul.innerHTML = '';
@@ -126,17 +125,35 @@ function changePagination(value) {
   document.querySelector("#pagination").value = value;
 }
 
-function resetFilters() {
-  // sessionStorage.clear();
-  checkboxesAll.forEach(checkbox => checkbox.checked = true);
-  platformCheckboxes.forEach(checkbox => checkbox.checked = false);
-  langCheckboxes.forEach(checkbox => checkbox.checked = false);
-  dateCheckboxes.forEach(checkbox => checkbox.checked = false);
-  tagCheckboxes.forEach(checkbox => checkbox.checked = false);
-  window.location.reload();
+function displayCheckedValue() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]:not([value="Tous"])');
+  var checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+  var checkedValues = checkedCheckboxes.map(checkbox => checkbox.value);
+  const checkboxValueElement = document.querySelector('.checkboxValue');
+  if (document.querySelectorAll('input[type="checkbox"][value="Tous"]:checked').length === document.querySelectorAll('input[type="checkbox"][value="Tous"]').length){
+    checkboxValueElement.textContent = '';
+  }else {
+    checkboxValueElement.textContent = `Filtres actifs: ${checkedValues.join(', ')}`;
+  }
 }
 
-// document.querySelector('#reset').addEventListener("click", resetFilters());
+function resetFilters() {
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../controllers/controller_filters.php", true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      checkboxesAll.forEach(checkbox => checkbox.checked = true);
+      platformCheckboxes.forEach(checkbox => checkbox.checked = false);
+      langCheckboxes.forEach(checkbox => checkbox.checked = false);
+      dateCheckboxes.forEach(checkbox => checkbox.checked = false);
+      tagCheckboxes.forEach(checkbox => checkbox.checked = false);
+      window.location.reload();
+    }
+  };
+  xhr.send();
+}
+
 
 // list = document.querySelector('#search-list');
 

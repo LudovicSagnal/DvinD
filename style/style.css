@@ -393,10 +393,10 @@ time {
   color: red;
 }
 
-p {
+.actu-content p {
   padding: 2%;
 }
-p>a {
+.actu-content p>a {
   color: var(--colorBlack);
 }
 .published {
