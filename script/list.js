@@ -26,9 +26,11 @@ function initCheckboxes(checkboxesAll, checkboxes) {
       checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
       });
-    } else if (checkboxes.some(function(checkbox) {
+    } else if ([...checkboxes].some(function(checkbox) {
       return checkbox.checked;
-    }));
+    })) {
+      this.checked = true;
+    }
   });
 
   checkboxes.forEach(function(checkbox) {
@@ -153,7 +155,6 @@ function resetFilters() {
   };
   xhr.send();
 }
-
 
 // list = document.querySelector('#search-list');
 
