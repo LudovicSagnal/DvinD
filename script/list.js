@@ -25,22 +25,26 @@ function initCheckboxes(checkboxesAll, checkboxes) {
     if (this.checked) {
       checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
+        checkboxesAll.setAttribute('disabled', '');
       });
     } else if ([...checkboxes].some(function(checkbox) {
       return checkbox.checked;
     })) {
       this.checked = true;
+      checkboxesAll.setAttribute('disabled', '');
     }
   });
 
   checkboxes.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
       if ([...checkboxes].some(function(checkbox) {
+        checkboxesAll.removeAttribute('disabled');
         return checkbox.checked;
       })) {
         checkboxesAll.checked = false;
       } else {
         checkboxesAll.checked = true;
+        checkboxesAll.setAttribute('disabled', '');
       }
     });
   });

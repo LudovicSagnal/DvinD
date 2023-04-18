@@ -106,7 +106,7 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="first">
-              <input type="checkbox" id="first" name="platform[]" onchange="displayCheckedValue()" value="Tous" <?=(!isset($_SESSION['list_game']['platform']) ? "checked" : "")?> />
+              <input type="checkbox" id="first" name="platform[]" disabled onchange="displayCheckedValue()" value="Tous" <?=(!isset($_SESSION['list_game']['platform']) ? "checked" : "")?> />
               Toutes
             </label>
             <?php foreach ($platforms as $platform) { ?>
@@ -125,7 +125,7 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstL">
-              <input type="checkbox" id="firstL" name="lang[]" onchange="displayCheckedValue()" value="Tous" <?=(!isset($_SESSION['list_game']['lang']) ? "checked" : "")?>  />
+              <input type="checkbox" id="firstL" name="lang[]" disabled onchange="displayCheckedValue()" value="Tous" <?=(!isset($_SESSION['list_game']['lang']) ? "checked" : "")?>  />
               Toutes
             </label>
             <label for="secondL">
@@ -147,7 +147,7 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstD">
-              <input type="checkbox" id="firstD" name="date[]" onchange="displayCheckedValue()" value="Tous" <?=(!isset($_SESSION['list_game']['date']) ? "checked" : "")?> />
+              <input type="checkbox" id="firstD" name="date[]" disabled onchange="displayCheckedValue()" value="Tous" <?=(!isset($_SESSION['list_game']['date']) ? "checked" : "")?> />
               Toutes
             </label>
             <label for="secondD">
@@ -197,7 +197,7 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstT">
-              <input type="checkbox" id="firstT" name="tag[]" onchange="displayCheckedValue()" value="Tous"<?=(!isset($_SESSION['list_game']['tag']) ? "checked" : "")?>/>
+              <input type="checkbox" id="firstT" name="tag[]" disabled onchange="displayCheckedValue()" value="Tous"<?=(!isset($_SESSION['list_game']['tag']) ? "checked" : "")?>/>
               Tous
             </label>
             <?php foreach ($tags as $tag) { ?>
