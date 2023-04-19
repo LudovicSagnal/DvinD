@@ -38,7 +38,7 @@ require './topHTML.php';
             <a href="view_index.php" class="active">Actualités</a>
             <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
-            <iconify-icon class="hamburger" icon="ci:hamburger" aria-label="menu" style="color: #fefafa;"></iconify-icon>
+            <iconify-icon class="hamburger" aria-label="Menu" icon="ci:hamburger" aria-label="menu" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
@@ -127,7 +127,7 @@ require './topHTML.php';
                 <div id="next">></div>
             </div>
             <div class="slider-actu">
-                <a id="slider-link" href=""><img src="" alt="" id="slider-pictures"></a>
+                <a id="slider-link" href="" aria-label="voir la fiche du jeu"><img src="" alt="" id="slider-pictures"></a>
                 <h2 id="slider-date">Date</h2>
             </div>
         </div>

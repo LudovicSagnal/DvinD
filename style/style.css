@@ -589,7 +589,7 @@ time {
 }
 
 .left-actu {
-  background-image: url(https://media.istockphoto.com/id/544482712/photo/playing-craps-in-a-casino-with-slot-machines.jpg?s=612x612&w=0&k=20&c=MzDsXmJPQHNQ-UV76Eg7BnHZVD0-bqUJKXtVkLaY9KM=);
+  background-image: url("../image/craps.jpg");
   background-size:cover;
   background-blend-mode:luminosity;
 }

@@ -27,7 +27,7 @@
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
-            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
+            <iconify-icon class="hamburger" aria-label="Menu" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
@@ -63,14 +63,14 @@
         <form action="../controllers/controller_inscription.php" method="post" enctype="multipart/form-data"> 
             <div>
                 <label for="form_username">Pseudo</label>
-                <input class="pseudo" type="text" name="form_username" required>
+                <input class="pseudo" type="text" name="form_username" aria-label="Votre pseudo" required>
             </div>  
             <div class="login-info">
                 <div class="form-div">
                     <label for="form_email" id="lab-email" required>Email</label>
-                    <input type="text" name="form_email" id="mail" class="invalid">
+                    <input type="text" name="form_email" aria-label="entrez votre email" id="mail" class="invalid">
                     <label for="form_remail">Confirmez votre email</label>
-                    <input type="text" name="form_remail" id="remail" class="invalid">
+                    <input type="text" name="form_remail" aria-label="Retapez votre email" id="remail" class="invalid">
                 </div> 
                 <div class="form-div">
                     <p class="message-to"></p>
@@ -79,16 +79,16 @@
                     </div>
                     
                     <label for="form_password" required>Mot de passe&nbsp;<span><img src="../image/question.svg" alt="" class="question"></span></label>   
-                    <input type="text" name="form_password" id="pass" class="invalid">
+                    <input type="text" name="form_password" aria-label="Entrez votre mot de passe" id="pass" class="invalid">
                     <label for="form_repassword">Confirmez votre mot de passe</label>
-                    <input type="text" name="form_repassword" id="repass" class="invalid">
+                    <input type="text" name="form_repassword" aria-label="Retapez votre mot de passe" id="repass" class="invalid">
                 </div>
                 <div class="avatar-preview-container form-div">
                     <div class="preview">
                         <img id="preview-selected-avatar" src="../image/avatar/user-default.svg" />
                     </div>
                     <label class="label-file" for="file-upload">Modifier votre avatar</label>
-                    <input class="input-file" type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
+                    <input class="input-file" type="file" name="form_image" aria-label="Fichier pour votre photo de profil" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
                 </div>
             </div>      
             <div class="line"></div>     
@@ -96,16 +96,16 @@
             <div class="personnal-info">
                 <div class="form-div">
                     <label for="form_lastname">Nom</label>
-                    <input type="text" name="form_lastname" required>
+                    <input type="text" name="form_lastname" aria-label="Votre nom de famille" required>
                     <label for="form_firstname">Prénom</label>
-                    <input type="text" name="form_firstname" required>
+                    <input type="text" name="form_firstname" aria-label="Votre prénom" required>
                 </div>
                 <div class="form-div">
                     <label for="form_birthdate">Date de naissance</label>
-                    <input type="date" name="form_birthdate" required>
+                    <input type="date" name="form_birthdate" aria-label="Votre date de naissance" required>
                 </div>
             </div>         
-            <input type="submit" name="form_inscription" value="Créer mon profil" id="button" disabled>
+            <input type="submit" name="form_inscription" aria-label="Valider votre inscription" value="Créer mon profil" id="button" disabled>
         </form>
     </main>
 

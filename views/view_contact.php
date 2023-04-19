@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Section à propos et formulaire de contact." />
     <title>Contact</title>
     <link rel="stylesheet" href="../style/style.css?v=<?=date("H-i-s")?>">
     <link rel="stylesheet" href="../style/contact.css?v=<?=date("H-i-s")?>">
