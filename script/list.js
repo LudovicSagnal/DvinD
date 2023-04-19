@@ -26,6 +26,7 @@ function initCheckboxes(checkboxesAll, checkboxes) {
       checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
         checkboxesAll.setAttribute('disabled', '');
+        displayCheckedValue();
       });
     } else if ([...checkboxes].some(function(checkbox) {
       return checkbox.checked;
@@ -39,6 +40,7 @@ function initCheckboxes(checkboxesAll, checkboxes) {
     checkbox.addEventListener('change', function() {
       if ([...checkboxes].some(function(checkbox) {
         checkboxesAll.removeAttribute('disabled');
+        displayCheckedValue();
         return checkbox.checked;
       })) {
         checkboxesAll.checked = false;
@@ -136,10 +138,10 @@ function displayCheckedValue() {
   var checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
   var checkedValues = checkedCheckboxes.map(checkbox => checkbox.value);
   const checkboxValueElement = document.querySelector('.checkboxValue');
-  if (document.querySelectorAll('input[type="checkbox"][value="Tous"]:checked').length === document.querySelectorAll('input[type="checkbox"][value="Tous"]').length){
+  if (checkedValues.length === 0){
     checkboxValueElement.textContent = '';
   }else {
-    checkboxValueElement.textContent = `Filtres actifs: ${checkedValues.join(', ')}`;
+    checkboxValueElement.textContent = `Filtre(s) actif(s): ${checkedValues.join(', ')}`;
   }
 }
 

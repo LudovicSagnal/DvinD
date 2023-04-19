@@ -458,7 +458,7 @@ time {
   font-size: 20px;
   color:var(--colorBlack);
   font-weight: bolder;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   mix-blend-mode: multiply;
 }
 
@@ -677,7 +677,7 @@ time {
     font-size: 15px;
   }
   .fil-list h4 {
-    font-size: 8px;
+    font-size: 10px;
   }
   .news-day {
     font-size: 10px;
@@ -686,8 +686,12 @@ time {
     height: 80%;
   }
   .right-actu h2 {
-    font-size: 12px;
+    font-size: 15px;
     height: 30px;
+  }
+  .but-roulette {
+    font-size: 16px;
+    letter-spacing: 1px;
   }
 
 }
