@@ -188,7 +188,18 @@ li::marker {
   border: 1px solid var(--colorOrange);
   border-radius: 5px;
   width: 40%;
+  font-size: 16px;
+  margin: 4px;
   align-self: center;
+}
+.login-modal-show a {
+  align-self: center;
+  text-decoration: none;
+  color: var(--colorWhite);
+  border-bottom: 2px solid var(--colorOrange);
+  width: 250px;
+  display: inline-block;
+  padding: 5px;
 }
 
 .login-modal-show .create-profil {
@@ -236,7 +247,7 @@ li::marker {
   color: var(--colorWhite);
 }
 
-.login-modal-show  #button {
+.login-modal-show  #con-button {
   width: 50%;
   align-self: center;
   margin-top: 10px;
@@ -247,7 +258,7 @@ li::marker {
   border-radius: 5px;
 }
 
-.login-modal-show  #button:hover {
+.login-modal-show  #con-button:hover {
   cursor: pointer;
 }
 

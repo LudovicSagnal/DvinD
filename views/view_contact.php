@@ -66,21 +66,21 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam fuga illum quibusdam consequatur optio error totam quam ad omnis tempora dolorum porro delectus voluptatum, officia veritatis est quisquam quod odit!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, porro. Placeat accusamus ex, sequi, quia numquam asperiores vitae natus molestiae repellendus nulla ea facere rem ab dolor at quo sapiente.</p>
             </div>
-            <form method="post" class="form-contact">
+            <form method="post" action="../controllers/controller_contact.php" class="form-contact">
                 <h2>Contactez-moi</h2>
                 <div class="input-names">
                     <label for="name">Nom</label>
-                    <input type="text" id="name" placeholder="Votre nom" aria-label="Votre nom">
+                    <input type="text" name="name" id="name" placeholder="Votre nom" aria-label="Votre nom">
                     <label for="firstname">Prénom</label>
-                    <input type="text" id="firstname" placeholder="Votre prénom" aria-label="Votre prénom">
+                    <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" aria-label="Votre prénom">
                 </div>
                 <label for="firstname">Email</label>
                 <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" aria-label="Votre email" required>
                 <label for="text">Votre message</label>
                 <textarea id="text" name="message" aria-label="Votre message" required></textarea>
-                <button type="submit" aria-label="envoyer email">Envoyer</button>
+                <button type="submit" name="form_contact" aria-label="envoyer email">Envoyer</button>
             </form>
-            <form method="post" class="smart-form">
+            <form method="post" action="../controllers/controller_contact.php" class="smart-form">
                 <h2>Contactez-moi</h2>
                 <label for="name">Nom</label>
                 <input type="text" id="name" placeholder="Votre nom" aria-label="Votre nom">
@@ -90,7 +90,7 @@
                 <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" aria-label="Votre email" required>
                 <label for="text">Votre message</label>
                 <textarea id="text" name="message" aria-label="Votre message" required></textarea>
-                <button type="submit" aria-label="envoyer email">Envoyer</button>
+                <button type="submit" name="form_contact" aria-label="envoyer email">Envoyer</button>
             </form>
 
         </div>

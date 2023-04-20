@@ -71,7 +71,7 @@ require './topHTML.php';
     <main>
         <div class="left-actu">
             <div class="gradient-container">
-                <button class="but-roulette" id="but-roulette" aria-label="Lancer la roulette pour un jeu au hasard" onclick="randomGame();">Lance la roulette !</button>
+                <button class="but-roulette" id="but-roulette" aria-label="Tirer un jeu au hasard" onclick="randomGame();">Lance la roulette !</button>
                 <button class="but-smart-card" id="but-smart-card" aria-label="Tirer un jeu au hasard" onclick="randomGame();">Tire un jeu !</button>
                 <div class="gradient"></div>
             </div>

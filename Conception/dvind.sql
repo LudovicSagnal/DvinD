@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 17 avr. 2023 à 15:56
+-- Généré le : jeu. 20 avr. 2023 à 15:29
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -86,7 +86,9 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (45, 'Freebird Games'),
 (46, 'adamgryu'),
 (47, 'House House'),
-(48, 'Artificial Disasters');
+(48, 'Artificial Disasters'),
+(49, 'Saona Studios'),
+(50, 'Tomato Fantasy Games');
 
 -- --------------------------------------------------------
 
@@ -106,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -159,7 +161,9 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (44, 'Impostor Factory', 'Un thriller policier givré plein de boucles temporelles et de victimes avec, en plus, un chat plus que louche sorti de l’esprit du créateur de To the Moon & Finding Paradise.', '2021-09-30', 'Prochainement', 1182620, 'ImpostorFactory.jpg', 'https://www.youtube.com/embed/MJ7jv5PSigk', 0),
 (45, 'A Short Hike', 'Randonnez, escaladez, et planez dans le Parc provincial de Hawk Peak, et découvrez ses paysages paisibles sur le chemin du sommet.', '2019-07-30', 'Prochainement', 1055540, 'AShortHike.jpg', 'https://www.youtube.com/embed/is5Vlvd6hfk', 0),
 (46, 'Untitled Goose Game', 'La journée s’annonce superbe au village et vous êtes une oie insupportable.', '2020-09-23', 'Prochainement', 837470, 'UntitledGooseGame.jpg', 'https://www.youtube.com/embed/yvwlwcykfHM', 0),
-(47, 'Flooded', 'Flooded est un city-builder inversé, dans lequel vous devez optimiser votre production sur une île qui se rétrécit avec le temps. Rassemblez suffisamment de ressources pour fuir vers la sécurité, tandis que le monde environnant est inondé.', '2023-04-12', 'Prochainement', 1795470, 'Flooded.jpg', 'https://www.youtube.com/embed/eY8r2wTNVeo', 0);
+(47, 'Flooded', 'Flooded est un city-builder inversé, dans lequel vous devez optimiser votre production sur une île qui se rétrécit avec le temps. Rassemblez suffisamment de ressources pour fuir vers la sécurité, tandis que le monde environnant est inondé.', '2023-04-12', 'Prochainement', 1795470, 'Flooded.jpg', 'https://www.youtube.com/embed/eY8r2wTNVeo', 0),
+(48, 'Death or Treat', '« Death or Treat » est un jeu roguelike-action en 2D et hack & slash proposant des environnements dessinés à la main et une animation traditionnelle. Explorez tous les mondes où vous pourrez y anéantir des hordes d\'ennemis à l\'aide de diverses armes et compétences.', '2023-05-11', 'Prochainement', 2096620, 'DeathorTreat.jpg', 'https://www.youtube.com/embed/YqQ58y0-4Sc', 0),
+(49, 'Dynopunk', 'Une aventure ironique à l\'esthétique cyberpunk se déroulant dans un monde où les humains ont été remplacés par des dinosaures. Devenez un mécanicien d\'atelier de réparation de premier ordre : réparez des gadgets, discutez en tête-à-tête et offrez des boissons à vos clients ; tout pour réaliser votre rêve ultime.', '2023-05-25', 'Prochainement', 1596730, 'Dynopunk.jpg', 'https://www.youtube.com/embed/fP8YWnflsj4', 0);
 
 -- --------------------------------------------------------
 
@@ -227,7 +231,9 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (44, 45),
 (45, 46),
 (46, 47),
-(47, 48);
+(47, 48),
+(48, 49),
+(49, 50);
 
 -- --------------------------------------------------------
 
@@ -274,6 +280,7 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (44, 1),
 (45, 1),
 (46, 1),
+(48, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -320,7 +327,9 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (44, 2),
 (45, 2),
 (46, 2),
-(47, 2);
+(47, 2),
+(48, 2),
+(49, 2);
 
 -- --------------------------------------------------------
 
@@ -388,6 +397,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (45, 1),
 (46, 1),
 (47, 1),
+(48, 1),
+(49, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -416,7 +427,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (43, 3),
 (44, 3),
 (45, 3),
-(46, 3);
+(46, 3),
+(48, 3);
 
 -- --------------------------------------------------------
 
@@ -454,6 +466,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (38, 1),
 (42, 1),
 (46, 1),
+(48, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -476,7 +489,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (44, 2),
 (45, 2),
 (46, 2),
+(49, 2),
 (7, 3),
+(48, 3),
 (1, 4),
 (3, 4),
 (6, 4),
@@ -673,7 +688,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=189 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -867,7 +882,15 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (185, 'Flooded1.jpg', 47),
 (186, 'Flooded2.jpg', 47),
 (187, 'Flooded3.jpg', 47),
-(188, 'Flooded4.jpg', 47);
+(188, 'Flooded4.jpg', 47),
+(189, 'DeathOrTreat1.jpg', 48),
+(190, 'DeathOrTreat2.jpg', 48),
+(191, 'DeathOrTreat3.jpg', 48),
+(192, 'DeathOrTreat4.jpg', 48),
+(193, 'Dynopunk1.jpg', 49),
+(194, 'Dynopunk2.jpg', 49),
+(195, 'Dynopunk3.jpg', 49),
+(196, 'Dynopunk4.jpg', 49);
 
 -- --------------------------------------------------------
 

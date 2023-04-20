@@ -40,28 +40,25 @@
         </div>
         <div class="bottom-nav">
             <div class="line-1"></div>
-            <input type="text" id="search-input" class="search" autocomplete="off">
+            <input type="text" id="search-input" class="search">
             <label for="search-input">Rechercher un jeu</label>
             <div class="display-none" id="modal-search">
                <ul id="games-list"></ul> 
             </div>
             <div class="user-div">
-                <img src="../image/avatar/User.svg" alt="" class="user">
+                <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil" aria-label="bouton d\'inscription"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
-            <div class="display-none" id="modal-user">
-                <img src="../image/cross-23.svg" alt="" class="cross" id="cross">
-                <label for="login">Identifiant</label>
-                <input type="text" id="login">
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password">
-                <button>Valider</button>
-            </div>
+            <?php
+                if(isset($_SESSION['user'])) include 'modals/modal_deconnexion.php';
+                else include 'modals/modal_connexion.php';
+            ?>
             <div class="line-2"></div>
         </div>
     </header>
     <main>
-        <form action="../controllers/controller_inscription.php" method="post" enctype="multipart/form-data"> 
+        <form class="form-sign" action="../controllers/controller_inscription.php" method="post" enctype="multipart/form-data"> 
             <div>
                 <label for="form_username">Pseudo</label>
                 <input class="pseudo" type="text" name="form_username" aria-label="Votre pseudo" required>
@@ -89,7 +86,7 @@
                         <img id="preview-selected-avatar" src="../image/avatar/user-default.svg" alt="" />
                     </div>
                     <label class="label-file" for="file-upload">Modifier votre avatar</label>
-                    <input class="input-file" type="file" name="form_image" aria-label="Fichier pour votre photo de profil" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
+                    <input class="input-file" style="display: none;" type="file" name="form_image" aria-label="Fichier pour votre photo de profil" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
                 </div>
             </div>      
             <div class="line"></div>     
