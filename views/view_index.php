@@ -57,7 +57,7 @@ require './topHTML.php';
             </div>
             <div class="user-div">
                 <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
-                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil" aria-label="bouton d\'inscription"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php
@@ -71,7 +71,8 @@ require './topHTML.php';
     <main>
         <div class="left-actu">
             <div class="gradient-container">
-                <button class="but-roulette" id="but-roulette" onclick="randomGame();">Lance la roulette !</button>
+                <button class="but-roulette" id="but-roulette" aria-label="Lancer la roulette pour un jeu au hasard" onclick="randomGame();">Lance la roulette !</button>
+                <button class="but-smart-card" id="but-smart-card" aria-label="Tirer un jeu au hasard" onclick="randomGame();">Tire un jeu !</button>
                 <div class="gradient"></div>
             </div>
             <div class="div-roul"> 
@@ -79,11 +80,11 @@ require './topHTML.php';
                 <img src="../image/roulette.svg" alt="" class="roulette" id="roulette">
             </div>
             <div id="modal-roulette" class="display-none">
-                <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
+                <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette" aria-label="fermer fenêtre du jeu">
                 <h2 id="game_title"></h2>
                 <img id="game_img" src="" alt="" class="modal-cover redirect">
                 <a id="game_link" href="">Voir la fiche du jeu</a>
-                <button id="modal-roulette-button" onclick="randomGame();">Relancer la roulette</button>
+                <button id="modal-roulette-button" onclick="randomGame();">Relancer</button>
             </div>
         </div>
         <div class="fil-actu">
@@ -136,5 +137,6 @@ require './topHTML.php';
     <script>initSlider()</script>
 
 <?php
+// var_dump($_SERVER);
     require './bottomHTML.php';
 ?>

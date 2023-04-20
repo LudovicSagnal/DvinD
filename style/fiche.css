@@ -47,6 +47,7 @@ h2 {
     font-weight: 600;
     border-radius: 0px 0px 5px 5px;
     margin-top: 0;
+    padding: 2px;
 }
 .main-middle {
     display: flex;
@@ -167,8 +168,8 @@ h2 {
         margin-top: -50px;
     }
     .fiche-info p {
-        font-size: 14px;
-        margin: 2px;
+        font-size: 16px;
+        margin: 5px;
     }
     .info-media {
         display: flex;
@@ -216,7 +217,7 @@ h2 {
         height: 450px;
     }
     .desc {
-        top: 250px;
+        top: 265px;
         margin-left: 0px;
     }
     .main-game {
@@ -256,7 +257,12 @@ h2 {
         width: 100%;
     }
     .fiche-info p {
-        margin: 1px;
+        margin: 8px;
+        text-align: center;
+        font-size: 16px;
+    }
+    .fiche-info a {
+        align-self: center;
     }
     .platform {
         gap: 50px;

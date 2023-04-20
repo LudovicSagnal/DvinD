@@ -75,7 +75,7 @@
                     </div>
                     <div class="avatar-preview-container form-div">
                         <div class="preview">
-                            <img id="preview-selected-avatar" src="../image/avatar/<?=$_SESSION['user']['picture_url']?>" />
+                            <img id="preview-selected-avatar" src="../image/avatar/<?=$_SESSION['user']['picture_url']?>" alt=""/>
                         </div>
                         <label class="label-file" for="file-upload">Modifier votre avatar</label>
                         <input class="input-file" type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />

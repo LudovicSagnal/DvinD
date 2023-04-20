@@ -1,7 +1,7 @@
 <?php
     $title = "Inscription ";
     $description = "Formulaire d'inscription.";
-    require './topHTML.php';
+    // require './topHTML.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php echo $description?>"/>
     <title>Inscription</title>
     <link rel="stylesheet" href="../style/style.css?v=<?=date("H-i-s")?>">
     <link rel="stylesheet" href="../style/inscription.css?v=<?=date("H-i-s")?>">
@@ -80,12 +81,12 @@
                     
                     <label for="form_password" required>Mot de passe&nbsp;<span><img src="../image/question.svg" alt="" class="question"></span></label>   
                     <input type="text" name="form_password" aria-label="Entrez votre mot de passe" id="pass" class="invalid">
-                    <label for="form_repassword">Confirmez votre mot de passe</label>
+                    <label for="form_repassword">Confirmez le mot de passe</label>
                     <input type="text" name="form_repassword" aria-label="Retapez votre mot de passe" id="repass" class="invalid">
                 </div>
                 <div class="avatar-preview-container form-div">
                     <div class="preview">
-                        <img id="preview-selected-avatar" src="../image/avatar/user-default.svg" />
+                        <img id="preview-selected-avatar" src="../image/avatar/user-default.svg" alt="" />
                     </div>
                     <label class="label-file" for="file-upload">Modifier votre avatar</label>
                     <input class="input-file" type="file" name="form_image" aria-label="Fichier pour votre photo de profil" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />

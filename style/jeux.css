@@ -12,7 +12,7 @@
     border: var(--colorBlack) 0.5px solid;
     border-radius: 2px;
     align-items: center;
-    height: 85%;
+    height: 90%;
     width: 56%;
     background-color: var(--colorWhite);
     z-index: 1;
