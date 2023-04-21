@@ -925,7 +925,7 @@ time {
     width: 80px;
     height: 80px;
   }
-  .to-top img {
+  .arrow-up {
     width: 80px;
     width: 80px;
   }
@@ -944,11 +944,13 @@ time {
   .div-roul {
     display: none;
   }
-
   .left-actu {
     z-index: 5;
   }
   .but-roulette {
+    display: none;
+  }
+  .roulette, .lights {
     display: none;
   }
   .but-smart-card {

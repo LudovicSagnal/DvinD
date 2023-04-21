@@ -18,7 +18,7 @@
 .inform {
     display: flex;
     height: 80%;
-    width: 80%;
+    width: 85%;
     gap: 10%;
     margin-top: 50px;
 }
@@ -75,7 +75,7 @@
     border: 1px solid var(--colorOrange);
     height: 25px;
     font-size: 20px;
-    width: 30%;
+    width: 35%;
     text-align: center;
 }
 

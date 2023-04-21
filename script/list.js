@@ -105,7 +105,7 @@ async function getFilters() {
 
     const pagination = document.querySelector('.pagination');
     pagination.innerHTML = '';
-    const totalPages = Math.ceil(result.nbResult / 20); // Calculate the total number of pages
+    const totalPages = Math.ceil(result.nbResult / 20);
     for (let i = 1; i <= totalPages; i++) {
       if (i == page) {
         const span = document.createElement('span');

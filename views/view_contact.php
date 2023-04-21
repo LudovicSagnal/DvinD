@@ -25,7 +25,7 @@
 
 <body>
     <header>
-        <nav class="nav">
+        <nav class="nav" role="navigation">
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
@@ -48,7 +48,7 @@
             </div>
             <div class="user-div">
             <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
-                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil" aria-label="lien d\'inscription"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php

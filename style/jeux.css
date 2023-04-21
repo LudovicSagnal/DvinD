@@ -142,6 +142,9 @@ label img {
     color: var(--colorBlack);
     font-weight: 600;
 }
+#reset:hover {
+    cursor: pointer;
+}
 
 /****************************************** Media Queries *************************************/
 
