@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forum communautaire DvinD." />
     <title>Forum</title>
     <link rel="stylesheet" href="../style/style.css?v=<?=date("H-i-s")?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +28,7 @@
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
-            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
+            <iconify-icon class="hamburger" aria-label="Menu" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="active">Forum</a>
         </nav>

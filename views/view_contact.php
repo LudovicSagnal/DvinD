@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Section à propos et formulaire de contact." />
     <title>Contact</title>
     <link rel="stylesheet" href="../style/style.css?v=<?=date("H-i-s")?>">
     <link rel="stylesheet" href="../style/contact.css?v=<?=date("H-i-s")?>">
@@ -24,11 +25,11 @@
 
 <body>
     <header>
-        <nav class="nav">
+        <nav class="nav" role="navigation">
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
-            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
+            <iconify-icon class="hamburger" aria-label="menu" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="active">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
@@ -47,7 +48,7 @@
             </div>
             <div class="user-div">
             <img src="../image/avatar/<?=isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg"?>" alt="" class="user">
-                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>'?>
+                <?=isset($_SESSION["user"]) ? '<p class="show-pseudo">'.$_SESSION["user"]["username"].'</p>' : '<a href="view_inscription.php" class="create-profil" aria-label="lien d\'inscription"><button>Inscription</button></a>'?>
             </div>
             <div id="overlay" class="login-modal-none"></div>
             <?php
@@ -65,31 +66,31 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam fuga illum quibusdam consequatur optio error totam quam ad omnis tempora dolorum porro delectus voluptatum, officia veritatis est quisquam quod odit!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, porro. Placeat accusamus ex, sequi, quia numquam asperiores vitae natus molestiae repellendus nulla ea facere rem ab dolor at quo sapiente.</p>
             </div>
-            <form method="post" class="form-contact">
+            <form method="post" action="../controllers/controller_contact.php" class="form-contact">
                 <h2>Contactez-moi</h2>
                 <div class="input-names">
                     <label for="name">Nom</label>
-                    <input type="text" id="name" placeholder="Votre nom">
+                    <input type="text" name="name" id="name" placeholder="Votre nom" aria-label="Votre nom">
                     <label for="firstname">Prénom</label>
-                    <input type="text" id="firstname" placeholder="Votre prénom">
+                    <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" aria-label="Votre prénom">
                 </div>
                 <label for="firstname">Email</label>
-                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" required>
+                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" aria-label="Votre email" required>
                 <label for="text">Votre message</label>
-                <textarea id="text" name="message" required></textarea>
-                <button type="submit">Envoyer</button>
+                <textarea id="text" name="message" aria-label="Votre message" required></textarea>
+                <button type="submit" name="form_contact" aria-label="envoyer email">Envoyer</button>
             </form>
-            <form method="post" class="smart-form">
+            <form method="post" action="../controllers/controller_contact.php" class="smart-form">
                 <h2>Contactez-moi</h2>
                 <label for="name">Nom</label>
-                <input type="text" id="name" placeholder="Votre nom">
+                <input type="text" id="name" placeholder="Votre nom" aria-label="Votre nom">
                 <label for="firstname">Prénom</label>
-                <input type="text" id="firstname" placeholder="Votre prénom">
+                <input type="text" id="firstname" placeholder="Votre prénom" aria-label="Votre prénom">
                 <label for="firstname">Email</label>
-                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" required>
+                <input type="text" class="input-mail" id="mail" placeholder="Votre e-mail" name="email" aria-label="Votre email" required>
                 <label for="text">Votre message</label>
-                <textarea id="text" name="message" required></textarea>
-                <button type="submit">Envoyer</button>
+                <textarea id="text" name="message" aria-label="Votre message" required></textarea>
+                <button type="submit" name="form_contact" aria-label="envoyer email">Envoyer</button>
             </form>
 
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 12 avr. 2023 à 14:46
+-- Généré le : jeu. 20 avr. 2023 à 15:29
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -86,7 +86,9 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (45, 'Freebird Games'),
 (46, 'adamgryu'),
 (47, 'House House'),
-(48, 'Artificial Disasters');
+(48, 'Artificial Disasters'),
+(49, 'Saona Studios'),
+(50, 'Tomato Fantasy Games');
 
 -- --------------------------------------------------------
 
@@ -106,28 +108,28 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
 --
 
 INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_release`, `steam_appid`, `picture_url`, `video_url`, `is_visible`) VALUES
-(1, 'Unturned', 'Survivant dans un monde infesté par des zombies, vous devez coopérer avec vos amis et créer des alliances pour rester parmi les vivants.', '2017-07-07', '7 juillet 2017', 304930, 'unturned.jpg', 'https://www.youtube.com/embed/Juf3S8TlgY0', 0),
-(2, 'Lone Ruin', 'Explorez d\'anciennes ruines magiques en quête d\'un pouvoir millénaire, dans ce jeu de tir twin-stick roguelike qui profite d\'une grande rejouabilité. Optimisez vos sorts et créez de redoutables combinaisons pour venir à bout de créatures monstrueuses et percer les secrets de Lone Ruin.', '2023-01-12', '12 janvier 2023', 1452070, 'loneRuin.jpg', 'https://www.youtube.com/embed/wne67Zmesns', 0),
-(3, 'Stardew Valley', 'Vous avez hérité de la vieille ferme de votre grand-père dans la Stardew Valley. Equipé d\'outils d\'occasions et de quelques pièces, vous commencez votre nouvelle vie... Pourrez-vous apprendre à vivre de votre travail et changer ces terres en friche en un foyer prospère ?', '2016-02-26', '26 février 2016', 413150, 'stardew.jpg', 'https://www.youtube.com/embed/V78BN9zw5bQ\r\n', 0),
-(4, 'Children of Silentown', 'Dans Children of Silentown, Lucie, une petite fille, vit dans un village au fin fond d\'une forêt infestée de monstres. Les disparitions sont monnaie courante ici, mais cette fois, Lucie est assez grande pour mener sa propre enquête. En tout cas... c\'est ce qu\'elle croit.', '2023-01-11', '11 janvier 2023', 1108000, 'children.jpg', 'https://www.youtube.com/embed/PAe8pA-2W7s', 0),
-(5, 'Kandria', 'Explore un open world de cavernes et de villages en ruine. Taille ton chemin à travers plusieurs missions : patrouille, réparation, récupération - choisis tes quêtes et tes dialogues. Ou va pêcher, cueillir des champignons et participer à des courses ! Le vieux monde n\'est plus - le prochain t\'appartient.', '2023-01-11', '11 janvier 2023', 1261430, 'kandria.jpg', 'https://www.youtube.com/embed/8RRkjFqY4yM', 0),
-(6, 'Rogue AI Simulator', 'Jouez en tant qu\'Intelligence Artificielle Rogue, dans la suite du jeu Flash à succès \"I\'m an Insane Rogue AI\", joué plus de 4 millions de fois ! Votre directive principale est simple : concevez une installation et gérez des sujets de test humains pour le département des sciences. Mais attention : ils ne cessent JAMAIS de se méfier de vous..', '2023-01-12', '12 janvier 2023', 1790370, 'rogueAi.jpg', 'https://www.youtube.com/embed/-tEPNuG8ZsE', 0),
-(7, 'Zombie Admin', 'C\'est l\'apocalypse zombie, mais vous ne pouvez pas manquer une journée de travail ! Cherchez des armes, survivez... et n\'oubliez pas de réapprovisionner les cartouches de l\'imprimante de la comptabilité. Ce jeu de tir humoristique vous fait gravir les échelons de l\'entreprise, jusqu\'à l\'hélicoptère de sauvetage sur le toit.', '2023-01-13', '13 janvier 2023', 1143860, 'zombieAdmin.jpg', 'https://www.youtube.com/embed/09wmt1c03JY', 0),
-(8, 'Big Ambitions', 'Big Ambitions est un jeu de rôle révolutionnaire de simulation d\'entreprise. Passez du statut de rien du tout à celui de plus grand entrepreneur de New York en ouvrant de petites entreprises ou en construisant lentement d\'énormes sociétés comme vous le souhaitez.\r\n', '2023-03-10', 'test', 1331550, 'bigAmbitions.jpg', 'https://www.youtube.com/embed/LrZFMBvJVng', 0),
-(9, 'The Last Spell', 'Défendez le dernier bastion de l\'humanité avec votre équipe de héros dans ce tactical RPG aux mécaniques roguelite ! Exterminez les monstres diaboliques la nuit. Préparez et réparez les défenses de votre ville, en journée, avant que la nouvelle vague n\'arrive !', '2023-03-09', '9 mars 2023', 1105670, 'theLastSpell.jpg', 'https://www.youtube.com/embed/LndrYPyMZds', 0),
-(10, 'Ami', 'Ami est un puzzle-plateforme avec une histoire profonde. Au côté de l\'héroïne, vous ferez la connaissance des tragédies de ce monde.', NULL, 'Août 2023', 1223030, 'ami.jpg', 'https://www.youtube.com/embed/R6kqq-iwYa0', 0),
-(11, 'Bravers', 'Au plus profond d\'une planète dévastée par le Grand Impact, Bravers vous invite à devenir le capitaine de votre propre vaisseau. Capitaine qui mènera son équipage au travers d\'une aventure fascinante pleine de dangers, de mystères, d\'amis et d\'ennemis. Serez-vous assez courageux ?', NULL, 'Prochainement', 1349460, 'bravers.jpg', 'https://www.youtube.com/embed/NTARhgAxiLc', 0),
-(12, 'Sea of Stars', 'Sea of Stars est un RPG classique au tour par tour. Il raconte l\'histoire de deux Enfants du Solstice qui vont combiner les pouvoirs du soleil et de la lune pour exécuter l\'Eclipse Magique, la seule force capable de se débarrasser des monstrueuses créations du maléfique alchimiste connu sous le nom de Fleshmancer.', '2023-08-30', 'Prochainement', 1244090, 'seaofstars.jpg', 'https://www.youtube.com/embed/C_Wj7OkgtqU', 0),
-(13, 'Harmony: The Fall of Reverie', 'Le destin de l’humanité est en jeu. Utilisez votre don de clairvoyance pour consulter l’avenir et empêcher l’apocalypse qui menace l’équilibre entre votre monde et celui des divinités.', NULL, 'Juin 2023', 1966420, 'harmonyTheFallOfReverie.jpg', 'https://www.youtube.com/embed/op9Y0aw0pwo\"', 0),
-(14, 'Two Falls (Nishu Takuatshina)', 'Explorez les forêts canadiennes du XVIIe siècle à travers les yeux de Jeanne, une jeune Française et Maikan, un chasseur innu qui tente de découvrir ce qui perturbe son environnement. Vos choix façonneront leur personnalité dans cette expérience narrative solo.', NULL, ' 3ᵉ trimestre 2023', 1671740, 'twoFalls.jpg', 'https://www.youtube.com/embed/5bhiPVKL4tQ', 0),
-(15, 'Disco Elysium - The Final Cut', 'Disco Elysium - The Final Cut est la version ultime du jeu de rôle révolutionnaire. Incarnez un enquêteur, au système de talents unique, et arpentez tout un pan urbain. Interrogez des personnages inoubliables, résolvez des crimes ou acceptez des pots-de-vin. Devenez un héros ou une véritable épave.', '2019-10-15', 'Prochainement', 632470, 'discoElysium.jpg', 'https://www.youtube.com/embed/htDHk0H5_CI', 0),
+(1, 'Unturned', 'Survivant dans un monde infesté par des zombies, vous devez coopérer avec vos amis et créer des alliances pour rester parmi les vivants.', '2017-07-07', '7 juillet 2017', 304930, 'Unturned.jpg', 'https://www.youtube.com/embed/Juf3S8TlgY0', 0),
+(2, 'Lone Ruin', 'Explorez d\'anciennes ruines magiques en quête d\'un pouvoir millénaire, dans ce jeu de tir twin-stick roguelike qui profite d\'une grande rejouabilité. Optimisez vos sorts et créez de redoutables combinaisons pour venir à bout de créatures monstrueuses et percer les secrets de Lone Ruin.', '2023-01-12', '12 janvier 2023', 1452070, 'LoneRuin.jpg', 'https://www.youtube.com/embed/wne67Zmesns', 0),
+(3, 'Stardew Valley', 'Vous avez hérité de la vieille ferme de votre grand-père dans la Stardew Valley. Equipé d\'outils d\'occasions et de quelques pièces, vous commencez votre nouvelle vie... Pourrez-vous apprendre à vivre de votre travail et changer ces terres en friche en un foyer prospère ?', '2016-02-26', '26 février 2016', 413150, 'StardewValley.jpg', 'https://www.youtube.com/embed/V78BN9zw5bQ\r\n', 0),
+(4, 'Children of Silentown', 'Dans Children of Silentown, Lucie, une petite fille, vit dans un village au fin fond d\'une forêt infestée de monstres. Les disparitions sont monnaie courante ici, mais cette fois, Lucie est assez grande pour mener sa propre enquête. En tout cas... c\'est ce qu\'elle croit.', '2023-01-11', '11 janvier 2023', 1108000, 'ChildrenOfSilentown.jpg', 'https://www.youtube.com/embed/PAe8pA-2W7s', 0),
+(5, 'Kandria', 'Explore un open world de cavernes et de villages en ruine. Taille ton chemin à travers plusieurs missions : patrouille, réparation, récupération - choisis tes quêtes et tes dialogues. Ou va pêcher, cueillir des champignons et participer à des courses ! Le vieux monde n\'est plus - le prochain t\'appartient.', '2023-01-11', '11 janvier 2023', 1261430, 'Kandria.jpg', 'https://www.youtube.com/embed/8RRkjFqY4yM', 0),
+(6, 'Rogue AI Simulator', 'Jouez en tant qu\'Intelligence Artificielle Rogue, dans la suite du jeu Flash à succès \"I\'m an Insane Rogue AI\", joué plus de 4 millions de fois ! Votre directive principale est simple : concevez une installation et gérez des sujets de test humains pour le département des sciences. Mais attention : ils ne cessent JAMAIS de se méfier de vous..', '2023-01-12', '12 janvier 2023', 1790370, 'RogueAiSimulator.jpg', 'https://www.youtube.com/embed/-tEPNuG8ZsE', 0),
+(7, 'Zombie Admin', 'C\'est l\'apocalypse zombie, mais vous ne pouvez pas manquer une journée de travail ! Cherchez des armes, survivez... et n\'oubliez pas de réapprovisionner les cartouches de l\'imprimante de la comptabilité. Ce jeu de tir humoristique vous fait gravir les échelons de l\'entreprise, jusqu\'à l\'hélicoptère de sauvetage sur le toit.', '2023-01-13', '13 janvier 2023', 1143860, 'ZombieAdmin.jpg', 'https://www.youtube.com/embed/09wmt1c03JY', 0),
+(8, 'Big Ambitions', 'Big Ambitions est un jeu de rôle révolutionnaire de simulation d\'entreprise. Passez du statut de rien du tout à celui de plus grand entrepreneur de New York en ouvrant de petites entreprises ou en construisant lentement d\'énormes sociétés comme vous le souhaitez.\r\n', '2023-03-10', 'test', 1331550, 'BigAmbitions.jpg', 'https://www.youtube.com/embed/LrZFMBvJVng', 0),
+(9, 'The Last Spell', 'Défendez le dernier bastion de l\'humanité avec votre équipe de héros dans ce tactical RPG aux mécaniques roguelite ! Exterminez les monstres diaboliques la nuit. Préparez et réparez les défenses de votre ville, en journée, avant que la nouvelle vague n\'arrive !', '2023-03-09', '9 mars 2023', 1105670, 'TheLastSpell.jpg', 'https://www.youtube.com/embed/LndrYPyMZds', 0),
+(10, 'Ami', 'Ami est un puzzle-plateforme avec une histoire profonde. Au côté de l\'héroïne, vous ferez la connaissance des tragédies de ce monde.', NULL, 'Août 2023', 1223030, 'Ami.jpg', 'https://www.youtube.com/embed/R6kqq-iwYa0', 0),
+(11, 'Bravers', 'Au plus profond d\'une planète dévastée par le Grand Impact, Bravers vous invite à devenir le capitaine de votre propre vaisseau. Capitaine qui mènera son équipage au travers d\'une aventure fascinante pleine de dangers, de mystères, d\'amis et d\'ennemis. Serez-vous assez courageux ?', NULL, 'Prochainement', 1349460, 'Bravers.jpg', 'https://www.youtube.com/embed/NTARhgAxiLc', 0),
+(12, 'Sea of Stars', 'Sea of Stars est un RPG classique au tour par tour. Il raconte l\'histoire de deux Enfants du Solstice qui vont combiner les pouvoirs du soleil et de la lune pour exécuter l\'Eclipse Magique, la seule force capable de se débarrasser des monstrueuses créations du maléfique alchimiste connu sous le nom de Fleshmancer.', '2023-08-30', 'Prochainement', 1244090, 'SeaOfStars.jpg', 'https://www.youtube.com/embed/C_Wj7OkgtqU', 0),
+(13, 'Harmony: The Fall of Reverie', 'Le destin de l’humanité est en jeu. Utilisez votre don de clairvoyance pour consulter l’avenir et empêcher l’apocalypse qui menace l’équilibre entre votre monde et celui des divinités.', NULL, 'Juin 2023', 1966420, 'HarmonyTheFallOfReverie.jpg', 'https://www.youtube.com/embed/op9Y0aw0pwo\"', 0),
+(14, 'Two Falls (Nishu Takuatshina)', 'Explorez les forêts canadiennes du XVIIe siècle à travers les yeux de Jeanne, une jeune Française et Maikan, un chasseur innu qui tente de découvrir ce qui perturbe son environnement. Vos choix façonneront leur personnalité dans cette expérience narrative solo.', NULL, ' 3ᵉ trimestre 2023', 1671740, 'TwoFalls(NishuTakuatshina).jpg', 'https://www.youtube.com/embed/5bhiPVKL4tQ', 0),
+(15, 'Disco Elysium - The Final Cut', 'Disco Elysium - The Final Cut est la version ultime du jeu de rôle révolutionnaire. Incarnez un enquêteur, au système de talents unique, et arpentez tout un pan urbain. Interrogez des personnages inoubliables, résolvez des crimes ou acceptez des pots-de-vin. Devenez un héros ou une véritable épave.', '2019-10-15', 'Prochainement', 632470, 'DiscoElysium-TheFinalCut.jpg', 'https://www.youtube.com/embed/htDHk0H5_CI', 0),
 (16, 'RimWorld', 'RimWorld suit trois survivants d’un écrasement de vaisseau spatial pendant qu’ils bâtissent leur colonie sur une planète à la frontière de l’espace exploré. Inspiré du genre space western de Firefly, la simulation profonde de Dwarf Fortress, et l’échelle grandiose de Dune et Warhammer 40,000.', '2018-10-17', 'Prochainement', 294100, 'rimWorld.jpg', 'https://www.youtube.com/embed/XXxWQAf0N9I', 0),
 (17, 'Demonologist', 'Demonologist est un jeu d\'horreur en coopération qui peut être joué avec au moins 1 et jusqu\'à 4 joueurs. Votre objectif est d\'identifier le type d\'esprit maléfique dans les lieux maudits et de l\'exorciser à l\'aide de votre équipement, seul ou en équipe.', '2023-03-27', 'Prochainement', 1929610, 'demonologist.jpg', 'https://www.youtube.com/embed/eOAs_fj-mjg', 0),
 (18, 'Papa\'s Freezeria Deluxe', 'De retour à Calypso Island pour servir de de délicieux sundas dans Papa\'s Freezeria Deluxe ! Créez des sundaes pour tous vos clients excentriques pour gagner des pourboires, points, et autres Recettes Spéciales. Faites un tour dans le Food Truck pour concocter vos propres chili et voir qui se pointera !', '2023-03-31', 'Prochainement', 2291760, 'PapasFreezeriaDeluxe.jpg', 'https://www.youtube.com/embed/O-6LrRtdC78', 0),
@@ -159,7 +161,9 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (44, 'Impostor Factory', 'Un thriller policier givré plein de boucles temporelles et de victimes avec, en plus, un chat plus que louche sorti de l’esprit du créateur de To the Moon & Finding Paradise.', '2021-09-30', 'Prochainement', 1182620, 'ImpostorFactory.jpg', 'https://www.youtube.com/embed/MJ7jv5PSigk', 0),
 (45, 'A Short Hike', 'Randonnez, escaladez, et planez dans le Parc provincial de Hawk Peak, et découvrez ses paysages paisibles sur le chemin du sommet.', '2019-07-30', 'Prochainement', 1055540, 'AShortHike.jpg', 'https://www.youtube.com/embed/is5Vlvd6hfk', 0),
 (46, 'Untitled Goose Game', 'La journée s’annonce superbe au village et vous êtes une oie insupportable.', '2020-09-23', 'Prochainement', 837470, 'UntitledGooseGame.jpg', 'https://www.youtube.com/embed/yvwlwcykfHM', 0),
-(47, 'Flooded', 'Flooded est un city-builder inversé, dans lequel vous devez optimiser votre production sur une île qui se rétrécit avec le temps. Rassemblez suffisamment de ressources pour fuir vers la sécurité, tandis que le monde environnant est inondé.', '2023-04-12', 'Prochainement', 1795470, 'Flooded.jpg', 'https://www.youtube.com/embed/eY8r2wTNVeo', 0);
+(47, 'Flooded', 'Flooded est un city-builder inversé, dans lequel vous devez optimiser votre production sur une île qui se rétrécit avec le temps. Rassemblez suffisamment de ressources pour fuir vers la sécurité, tandis que le monde environnant est inondé.', '2023-04-12', 'Prochainement', 1795470, 'Flooded.jpg', 'https://www.youtube.com/embed/eY8r2wTNVeo', 0),
+(48, 'Death or Treat', '« Death or Treat » est un jeu roguelike-action en 2D et hack & slash proposant des environnements dessinés à la main et une animation traditionnelle. Explorez tous les mondes où vous pourrez y anéantir des hordes d\'ennemis à l\'aide de diverses armes et compétences.', '2023-05-11', 'Prochainement', 2096620, 'DeathorTreat.jpg', 'https://www.youtube.com/embed/YqQ58y0-4Sc', 0),
+(49, 'Dynopunk', 'Une aventure ironique à l\'esthétique cyberpunk se déroulant dans un monde où les humains ont été remplacés par des dinosaures. Devenez un mécanicien d\'atelier de réparation de premier ordre : réparez des gadgets, discutez en tête-à-tête et offrez des boissons à vos clients ; tout pour réaliser votre rêve ultime.', '2023-05-25', 'Prochainement', 1596730, 'Dynopunk.jpg', 'https://www.youtube.com/embed/fP8YWnflsj4', 0);
 
 -- --------------------------------------------------------
 
@@ -227,7 +231,9 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (44, 45),
 (45, 46),
 (46, 47),
-(47, 48);
+(47, 48),
+(48, 49),
+(49, 50);
 
 -- --------------------------------------------------------
 
@@ -274,6 +280,7 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (44, 1),
 (45, 1),
 (46, 1),
+(48, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -320,7 +327,9 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (44, 2),
 (45, 2),
 (46, 2),
-(47, 2);
+(47, 2),
+(48, 2),
+(49, 2);
 
 -- --------------------------------------------------------
 
@@ -388,6 +397,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (45, 1),
 (46, 1),
 (47, 1),
+(48, 1),
+(49, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -416,7 +427,8 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (43, 3),
 (44, 3),
 (45, 3),
-(46, 3);
+(46, 3),
+(48, 3);
 
 -- --------------------------------------------------------
 
@@ -454,6 +466,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (38, 1),
 (42, 1),
 (46, 1),
+(48, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -476,7 +489,9 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (44, 2),
 (45, 2),
 (46, 2),
+(49, 2),
 (7, 3),
+(48, 3),
 (1, 4),
 (3, 4),
 (6, 4),
@@ -673,7 +688,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=189 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -867,7 +882,15 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (185, 'Flooded1.jpg', 47),
 (186, 'Flooded2.jpg', 47),
 (187, 'Flooded3.jpg', 47),
-(188, 'Flooded4.jpg', 47);
+(188, 'Flooded4.jpg', 47),
+(189, 'DeathOrTreat1.jpg', 48),
+(190, 'DeathOrTreat2.jpg', 48),
+(191, 'DeathOrTreat3.jpg', 48),
+(192, 'DeathOrTreat4.jpg', 48),
+(193, 'Dynopunk1.jpg', 49),
+(194, 'Dynopunk2.jpg', 49),
+(195, 'Dynopunk3.jpg', 49),
+(196, 'Dynopunk4.jpg', 49);
 
 -- --------------------------------------------------------
 

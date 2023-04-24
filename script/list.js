@@ -25,20 +25,28 @@ function initCheckboxes(checkboxesAll, checkboxes) {
     if (this.checked) {
       checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
+        checkboxesAll.setAttribute('disabled', '');
+        displayCheckedValue();
       });
-    } else if (checkboxes.some(function(checkbox) {
+    } else if ([...checkboxes].some(function(checkbox) {
       return checkbox.checked;
-    }));
+    })) {
+      this.checked = true;
+      checkboxesAll.setAttribute('disabled', '');
+    }
   });
 
   checkboxes.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
       if ([...checkboxes].some(function(checkbox) {
+        checkboxesAll.removeAttribute('disabled');
+        displayCheckedValue();
         return checkbox.checked;
       })) {
         checkboxesAll.checked = false;
       } else {
         checkboxesAll.checked = true;
+        checkboxesAll.setAttribute('disabled', '');
       }
     });
   });
@@ -85,7 +93,6 @@ async function getFilters() {
       body: formData,
     });
     const result = await response.json();
-    console.log(result);
 
     const ul = document.querySelector('.dynamic-list');
     ul.innerHTML = '';
@@ -98,7 +105,7 @@ async function getFilters() {
 
     const pagination = document.querySelector('.pagination');
     pagination.innerHTML = '';
-    const totalPages = Math.ceil(result.nbResult / 20); // Calculate the total number of pages
+    const totalPages = Math.ceil(result.nbResult / 20);
     for (let i = 1; i <= totalPages; i++) {
       if (i == page) {
         const span = document.createElement('span');
@@ -126,17 +133,34 @@ function changePagination(value) {
   document.querySelector("#pagination").value = value;
 }
 
-function resetFilters() {
-  // sessionStorage.clear();
-  checkboxesAll.forEach(checkbox => checkbox.checked = true);
-  platformCheckboxes.forEach(checkbox => checkbox.checked = false);
-  langCheckboxes.forEach(checkbox => checkbox.checked = false);
-  dateCheckboxes.forEach(checkbox => checkbox.checked = false);
-  tagCheckboxes.forEach(checkbox => checkbox.checked = false);
-  window.location.reload();
+function displayCheckedValue() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]:not([value="Tous"])');
+  var checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+  var checkedValues = checkedCheckboxes.map(checkbox => checkbox.value);
+  const checkboxValueElement = document.querySelector('.checkboxValue');
+  if (checkedValues.length === 0){
+    checkboxValueElement.textContent = '';
+  }else {
+    checkboxValueElement.textContent = `Filtre(s) actif(s): ${checkedValues.join(', ')}`;
+  }
 }
 
-// document.querySelector('#reset').addEventListener("click", resetFilters());
+function resetFilters() {
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../controllers/controller_filters.php", true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      checkboxesAll.forEach(checkbox => checkbox.checked = true);
+      platformCheckboxes.forEach(checkbox => checkbox.checked = false);
+      langCheckboxes.forEach(checkbox => checkbox.checked = false);
+      dateCheckboxes.forEach(checkbox => checkbox.checked = false);
+      tagCheckboxes.forEach(checkbox => checkbox.checked = false);
+      window.location.reload();
+    }
+  };
+  xhr.send();
+}
 
 // list = document.querySelector('#search-list');
 

@@ -24,7 +24,7 @@
             <a href="view_index.php" class="link">Actualités</a>
             <a href="view_liste_de_jeux.php" class="link">Liste de jeux</a>
             <a href="view_index.php" ><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
-            <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
+            <iconify-icon class="hamburger" aria-label="Menu" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
             <a href="view_contact.php" class="link">Contact</a>
             <a href="view_forum.php" class="link">Forum</a>
         </nav>
@@ -55,7 +55,7 @@
     </header>
 
     <main>
-        <form action="../controllers/controller_modification.php" method="post" enctype="multipart/form-data"> 
+        <form class="form-sign" action="../controllers/controller_modification.php" method="post" enctype="multipart/form-data"> 
                 <div>
                     <label for="form_pseudo">Pseudo</label>
                     <input class="pseudo" type="text" name="form_pseudo" value="<?=$_SESSION['user']['username']?>" required>
@@ -75,10 +75,10 @@
                     </div>
                     <div class="avatar-preview-container form-div">
                         <div class="preview">
-                            <img id="preview-selected-avatar" src="../image/avatar/<?=$_SESSION['user']['picture_url']?>" />
+                            <img id="preview-selected-avatar" src="../image/avatar/<?=$_SESSION['user']['picture_url']?>" alt=""/>
                         </div>
                         <label class="label-file" for="file-upload">Modifier votre avatar</label>
-                        <input class="input-file" type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
+                        <input class="input-file" style="display: none;" type="file" name="form_image" id="file-upload" accept="image/*" onchange="previewAvatar(event);" />
                     </div>
                 </div>      
                 <div class="line"></div>     

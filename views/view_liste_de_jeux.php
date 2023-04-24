@@ -33,15 +33,15 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
 
 <body>
   <header>
-    <nav class="nav">
+    <nav class="nav" aria-label="navigation">
       <a href="view_index.php" class="link">Actualités</a>
       <a href="view_liste_de_jeux.php" class="active">Liste de jeux</a>
       <a href="view_index.php"><img src="../image/Logo NewD.svg" alt="lodo_DvinD" class="logo"></a>
-      <iconify-icon class="hamburger" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
+      <iconify-icon class="hamburger" aria-label="menu" icon="ci:hamburger" style="color: #fefafa;"></iconify-icon>
       <a href="view_contact.php" class="link">Contact</a>
       <a href="view_forum.php" class="link">Forum</a>
     </nav>
-    <div class="display-none" id="smart-nav">
+    <div class="display-none" id="smart-nav" aria-label="navigation secondaire">
       <a href="view_index.php" class="link">Actualités</a>
       <a href="view_liste_de_jeux.php" class="active">Liste de jeux</a>
       <a href="view_contact.php" class="link">Contact</a>
@@ -55,8 +55,8 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
         <ul id="games-list"></ul>
       </div>
       <div class="user-div">
-        <img src="../image/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg" ?>" alt="" class="user">
-        <?= isset($_SESSION["user"]) ? '<p class="show-pseudo">' . $_SESSION["user"]["username"] . '</p>' : '<a href="view_inscription.php" class="create-profil"><button>Inscription</button></a>' ?>
+        <img src="../image/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['picture_url'] : "User.svg" ?>" alt="" class="user" aria-label="accès à profil/connexion/déconnexion">
+        <?= isset($_SESSION["user"]) ? '<p class="show-pseudo">' . $_SESSION["user"]["username"] . '</p>' : '<a href="view_inscription.php" class="create-profil" aria-label="bouton d\'inscription"><button>Inscription</button></a>' ?>
       </div>
       <div id="overlay" class="login-modal-none"></div>
       <?php
@@ -69,24 +69,26 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
 
   <main>
     <div class="left-actu">
-      <div class="gradient-container">
-        <button class="but-roulette" id="but-roulette" onclick="randomGame();">Lance la roulette !</button>
-        <div class="gradient"></div>
-      </div>
-      <div class="div-roul">
-        <img src="../image/lights.svg" alt="" class="lights" id="lights" />
-        <img src="../image/roulette.svg" alt="" class="roulette" id="roulette">
-      </div>
-      <div id="modal-roulette" class="display-none">
-        <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette">
-        <h2 id="game_title"></h2>
-        <img id="game_img" src="" alt="" class="modal-cover redirect">
-        <a id="game_link" href="">Voir la fiche du jeu</a>
-        <button id="modal-roulette-button" onclick="randomGame();">Relancer la roulette</button>
-      </div>
+        <div class="gradient-container">
+            <button class="but-roulette" id="but-roulette" aria-label="Lancer la roulette pour un jeu au hasard" onclick="randomGame();">Lance la roulette !</button>
+            <button class="but-smart-card" id="but-smart-card" aria-label="Tirer un jeu au hasard" onclick="randomGame();">Tire un jeu !</button>
+            <div class="gradient"></div>
+        </div>
+        <div class="div-roul"> 
+            <img src="../image/lights.svg" alt="" class="lights" id="lights" />
+            <img src="../image/roulette.svg" alt="" class="roulette" id="roulette">
+        </div>
+        <div id="modal-roulette" class="display-none">
+            <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette" aria-label="fermer fenêtre du jeu">
+            <h2 id="game_title"></h2>
+            <img id="game_img" src="" alt="" class="modal-cover redirect">
+            <a id="game_link" href="">Voir la fiche du jeu</a>
+            <button id="modal-roulette-button" onclick="randomGame();">Relancer</button>
+        </div>
     </div>
     <div class="game-list">
       <h2 class="game-title">Liste des jeux</h2>
+      <p class="checkboxValue"></p>
       <div class="fil-main">
           <ul class="dynamic-list"></ul>
       </div>
@@ -105,7 +107,7 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="first">
-              <input type="checkbox" id="first" name="platform[]" value="Tous" <?=(!isset($_SESSION['list_game']['platform']) ? "checked" : "")?> />
+              <input type="checkbox" id="first" name="platform[]" disabled  value="Tous" <?=(!isset($_SESSION['list_game']['platform']) ? "checked" : "")?> />
               Toutes
             </label>
             <?php foreach ($platforms as $platform) { ?>
@@ -124,15 +126,15 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstL">
-              <input type="checkbox" id="firstL" name="lang[]" value="Tous" <?=(!isset($_SESSION['list_game']['lang']) ? "checked" : "")?>  />
+              <input type="checkbox" id="firstL" name="lang[]" disabled value="Tous" <?=(!isset($_SESSION['list_game']['lang']) ? "checked" : "")?>  />
               Toutes
             </label>
             <label for="secondL">
-              <input type="checkbox" id="secondL" name="lang[]" value="Français" <?=(!empty($_SESSION['list_game']['lang']) && in_array("Français", $_SESSION['list_game']['lang']) == "Français" ? "checked" : "")?> />
+              <input type="checkbox" id="secondL" name="lang[]"  value="Français" <?=(!empty($_SESSION['list_game']['lang']) && in_array("Français", $_SESSION['list_game']['lang']) == "Français" ? "checked" : "")?> />
               <img src="../image/Flag_of_France.svg.png" alt="" /> Français
             </label>
             <label for="thirdL">
-              <input type="checkbox" id="thirdL" name="lang[]" value="Anglais" <?=(!empty($_SESSION['list_game']['lang']) && in_array("Anglais", $_SESSION['list_game']['lang']) ? "checked" : "")?> />
+              <input type="checkbox" id="thirdL" name="lang[]"  value="Anglais" <?=(!empty($_SESSION['list_game']['lang']) && in_array("Anglais", $_SESSION['list_game']['lang']) ? "checked" : "")?> />
               <img src="../image/Flag_of_the_United_Kingdom.svg.png" alt="" /> Anglais
             </label>
           </div>
@@ -146,43 +148,43 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstD">
-              <input type="checkbox" id="firstD" name="date[]" value="Tous" <?=(!isset($_SESSION['list_game']['date']) ? "checked" : "")?> />
+              <input type="checkbox" id="firstD" name="date[]" disabled  value="Tous" <?=(!isset($_SESSION['list_game']['date']) ? "checked" : "")?> />
               Toutes
             </label>
             <label for="secondD">
-              <input type="checkbox" id="secondD" name="date[]" value="2023" <?=(!empty($_SESSION['list_game']['date']) && in_array(2023, $_SESSION['list_game']['date']) ? "checked" : "")?> />
+              <input type="checkbox" id="secondD" name="date[]"  value="2023" <?=(!empty($_SESSION['list_game']['date']) && in_array(2023, $_SESSION['list_game']['date']) ? "checked" : "")?> />
               2023
             </label>
             <label for="thirdD">
-              <input type="checkbox" id="thirdD" name="date[]" value="2022" <?=(!empty($_SESSION['list_game']['date']) && in_array(2022, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="thirdD" name="date[]"  value="2022" <?=(!empty($_SESSION['list_game']['date']) && in_array(2022, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2022
             </label>
             <label for="fourthD">
-              <input type="checkbox" id="fourthD" name="date[]" value="2021" <?=(!empty($_SESSION['list_game']['date']) && in_array(2021, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="fourthD" name="date[]"  value="2021" <?=(!empty($_SESSION['list_game']['date']) && in_array(2021, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2021
             </label>
             <label for="fifthD">
-              <input type="checkbox" id="fifthD" name="date[]" value="2020" <?=(!empty($_SESSION['list_game']['date']) && in_array(2020, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="fifthD" name="date[]"  value="2020" <?=(!empty($_SESSION['list_game']['date']) && in_array(2020, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2020
             </label>
             <label for="sixthD">
-              <input type="checkbox" id="sixthD" name="date[]" value="2019" <?=(!empty($_SESSION['list_game']['date']) && in_array(2019, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="sixthD" name="date[]"  value="2019" <?=(!empty($_SESSION['list_game']['date']) && in_array(2019, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2019
             </label>
             <label for="seventhD">
-              <input type="checkbox" id="seventhD" name="date[]" value="2018" <?=(!empty($_SESSION['list_game']['date']) && in_array(2018, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="seventhD" name="date[]"  value="2018" <?=(!empty($_SESSION['list_game']['date']) && in_array(2018, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2018
             </label>
             <label for="eighthD">
-              <input type="checkbox" id="eighthD" name="date[]" value="2017" <?=(!empty($_SESSION['list_game']['date']) && in_array(2017, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="eighthD" name="date[]"  value="2017" <?=(!empty($_SESSION['list_game']['date']) && in_array(2017, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2017
             </label>
             <label for="ninthD">
-              <input type="checkbox" id="ninthD" name="date[]" value="2016" <?=(!empty($_SESSION['list_game']['date']) && in_array(2016, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="ninthD" name="date[]"  value="2016" <?=(!empty($_SESSION['list_game']['date']) && in_array(2016, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2016
             </label>
             <label for="tenthD">
-              <input type="checkbox" id="tenthD" name="date[]" value="2015" <?=(!empty($_SESSION['list_game']['date']) && in_array(2015, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
+              <input type="checkbox" id="tenthD" name="date[]"  value="2015" <?=(!empty($_SESSION['list_game']['date']) && in_array(2015, $_SESSION['list_game']['date']) ? "checked" : "")?>/>
               2015
             </label>
           </div>
@@ -196,12 +198,12 @@ $langs = $db->query('SELECT id, name FROM languages')->fetchAll();
           </div>
           <div class="checkBoxes">
             <label for="firstT">
-              <input type="checkbox" id="firstT" name="tag[]" value="Tous"<?=(!isset($_SESSION['list_game']['tag']) ? "checked" : "")?>/>
+              <input type="checkbox" id="firstT" name="tag[]" disabled  value="Tous"<?=(!isset($_SESSION['list_game']['tag']) ? "checked" : "")?>/>
               Tous
             </label>
             <?php foreach ($tags as $tag) { ?>
               <label for="<?= $tag['name'] ?>">
-                <input type="checkbox" name="tag[]" id="<?= $tag['name'] ?>" value="<?= $tag['name'] ?>"<?=(!empty($_SESSION['list_game']['tag']) && in_array($tag['name'], $_SESSION['list_game']['tag']) ? "checked" : "")?>/> <?= $tag['name'] ?>
+                <input type="checkbox" name="tag[]"  id="<?= $tag['name'] ?>" value="<?= $tag['name'] ?>"<?=(!empty($_SESSION['list_game']['tag']) && in_array($tag['name'], $_SESSION['list_game']['tag']) ? "checked" : "")?>/> <?= $tag['name'] ?>
               </label> <?php
                       } ?>
           </div>

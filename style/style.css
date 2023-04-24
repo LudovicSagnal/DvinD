@@ -188,7 +188,18 @@ li::marker {
   border: 1px solid var(--colorOrange);
   border-radius: 5px;
   width: 40%;
+  font-size: 16px;
+  margin: 4px;
   align-self: center;
+}
+.login-modal-show a {
+  align-self: center;
+  text-decoration: none;
+  color: var(--colorWhite);
+  border-bottom: 2px solid var(--colorOrange);
+  width: 250px;
+  display: inline-block;
+  padding: 5px;
 }
 
 .login-modal-show .create-profil {
@@ -236,7 +247,7 @@ li::marker {
   color: var(--colorWhite);
 }
 
-.login-modal-show  #button {
+.login-modal-show  #con-button {
   width: 50%;
   align-self: center;
   margin-top: 10px;
@@ -247,7 +258,7 @@ li::marker {
   border-radius: 5px;
 }
 
-.login-modal-show  #button:hover {
+.login-modal-show  #con-button:hover {
   cursor: pointer;
 }
 
@@ -293,6 +304,7 @@ main {
 }
 
 footer {
+  display: grid;
   width: 100%;
   height: 5vh;
   background-color: var(--colorBlack);
@@ -393,10 +405,10 @@ time {
   color: red;
 }
 
-p {
+.actu-content p {
   padding: 2%;
 }
-p>a {
+.actu-content p>a {
   color: var(--colorBlack);
 }
 .published {
@@ -458,8 +470,11 @@ p>a {
   font-size: 20px;
   color:var(--colorBlack);
   font-weight: bolder;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   mix-blend-mode: multiply;
+}
+.but-smart-card {
+  display: none;
 }
 
 .gradient {
@@ -589,7 +604,7 @@ p>a {
 }
 
 .left-actu {
-  background-image: url(https://media.istockphoto.com/id/544482712/photo/playing-craps-in-a-casino-with-slot-machines.jpg?s=612x612&w=0&k=20&c=MzDsXmJPQHNQ-UV76Eg7BnHZVD0-bqUJKXtVkLaY9KM=);
+  background-image: url("../image/craps.jpg");
   background-size:cover;
   background-blend-mode:luminosity;
 }
@@ -664,9 +679,6 @@ p>a {
 
 @media (max-width: 1366px) { /*laptop*/
 
-  .logo {
-    height: 40vh;
-  }
   .user-div {
     margin-right: 5%;
   }
@@ -677,7 +689,7 @@ p>a {
     font-size: 15px;
   }
   .fil-list h4 {
-    font-size: 8px;
+    font-size: 10px;
   }
   .news-day {
     font-size: 10px;
@@ -686,8 +698,12 @@ p>a {
     height: 80%;
   }
   .right-actu h2 {
-    font-size: 12px;
+    font-size: 15px;
     height: 30px;
+  }
+  .but-roulette {
+    font-size: 16px;
+    letter-spacing: 1px;
   }
 
 }
@@ -905,8 +921,12 @@ p>a {
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: center;
+    width: 80px;
+    height: 80px;
   }
-  .to-top img {
+  .arrow-up {
+    width: 80px;
     width: 80px;
   }
 
@@ -920,5 +940,51 @@ p>a {
   }
   .smart-list h3, .smart-list h4 {
     font-size: 12px;
+  }
+  .div-roul {
+    display: none;
+  }
+  .left-actu {
+    z-index: 5;
+  }
+  .but-roulette {
+    display: none;
+  }
+  .roulette, .lights {
+    display: none;
+  }
+  .but-smart-card {
+    display: block;
+    position: absolute;
+    margin: 0;
+    top: 25px;
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    z-index: 2;
+    font-size: 20px;
+    color:var(--colorBlack);
+    font-weight: bolder;
+    letter-spacing: 2px;
+    mix-blend-mode: multiply;
+  }
+  .modal-roulette-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 260px;
+    background-color: var(--colorBlack);
+    height: 400px;
+    width: 400px;
+    border: var(--colorOrange) 2px solid;
+    border-radius: 5px;
+    opacity:1;
+    z-index:2;
+    animation: show 0.5s ease-in;
+  }
+  @keyframes show {
+    from {top: -400px;}
+    to {top: 260px;}
   }
 }
