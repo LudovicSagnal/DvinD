@@ -10,3 +10,4 @@ try {
     $db = NULL;
     echo ("Erreur: " . $e->getMessage());
 }
+
