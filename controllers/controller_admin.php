@@ -32,47 +32,50 @@
             }
             $req->bindParam(":birthdate", $_POST['birthdate']);
             $req->execute();
-    
-        // Update d'un utilisateur       
-        } elseif(!empty($_POST['form_update'])) {
-            $sql = 'UPDATE users
-                    SET lastname=:lastname,
-                    firstname=:firstname,
-                    email=:email,
-                    username=:username,' . 
-                    (!empty($name) ? "picture_url=:picture_url, " : '') . '
-                    birthdate=:birthdate,
-                    role_id=:role_id ';
-            if (!empty($_POST['user_password'])) {
-                $sql .= ', user_password=:user_password ';
-            }
-            $sql .= ' WHERE id=:id;';
-            $req = $db->prepare($sql);
-            $req->bindParam(":lastname", $_POST['lastname']);
-            $req->bindParam(":firstname", $_POST['firstname']);
-            $req->bindParam(":email", $_POST['email']);
-            $req->bindParam(":username", $_POST['username']);
-            if (!empty($_POST['user_password'])) {
-                $user_password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
-                $req->bindParam(":user_password", $user_password);
-            }
-            if(!empty($name)) {
-                $req->bindParam(":picture_url", $name);
-            }
-            $req->bindParam(":birthdate", $_POST['birthdate']);
-            $req->bindParam(":role_id", $_POST['role_id']);
-            $req->bindParam(":id", $_POST['id']);
-            $req->execute();
-
+            header("Location: ../views/view_admin.php"); 
+        }
         // Suppression d'un compte utilisateur
-        } elseif(!empty($_POST['form_delete'])) {
+        elseif(!empty($_POST['form_delete'])) {
             $sql = 'DELETE FROM users WHERE id=:id;';
             $req = $db->prepare($sql);
             $req->bindParam(":id", $_POST['id_user']);
             $req->execute();
+            header("Location: ../views/view_admin.php"); 
         }
-        header("Location: ../views/view_admin.php"); 
     }
+        // Update d'un utilisateur       
+    elseif(!empty($_POST['form_update'])) {
+        $sql = 'UPDATE users
+                SET lastname=:lastname,
+                firstname=:firstname,
+                email=:email,
+                username=:username,' . 
+                (!empty($name) ? "picture_url=:picture_url, " : '') . '
+                birthdate=:birthdate,
+                role_id=:role_id ';
+        if (!empty($_POST['user_password'])) {
+            $sql .= ', user_password=:user_password ';
+        }
+        $sql .= ' WHERE id=:id;';
+        $req = $db->prepare($sql);
+        $req->bindParam(":lastname", $_POST['lastname']);
+        $req->bindParam(":firstname", $_POST['firstname']);
+        $req->bindParam(":email", $_POST['email']);
+        $req->bindParam(":username", $_POST['username']);
+        if (!empty($_POST['user_password'])) {
+            $user_password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
+            $req->bindParam(":user_password", $user_password);
+        }
+        if(!empty($name)) {
+            $req->bindParam(":picture_url", $name);
+        }
+        $req->bindParam(":birthdate", $_POST['birthdate']);
+        $req->bindParam(":role_id", $_POST['role_id']);
+        $req->bindParam(":id", $_POST['id']);
+        $req->execute();
+        header("Location: ../views/view_admin.php"); 
+    } 
+    
     die(json_encode(array(
         "success" => $success
     )));
