@@ -13,7 +13,7 @@
     <legend>Mettre à jour</legend>
     <form method="post" action="../controllers/controller_admin.php">
         <input type="hidden" name="form_update" value="1">
-        <input type="hidden" name="id" value="<?=$user['id']?>">
+        <input type="hidden" name="id_user" value="<?=$user['id']?>">
         <label>Nom:
             <input type="text" name="lastname" value="<?=$user['lastname']?>">
         </label>
