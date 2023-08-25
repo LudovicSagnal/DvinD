@@ -76,6 +76,8 @@
         }
         header("Location: ../views/view_admin.php"); 
     }
+    
+    
     die(json_encode(array(
         "success" => $success
     )));
