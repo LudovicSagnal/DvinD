@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 20 avr. 2023 à 15:29
+-- Généré le : ven. 25 août 2023 à 22:49
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `developers`
@@ -88,7 +88,11 @@ INSERT INTO `developers` (`id`, `name`) VALUES
 (47, 'House House'),
 (48, 'Artificial Disasters'),
 (49, 'Saona Studios'),
-(50, 'Tomato Fantasy Games');
+(50, 'Tomato Fantasy Games'),
+(51, 'Rundisc'),
+(52, 'BKOM Studios'),
+(53, 'Team Ugly'),
+(54, 'Hekate');
 
 -- --------------------------------------------------------
 
@@ -108,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `video_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = visible\r\n1 = non-visible',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `games`
@@ -163,7 +167,11 @@ INSERT INTO `games` (`id`, `name`, `description`, `release_date`, `future_releas
 (46, 'Untitled Goose Game', 'La journée s’annonce superbe au village et vous êtes une oie insupportable.', '2020-09-23', 'Prochainement', 837470, 'UntitledGooseGame.jpg', 'https://www.youtube.com/embed/yvwlwcykfHM', 0),
 (47, 'Flooded', 'Flooded est un city-builder inversé, dans lequel vous devez optimiser votre production sur une île qui se rétrécit avec le temps. Rassemblez suffisamment de ressources pour fuir vers la sécurité, tandis que le monde environnant est inondé.', '2023-04-12', 'Prochainement', 1795470, 'Flooded.jpg', 'https://www.youtube.com/embed/eY8r2wTNVeo', 0),
 (48, 'Death or Treat', '« Death or Treat » est un jeu roguelike-action en 2D et hack & slash proposant des environnements dessinés à la main et une animation traditionnelle. Explorez tous les mondes où vous pourrez y anéantir des hordes d\'ennemis à l\'aide de diverses armes et compétences.', '2023-05-11', 'Prochainement', 2096620, 'DeathorTreat.jpg', 'https://www.youtube.com/embed/YqQ58y0-4Sc', 0),
-(49, 'Dynopunk', 'Une aventure ironique à l\'esthétique cyberpunk se déroulant dans un monde où les humains ont été remplacés par des dinosaures. Devenez un mécanicien d\'atelier de réparation de premier ordre : réparez des gadgets, discutez en tête-à-tête et offrez des boissons à vos clients ; tout pour réaliser votre rêve ultime.', '2023-05-25', 'Prochainement', 1596730, 'Dynopunk.jpg', 'https://www.youtube.com/embed/fP8YWnflsj4', 0);
+(49, 'Dynopunk', 'Une aventure ironique à l\'esthétique cyberpunk se déroulant dans un monde où les humains ont été remplacés par des dinosaures. Devenez un mécanicien d\'atelier de réparation de premier ordre : réparez des gadgets, discutez en tête-à-tête et offrez des boissons à vos clients ; tout pour réaliser votre rêve ultime.', '2023-05-25', 'Prochainement', 1596730, 'Dynopunk.jpg', 'https://www.youtube.com/embed/fP8YWnflsj4', 0),
+(50, 'Chants of Sennaar', 'La légende raconte qu’un jour, un voyageur saura réunir les Peuples de la Tour, divisés depuis la nuit des temps. Observez, écoutez, et déchiffrez des langues anciennes dans un univers fascinant inspiré du mythe de Babel.', '2023-09-05', 'Prochainement', 1931770, 'ChantsofSennaar', 'https://www.youtube.com/embed/mf67RS-M7g0?si=174IoNwMQ2DrWNx4', 0),
+(51, 'Pathfinder: Gallowspire Survivors', 'Un nouveau jeu de survie roguelite se déroulant dans l\'univers fantastique de Pathfinder. Entrez dans Gallowspire, la légendaire tour des ténèbres de Pathfinder, aux côtés de votre intrépide compagnon. Abattez des hordes d\'ennemis, améliorez votre arsenal et terrassez des boss redoutables !', '2023-09-14', 'Prochainement', 2388460, 'PathfinderGallowspireSurvivors.jpg', 'https://www.youtube.com/embed/T1JErqWerv4?si=DEA7QzGMoX7Vh4Zy', 0),
+(52, 'Ugly', 'Élucidez les terribles secrets cachés dans ce jeu de plateforme émouvant qui retrace l\'histoire d\'un noble confronté aux traumatismes de son passé. Utilisez une mécanique de miroir novatrice pour résoudre des énigmes et battre des boss gigantesques tout en cherchant à découvrir l\'horrible vérité.', NULL, 'Prochainement', 1983220, 'Ugly.jpg', 'https://www.youtube.com/embed/QZoXR7TBl70?si=N9Tbl-zcxgeaExWF', 0),
+(53, 'Ad Infinitum', 'Quand la réalité est un cauchemar, les cauchemars prennent vie. Dans ce jeu d’horreur psychologique, vous luttez contre les terribles créatures qui envahissent votre esprit. Serez-vous capable de recouvrer votre santé mentale ?', '2023-09-14', 'Prochainement', 1234430, 'AdInfinitum.jpg', 'https://www.youtube.com/embed/DE8VMkQiHb8?si=ZadR9RGwxxJhhdi2', 0);
 
 -- --------------------------------------------------------
 
@@ -233,7 +241,11 @@ INSERT INTO `games_developers` (`game_id`, `developer_id`) VALUES
 (46, 47),
 (47, 48),
 (48, 49),
-(49, 50);
+(49, 50),
+(50, 51),
+(51, 52),
+(52, 53),
+(53, 54);
 
 -- --------------------------------------------------------
 
@@ -281,6 +293,10 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (45, 1),
 (46, 1),
 (48, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -329,7 +345,11 @@ INSERT INTO `games_languages` (`game_id`, `language_id`) VALUES
 (46, 2),
 (47, 2),
 (48, 2),
-(49, 2);
+(49, 2),
+(50, 2),
+(51, 2),
+(52, 2),
+(53, 2);
 
 -- --------------------------------------------------------
 
@@ -399,6 +419,10 @@ INSERT INTO `games_platforms` (`game_id`, `platform_id`) VALUES
 (47, 1),
 (48, 1),
 (49, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
 (1, 2),
 (3, 2),
 (5, 2),
@@ -467,6 +491,10 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (42, 1),
 (46, 1),
 (48, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
 (4, 2),
 (5, 2),
 (10, 2),
@@ -490,6 +518,8 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (45, 2),
 (46, 2),
 (49, 2),
+(50, 2),
+(53, 2),
 (7, 3),
 (48, 3),
 (1, 4),
@@ -512,6 +542,8 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (28, 5),
 (29, 5),
 (33, 5),
+(52, 5),
+(53, 5),
 (5, 6),
 (10, 6),
 (22, 6),
@@ -537,6 +569,7 @@ INSERT INTO `games_tags` (`game_id`, `tag_id`) VALUES
 (39, 7),
 (42, 7),
 (44, 7),
+(51, 7),
 (6, 9),
 (9, 9),
 (16, 9),
@@ -688,7 +721,7 @@ CREATE TABLE IF NOT EXISTS `screenshots` (
   `game_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `game_id` (`game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=213 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `screenshots`
@@ -890,7 +923,23 @@ INSERT INTO `screenshots` (`id`, `url`, `game_id`) VALUES
 (193, 'Dynopunk1.jpg', 49),
 (194, 'Dynopunk2.jpg', 49),
 (195, 'Dynopunk3.jpg', 49),
-(196, 'Dynopunk4.jpg', 49);
+(196, 'Dynopunk4.jpg', 49),
+(197, 'ChantsOfSennaar1.jpg', 50),
+(198, 'ChantsOfSennaar2.jpg', 50),
+(199, 'ChantsOfSennaar3.jpg', 50),
+(200, 'ChantsOfSennaar4.jpg', 50),
+(201, 'PathfinderGallowspireSurvivors1.jpg', 51),
+(202, 'PathfinderGallowspireSurvivors2.jpg', 51),
+(203, 'PathfinderGallowspireSurvivors3.jpg', 51),
+(204, 'PathfinderGallowspireSurvivors4.jpg', 51),
+(205, 'Ugly1.jpg', 52),
+(206, 'Ugly2.jpg', 52),
+(207, 'Ugly3.jpg', 52),
+(208, 'Ugly4.jpg', 52),
+(209, 'AdInfinitum1.jpg', 53),
+(210, 'AdInfinitum2.jpg', 53),
+(211, 'AdInfinitum3.jpg', 53),
+(212, 'AdInfinitum4.jpg', 53);
 
 -- --------------------------------------------------------
 
@@ -941,7 +990,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ban_end` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`

@@ -45,7 +45,7 @@ cross.addEventListener("click", (closeModal) => {
 window.onclick = function(e) {
   if (e.target !== modalRoulette) {
     modalRoulette.classList.replace("modal-roulette-show", "display-none");
-    render = false;;
+    render = false;
   }
 }
 

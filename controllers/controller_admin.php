@@ -32,9 +32,12 @@
             }
             $req->bindParam(":birthdate", $_POST['birthdate']);
             $req->execute();
-    
-        // Update d'un utilisateur       
-        } elseif(!empty($_POST['form_update'])) {
+            header("Location: ../views/view_admin.php"); 
+        }
+    }
+    if(!empty($_POST['id_user'])) {
+        // Update d'un utilisateur 
+        if(!empty($_POST['form_update'])) {
             $sql = 'UPDATE users
                     SET lastname=:lastname,
                     firstname=:firstname,
@@ -61,11 +64,11 @@
             }
             $req->bindParam(":birthdate", $_POST['birthdate']);
             $req->bindParam(":role_id", $_POST['role_id']);
-            $req->bindParam(":id", $_POST['id']);
+            $req->bindParam(":id", $_POST['id_user']);
             $req->execute();
-
+        } 
         // Suppression d'un compte utilisateur
-        } elseif(!empty($_POST['form_delete'])) {
+        elseif(!empty($_POST['form_delete'])) {
             $sql = 'DELETE FROM users WHERE id=:id;';
             $req = $db->prepare($sql);
             $req->bindParam(":id", $_POST['id_user']);

@@ -76,13 +76,13 @@ require './topHTML.php';
                 <div class="gradient"></div>
             </div>
             <div class="div-roul"> 
-                <img src="../image/lights.svg" alt="" class="lights" id="lights" />
-                <img src="../image/roulette.svg" alt="" class="roulette" id="roulette">
+                <img src="../image/lights.svg" alt="image d'une guirlande de lumière" class="lights" id="lights" />
+                <img src="../image/roulette.svg" alt="image d'une roulette" class="roulette" id="roulette">
             </div>
             <div id="modal-roulette" class="display-none">
                 <img src="../image/cross-23.svg" alt="" class="cross-roulette" id="cross-roulette" aria-label="fermer fenêtre du jeu">
                 <h2 id="game_title"></h2>
-                <img id="game_img" src="" alt="" class="modal-cover redirect">
+                <img id="game_img" src="" alt="jaquette du jeu" class="modal-cover redirect">
                 <a id="game_link" href="">Voir la fiche du jeu</a>
                 <button id="modal-roulette-button" onclick="randomGame();">Relancer</button>
             </div>
